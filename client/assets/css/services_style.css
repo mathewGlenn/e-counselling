@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    color: #303030;
+}
+.paragraph{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.paragraph h5{
+    margin-top: 20px;
+    margin-left: 50px;
+    background: lightgray;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.col{
+    margin-top: -120px;
+    border-radius: 20px;
+    position: relative;
+    padding: 100px;
+}
+.leftside, .rightside{
+    height: 300px;
+    width: 50%px;
+}
+
+.leftside{
+    float: left;
+    padding: 20px;
+}
+.rightside{
+    float: right;
+    padding: 20px;
+    margin-right: 20%;
+}
+.paragraph h4{
+    text-transform: uppercase;
+    font-weight: bold;
+}

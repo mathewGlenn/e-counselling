@@ -59,7 +59,7 @@ color: #303030;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid white;
+    border: 3px solid white;
     cursor: pointer;
     transition: .25s;
     font-weight: 500;
@@ -240,6 +240,28 @@ transition: .25s;
 .submit:hover{
     background: #d49007;
 }
+
+.info-title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    
+    
+    color: #116736;
+}
+
+.info-value{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #0C0C0C;
+    
+}
+
 
 @media only screen and (max-width: 600px) {
     .top-bar-title{
