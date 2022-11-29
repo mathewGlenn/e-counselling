@@ -65,35 +65,79 @@
                     </select>
 
                     <span class="m-label mt-3">Service</span>
-                    <select type="text" class="m-input">
-                        <option value="" disabled selected></option>
-                        <option value="online">Online</option>
-                        <option value="f2f">Face-to-face</option>
+                    <select id="services" type="text" class="m-input" onchange="enableType(this)">
+                        <option value="0" disabled selected></option>
+                        <option value ="1">Individual Inventory</option>
+                        <option value ="2">Counselling Services</option>
+                        <option value ="3">Information Services</option>
+                        <option value ="4">Follow-up Services</option>
+                        <option value ="5">Psychological Testing and Evaluation</option>
+                        <option value ="6">REFERRAL</option>
+                        <option value ="7">Placement Services</option>
                     </select>
                     
-                    <span class="m-label mt-3">Type of counselling</span>
-                    <select type="text" class="m-input">
-                        <option value="" disabled selected></option>
-                        <option value="online">Online</option>
-                        <option value="f2f">Face-to-face</option>
+                    <span class="m-label mt-3 type" id="l-type">Type of counselling</span>
+                    <select type="text" name="types" id="types" class="m-input type" onchange="enableCase(this)">
+                        <option value="0" disabled selected></option>
+                        <option value= "1">Individual</option>
+                        <option value= "2">Group</option>
+                        <option value= "3">Follow-up</option>
+                        <option value= "4">Consultaion</option>
                     </select>
 
-                    <span class="m-label mt-3">Case</span>
-                    <select type="text" class="m-input">
-                        <option value="" disabled selected></option>
-                        <option value="online">Online</option>
-                        <option value="f2f">Face-to-face</option>
+                    <span class="m-label mt-3 case" id="l-case">Case</span>
+                    <select type="text" name="cases" class="m-input case"  id= "cases">
+                      <option value="" disabled selected></option>
+                      <option value= "1">Family</option>
+                      <option value= "2">Girl-Boy Relationship</option>
+                      <option value= "3">Personal</option>
+                      <option value= "4">Testing Interpretation</option>
+                      <option value= "5">Academic</option>
+                      <option value= "6">Interpersonal</option>
+                      <option value= "7">Gender Sensitivity Issue</option>
+                      <option value= "8">Cultural Differences</option>
+                      <option value= "9">Career concern</option>
                     </select>
 
                     <span class="m-label mt-3">Additional information</span>
                     <input type="text" class="m-input">
 
                     <button class="submit">Save and continue</button>
+
+
+                    <script type= "text/javascript"> 
+                      function enableType(answer){
+                        console.log(answer.value);
+                        if(answer.value == 2){
+                          document.getElementById('types').classList.remove('type');
+                          document.getElementById('l-type').classList.remove('type');
+                        }else{
+                          document.getElementById('types').classList.add('type');
+                          document.getElementById('cases').classList.add('case');
+
+                          document.getElementById('l-type').classList.add('type');
+                          document.getElementById('l-case').classList.add('case');
+                        }
+                      }
+                
+                      function enableCase(answer){
+                        console.log(answer.value);
+                        if(answer.value == 0){
+                          document.getElementById('cases').classList.add('case');
+                          document.getElementById('l-case').classList.add('case');
+                        }else{
+                          document.getElementById('cases').classList.remove('case');
+                          document.getElementById('l-case').classList.remove('case');
+                        }
+                      }
+                    </script>
                 </div>
 
             </div>
         </div>
     </div>
+
+
 
 </body>
 
