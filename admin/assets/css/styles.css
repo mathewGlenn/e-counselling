@@ -1,34 +1,43 @@
-*{
+* {
     color: black;
 }
 
-.title{
+.title {
     font-style: normal;
-font-weight: 700;
-font-size: 60px;
-line-height: 60px;
-/* identical to box height */
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+    /* identical to box height */
 
 
-color: #303030;
+    color: #303030;
 }
 
-.full-v{
-    height: 100vh ;
+.title-2{
+    font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #116736;
+}
+
+.full-v {
+    height: 100vh;
     width: 100%;
 }
 
-.cont{
+.cont {
     height: 100vh;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
-      url(../img/counsel.png);
+        url(../img/counsel.png);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
 }
 
-.sidebar{
+.sidebar {
     height: 100vh;
     width: 20vw;
     position: fixed;
@@ -36,8 +45,183 @@ color: #303030;
     background-color: #116736;
 }
 
-.main{
+.main {
     margin-left: 20vw;
-    padding-top: 30px;
-    padding-left: 30px;
+    padding: 25px 30px;
 }
+
+.page-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #116736;
+}
+
+.chart-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.card-e {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 300px;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+}
+
+.card-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card-1:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.bg-purple {
+    border-radius: 5px;
+    background-color: #8067DC;
+}
+
+.bg-pink {
+    border-radius: 5px;
+    background-color: #DC6788;
+}
+
+.sidebar-btn-active {
+    width: 86%;
+    height: 52px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 17px;
+    color: #116736;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17px;
+    cursor: pointer;
+}
+
+.sidebar-btn-inactive {
+    width: 86%;
+    height: 52px;
+    background: #ffffff00;
+    border-radius: 5px;
+    font-size: 17px;
+    color: white;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.sidebar-btn-inactive:hover {
+    background: #ffffff34;
+    backdrop-filter: saturate(200%) blur(25px);
+}
+
+.ic-active {
+    color: #116736;
+    font-size: 22px;
+    transition: .25s;
+}
+
+.ic-inactive {
+    transition: .25s;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.tbl-btn-accept {
+    width: 79px;
+    height: 29px;
+    background: #116736;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.tbl-btn-accept:hover{
+    background: #219754;
+}
+
+.tbl-btn-edit {
+    cursor: pointer;
+    width: 29px;
+    height: 29px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    background: #427ede;
+    border-radius: 5px;
+    transition: .25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tbl-btn-edit:hover{
+    background: #6794DC;
+}
+
+.tbl-btn-edit i {
+    color: white;
+}
+
+.tbl-btn-del{
+    cursor: pointer;
+}
+
+.tbl-btn-del i{
+    color: rgb(183, 19, 19);
+}
+.m-input{
+    width: 450px;
+    height: 45px;
+    color: black;
+    padding: 0 20px;
+    background: #d8d8d8;
+    border-radius: 5px;
+    border: none;
+    }
+
+    .info-name{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        /* identical to box height */
+        
+        
+        color: #116736;
+        
+    }
+
+    .info-val{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        
+        color: #0C0C0C;
+    }
