@@ -171,3 +171,93 @@ color: #303030;
     height: 60px;
     cursor: pointer;
 }
+
+.top-bar{
+    height: 100px;
+    background: #1a934e;
+width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-img{
+    height: 60px;
+    margin: 0 30px;
+}
+
+.top-bar-title{
+    font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+padding-right: 30px;
+color: #FFFFFF;
+}
+
+.cen-title{
+    font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 27px;
+/* identical to box height */
+
+color: #303030;
+padding: 0 20px;
+
+}
+
+.m-label{
+    color: #116736;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 22px;
+/* identical to box height */
+}
+
+.m-input{
+width: 450px;
+height: 45px;
+color: black;
+padding: 0 20px;
+background: #d8d8d8;
+border-radius: 5px;
+border: none;
+}
+
+.submit{
+    margin-top: 20px;
+    width: 450px;
+height: 45px;
+color: white;
+padding: 0 20px;
+background: #FFAA01;
+border-radius: 5px;
+border: none;
+transition: .25s;
+}
+
+.submit:hover{
+    background: #d49007;
+}
+
+@media only screen and (max-width: 600px) {
+    .top-bar-title{
+    font-size: 15px;
+    line-height: 15px;
+    }
+    .cen-title{
+    font-weight: 600;
+    font-size: 18px;
+    
+    }
+    .m-input{
+        width: 270px;
+        height: 40px;
+        }
+
+        .submit{
+            width: 270px;
+            height: 40px;
+        }
+  }
