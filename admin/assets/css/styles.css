@@ -1,0 +1,43 @@
+*{
+    color: black;
+}
+
+.title{
+    font-style: normal;
+font-weight: 700;
+font-size: 60px;
+line-height: 60px;
+/* identical to box height */
+
+
+color: #303030;
+}
+
+.full-v{
+    height: 100vh ;
+    width: 100%;
+}
+
+.cont{
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
+      url(../img/counsel.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar{
+    height: 100vh;
+    width: 20vw;
+    position: fixed;
+    left: 0;
+    background-color: #116736;
+}
+
+.main{
+    margin-left: 20vw;
+    padding-top: 30px;
+    padding-left: 30px;
+}
