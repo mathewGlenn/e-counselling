@@ -1,0 +1,173 @@
+*{
+    color: white;
+}
+
+.title{
+    font-style: normal;
+font-weight: 700;
+font-size: 60px;
+line-height: 60px;
+/* identical to box height */
+
+
+color: #303030;
+}
+
+.full-v{
+    height: 100vh ;
+    width: 100%;
+}
+
+.cont{
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
+      url(../img/counsel.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.m-form{
+    width: 90%;
+}
+
+.section-1{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    flex-basis: 85%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
+      url(../img/counsel.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.m-navbar{
+    flex-basis: 15%;
+    width: 100%;
+    background-color: #116736;
+}
+
+.outlined-cta{
+    height: 55px;
+    width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid white;
+    cursor: pointer;
+    transition: .25s;
+    font-weight: 500;
+}
+
+.outlined-cta:hover{
+background-color: white;
+color:#116736 ;
+}
+
+.borderless-btn{
+    background-color: transparent;
+    border: 0;
+    transition: .25s;
+    color: white;
+    font-weight: 400;
+}
+
+.borderless-btn:hover{
+    color: rgb(174, 174, 174);
+}
+
+.section-services{
+    background-color: #F3F3F3;
+    padding: 60px 100px;
+}
+
+.service{
+    font-weight: 500;
+font-size: 30px;
+line-height: 36px;
+
+color: #303030;
+}
+
+.check{
+    margin-right: 10px;
+    height: 50px;
+}
+
+.services-list{
+    list-style: none;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+.li-item{
+    margin-top: 20px;
+}
+
+.section-aboutus{
+    background-color: #EBF9F7;
+    display: flex;
+    flex-direction: row;
+    padding: 0 100px;
+}
+
+.abt-us-r1{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.abt-us-r2{
+    flex-basis: 50%;
+}
+
+.mt-m{
+    margin-top: 100px;
+}
+
+.read-more{
+    width: 193px;
+height: 60px;
+background: #116736;
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+transition: .25s;
+cursor: pointer;
+}
+
+.read-more:hover{
+    background: #1a934e;
+}
+
+.section-contactus{
+    background-color: #F6F6F6;
+    padding: 0 100px;
+}
+
+.contact{
+    font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 36px;
+color: #303030;
+}
+
+.scroll-top{
+    object-fit: contain;
+    height: 60px;
+    cursor: pointer;
+}
