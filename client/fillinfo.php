@@ -37,9 +37,6 @@
             <span class="m-label">Full Name</span>
             <input id="fullname" type="text" class="m-input" placeholder="Last name, First name, Middle initial">
 
-            <span class="m-label mt-3">Email</span>
-            <input id="contactEmail" type="text" class="m-input" >
-
             <span class="m-label mt-3">College</span>
             <input id="college" type="text" class="m-input" placeholder="ex. CCSICT, IAT, SAC">
 
@@ -67,7 +64,6 @@
         var email = localStorage.getItem('users_email');
         var password = localStorage.getItem('users_password');
         var fullname = $('#fullname').val();
-        var contactEmail = $('#contactEmail').val();
         var college = $('#college').val();
         var course = $('#course').val();
         var year = $('#year').val();
@@ -75,7 +71,6 @@
         formData.append("email", email);
         formData.append("password", password);
         formData.append("fullname", fullname);
-        formData.append("contactEmail", contactEmail);
         formData.append("college", college);
         formData.append("course", course);
         formData.append("year", year);

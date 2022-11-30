@@ -65,7 +65,7 @@
             <span class="info-value"><?php echo "$users_fullname"; ?></span>
 
             <span class="info-title mt-3">Email</span>
-            <span class="info-value"><?php echo "$users_contact_email"; ?></span>
+            <span class="info-value"><?php echo "$users_email"; ?></span>
 
             <span class="info-title mt-3">College</span>
             <span class="info-value"><?php echo "$users_college"; ?></span>

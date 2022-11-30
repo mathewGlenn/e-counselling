@@ -47,19 +47,18 @@
         $password = $_POST['password'];
 
         $fullname = $_POST['fullname'];
-        $contactEmail = $_POST['contactEmail'];
         $college = $_POST['college'];
         $course = $_POST['course'];
         $year = $_POST['year'];
 
-        if(empty($fullname) || empty($contactEmail) || empty($college) || empty($course)) {
+        if(empty($fullname) || empty($college) || empty($course)) {
             echo "empty";
         }
         else {
             $password = password_hash($password, PASSWORD_BCRYPT);
 
             //created a template 
-            $sql = "INSERT INTO tblusers (users_email, users_password, users_fullname, users_contact_email, users_college, users_course, users_year) VALUES (?, ?, ?, ?, ?, ?, ?);";
+            $sql = "INSERT INTO tblusers (users_email, users_password, users_fullname, users_college, users_course, users_year) VALUES (?, ?, ?, ?, ?, ?);";
             //create a prepared statement
             $stmt = mysqli_stmt_init($conn);
             //prepare the prepared statement
@@ -68,7 +67,7 @@
             }
             else {
                 //bind parameters to the placeholder
-                mysqli_stmt_bind_param($stmt, "sssssss", $email, $password, $fullname, $contactEmail, $college, $course, $year);
+                mysqli_stmt_bind_param($stmt, "ssssss", $email, $password, $fullname, $college, $course, $year);
                 //run parameters inside database
                 mysqli_stmt_execute($stmt);
 

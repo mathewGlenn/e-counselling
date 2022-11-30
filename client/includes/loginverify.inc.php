@@ -11,8 +11,8 @@
     if ($resultCheck > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $users_id = $row['id'];
+            $users_email = $row['users_email'];
             $users_fullname = $row['users_fullname'];
-            $users_contact_email = $row['users_contact_email'];
             $users_college = $row['users_college'];
             $users_course = $row['users_course'];
             $users_year = $row['users_year'];
