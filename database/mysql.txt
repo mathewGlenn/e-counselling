@@ -1,0 +1,16 @@
+DROP DATABASE dbisucec;
+
+CREATE DATABASE dbisucec;
+
+USE dbisucec;
+
+CREATE TABLE tblusers (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    users_email VARCHAR(250) NOT NULL,
+    users_password LONGTEXT NOT NULL,
+    users_fullname VARCHAR(250) NOT NULL,
+    users_contact_email VARCHAR(250) NOT NULL,
+    users_college VARCHAR(250) NOT NULL,
+    users_course VARCHAR(250) NOT NULL,
+    users_year VARCHAR(250) NOT NULL
+);
