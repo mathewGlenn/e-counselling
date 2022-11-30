@@ -52,7 +52,7 @@
         $course = $_POST['course'];
         $year = $_POST['year'];
 
-        if(empty($fullname) || empty($contactEmail) || empty($college) || empty($course) || empty($year)) {
+        if(empty($fullname) || empty($contactEmail) || empty($college) || empty($course)) {
             echo "empty";
         }
         else {
