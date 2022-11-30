@@ -20,6 +20,10 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+  <?php
+  include "includes/db.inc.php";
+  ?>
+
   <div class="w-100">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
       <div class="container-fluid">
@@ -52,7 +56,29 @@
 
         <div class="mt-4 d-flex flex-column">
           <span class="m-label">Schedule of appointment</span>
-          <select type="text" class="m-input"></select>
+          <select id="schedule" type="text" class="m-input">
+
+          <?php
+          $sql = "SELECT * FROM tblschedule;";
+          $result = mysqli_query($conn, $sql);
+          $resultCheck = mysqli_num_rows($result);
+
+          if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              $id = $row['id'];
+              $date = $row['schedule_date'];
+              $time = $row['schedule_time'];
+
+              $date = date('F d, Y', strtotime($date));
+              $time = date("g:i A", strtotime($time));
+
+              echo "
+                <option value='$id'>$date - $time</option>
+              ";
+            }
+          }
+          ?>
+          </select>
 
           <span class="m-label mt-3">Meeting arrangement</span>
           <select type="text" class="m-input">
@@ -99,7 +125,7 @@
           <span class="m-label mt-3">Additional information</span>
           <input type="text" class="m-input">
 
-          <button class="submit">Set appointment</button>
+          <button class="submit" onclick="btnSave()">Set appointment</button>
         </div>
       </div>
     </div>
@@ -129,6 +155,14 @@
         document.getElementById('cases').classList.remove('case');
         document.getElementById('l-case').classList.remove('case');
       }
+    }
+  </script>
+
+
+  <script>
+    function btnSave() {
+      var scheduleText = $("#schedule option:selected").text();
+      var scheduleValue = $("#schedule").val();
     }
   </script>
 </body>
