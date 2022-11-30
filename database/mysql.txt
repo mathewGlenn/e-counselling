@@ -13,3 +13,9 @@ CREATE TABLE tblusers (
     users_course VARCHAR(250) NOT NULL,
     users_year VARCHAR(250) NOT NULL
 );
+
+CREATE TABLE tblschedule (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    schedule_date VARCHAR(250) NOT NULL,
+    schedule_time LONGTEXT NOT NULL
+);
