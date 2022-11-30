@@ -54,8 +54,8 @@
         </div>
       </div>
     </div>
-  </body>
-  <script>
+    
+    <script>
       function btnLogin() {
         var formData = new FormData();
         var email = $('#email').val();
@@ -106,4 +106,5 @@
         });
       }
   </script>
+</body>
 </html>
