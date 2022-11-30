@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Counselling</title>
 
-
     <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- sweetalert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
-
     <div class="w-100">
         <section class="section-1 full-v" id="home">
             <div class="header">
@@ -30,26 +27,24 @@
                         <img src="assets/img/isu_seal.png" alt="" style="height:200px;">
                         <div class="ms-4">
                             <h1 style="font-size:55px;">ISU Cauayan E-Counselling</h1>
-                            <h5>Get someone to talk to about your queries, concerns, and problems. </h5>
+                            <h5>Get someone to talk to about your queries, concerns, and problems.</h5>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="m-navbar">
                 <div class="d-flex flex-row align-items-center justify-content-center"
                     style="height: 100%; width: 100%;">
 
-                    <button class="borderless-btn me-5" onclick="location.href='profile.html'">Profile</button>
-                    <button class="borderless-btn me-5" onclick="location.href='#services'">Services</button>
-                    <div class="outlined-cta" onclick="location.href='appointment.html'">
-                        Set Appointment
-                    </div>
-                    <button class="borderless-btn ms-5" onclick="location.href='#contactus'">Contact</button>
-                    <button class="borderless-btn ms-5" onclick="location.href='#aboutus'">About</button>
+                    <button class="borderless-btn me-5" onclick="location.href='profile.php';">Profile</button>
+                    <button class="borderless-btn me-5" onclick="location.href='#services';">Services</button>
+                    <div class="outlined-cta" onclick="location.href='appointment.php';">Set Appointment</div>
+                    <button class="borderless-btn ms-5" onclick="location.href='#contactus';">Contact</button>
+                    <button class="borderless-btn ms-5" onclick="location.href='#aboutus';">About</button>
                 </div>
             </div>
         </section>
-
 
         <section class="section-services full-v" id="services">
             <div>
@@ -91,13 +86,14 @@
                             <img src="assets/img/check.png" alt="" class="check">
                             <span class="service">Referral</span>
                         </li>
-
                     </ul>
                 </div>
-                <div class="d-flex flex-row align-items-center justify-content-center mt-m" style="width: 100%;">
 
-                    <a href="services.html" style="text-decoration: none;"><span class="service">Read more about the services</span>
-                        <i class="bi bi-arrow-right" style="color:black; font-size:30px; font-weight: 400;"></i></a>
+                <div class="d-flex flex-row align-items-center justify-content-center mt-m" style="width: 100%;">
+                    <a href="services.html" style="text-decoration: none;">
+                        <span class="service">Read more about the services</span>
+                        <i class="bi bi-arrow-right" style="color:black; font-size:30px; font-weight: 400;"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -120,7 +116,6 @@
 
                 <div class="abt-us-r2">
                     <img src="assets/img/aboutus.svg" alt="">
-
                 </div>
             </div>
         </section>
@@ -146,7 +141,7 @@
             <div class="d-flex flex-row align-items-center justify-content-center" style="width: 100%; height: 100%;">
                 <div>
                     <div class="d-flex flex-column">
-                        <img src="assets/img/scroll-top.png" alt="" class="scroll-top" onclick="location.href='#home'">
+                        <img src="assets/img/scroll-top.png" alt="" class="scroll-top" onclick="location.href='#home';">
                         <span class="mt-3">Back to top</span>
                     </div>
 
@@ -159,7 +154,5 @@
             </div>
         </section>
     </div>
-
 </body>
-
 </html>
