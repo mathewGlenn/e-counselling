@@ -19,3 +19,20 @@ CREATE TABLE tblschedule (
     schedule_date VARCHAR(250) NOT NULL,
     schedule_time LONGTEXT NOT NULL
 );
+
+CREATE TABLE tblappointment (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    users_email VARCHAR(250) NOT NULL,
+    users_fullname VARCHAR(250) NOT NULL,
+    users_college VARCHAR(250) NOT NULL,
+    users_course VARCHAR(250) NOT NULL,
+    users_year VARCHAR(250) NOT NULL,
+    appointment_schedule VARCHAR(250) NOT NULL,
+    appointment_arrangement VARCHAR(250) NOT NULL,
+    appointment_service VARCHAR(250) NOT NULL,
+    appointment_counselling VARCHAR(250) NOT NULL,
+    appointment_case VARCHAR(250) NOT NULL,
+    appointment_additional_information LONGTEXT NOT NULL,
+    appointment_meeting_notes LONGTEXT NOT NULL,
+    appointment_status VARCHAR(250) NOT NULL
+);
