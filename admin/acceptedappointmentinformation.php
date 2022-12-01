@@ -116,7 +116,7 @@
         </div>
 
         <div class="d-flex flex-column p-4">
-        <span class="info-name">Schedule</span>
+          <span class="info-name">Schedule</span>
           <span class="info-val"><?php echo "$appointment_schedule"; ?></span>
 
           <span class="info-name mt-3">Arrangement</span>
