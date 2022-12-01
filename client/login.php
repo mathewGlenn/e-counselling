@@ -19,6 +19,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
+    <?php
+    //start session
+    session_start();
+    //check session
+    if(isset($_SESSION['users_id'])) {
+      header("Location: main.php");
+    }
+    ?>
+    
     <div class="container-fluid cont">
       <style>
         .bg-glass {

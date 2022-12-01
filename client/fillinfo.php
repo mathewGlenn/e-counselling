@@ -19,6 +19,21 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <?php
+    //start session
+    session_start();
+    //check session
+    if(isset($_SESSION['users_id'])) {
+      header("Location: main.php");
+    }
+    ?>
+
+    <script>
+    if(localStorage.getItem('users_verify') != 'true') {
+      window.location.href = 'login.php';
+    }
+    </script>
+    
     <div class="w-100">
       <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
         <div class="container-fluid">
@@ -98,6 +113,7 @@
               }
               else if (data == "success") {
                 window.location.href = 'login.php';
+                localStorage.clear();
               }
             }
         });

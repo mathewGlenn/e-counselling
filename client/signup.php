@@ -19,6 +19,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
+    <?php
+    //start session
+    session_start();
+    //check session
+    if(isset($_SESSION['users_id'])) {
+      header("Location: main.php");
+    }
+    ?>
+    
     <div class="container-fluid cont">
       <style>
         .bg-glass {
@@ -103,6 +112,8 @@
                 });
               }
               else if (data == "success") {
+                localStorage.setItem('users_verify', "true");
+                
                 localStorage.setItem('users_email', email);
                 localStorage.setItem('users_password', password);
 

@@ -16,6 +16,16 @@
 	<script src="https://kit.fontawesome.com/9d31eb0257.js"></script>
 </head>
 <body>
+	<?php
+	include "includes/db.inc.php";
+	include "includes/loginverify.inc.php";
+
+	//check session
+	if (!isset($_SESSION['users_id'])) {
+		header("Location: login.php");
+	}
+	?>
+	
 	<div class="w-100">
 		<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
 			<div class="container-fluid">

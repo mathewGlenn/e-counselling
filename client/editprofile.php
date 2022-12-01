@@ -19,9 +19,14 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <?php 
+  <?php
   include "includes/db.inc.php";
   include "includes/loginverify.inc.php";
+
+  //check session
+  if (!isset($_SESSION['users_id'])) {
+      header("Location: login.php");
+  }
   ?>
 
   <div class="w-100">
