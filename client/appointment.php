@@ -81,27 +81,27 @@
           </select>
 
           <span class="m-label mt-3">Meeting arrangement</span>
-          <select type="text" class="m-input">
-            <option value="" disabled selected></option>
-            <option value="online">Online</option>
-            <option value="f2f">Face-to-face</option>
+          <select id="arrangement" type="text" class="m-input">
+            <option hidden></option>
+            <option>Online</option>
+            <option>Face-to-face</option>
           </select>
 
           <span class="m-label mt-3">Service</span>
           <select id="services" type="text" class="m-input" onchange="enableType(this)">
-            <option value="0" disabled selected></option>
+            <option hidden></option>
             <option value="1">Individual Inventory</option>
             <option value="2">Counselling Services</option>
             <option value="3">Information Services</option>
             <option value="4">Follow-up Services</option>
             <option value="5">Psychological Testing and Evaluation</option>
-            <option value="6">REFERRAL</option>
+            <option value="6">Referral</option>
             <option value="7">Placement Services</option>
           </select>
 
           <span class="m-label mt-3 type" id="l-type">Type of counselling</span>
           <select type="text" name="types" id="types" class="m-input type" onchange="enableCase(this)">
-            <option value="0" disabled selected></option>
+            <option hidden></option>
             <option value="1">Individual</option>
             <option value="2">Group</option>
             <option value="3">Follow-up</option>
@@ -110,7 +110,7 @@
 
           <span class="m-label mt-3 case" id="l-case">Case</span>
           <select type="text" name="cases" class="m-input case" id="cases">
-            <option value="" disabled selected></option>
+            <option hidden></option>
             <option value="1">Family</option>
             <option value="2">Girl-Boy Relationship</option>
             <option value="3">Personal</option>
@@ -123,7 +123,7 @@
           </select>
 
           <span class="m-label mt-3">Additional information</span>
-          <input type="text" class="m-input">
+          <input id="additional" type="text" class="m-input">
 
           <button class="submit" onclick="btnSave()">Set appointment</button>
         </div>
@@ -157,12 +157,68 @@
       }
     }
   </script>
-
-
+  
   <script>
     function btnSave() {
       var scheduleText = $("#schedule option:selected").text();
       var scheduleValue = $("#schedule").val();
+
+      var arrangement = $("#arrangement").val();
+      var services = $("#services option:selected").text();
+      var counselling = $("#types option:selected").text();
+      var cases = $("#cases option:selected").text();
+      var additional = $("#additional").val();
+
+      var formData = new FormData();
+      formData.append("scheduleValue", scheduleValue);
+      formData.append("scheduleText", scheduleText);
+      formData.append("arrangement", arrangement);
+      formData.append("services", services);
+      formData.append("counselling", counselling);
+      formData.append("cases", cases);
+      formData.append("additional", additional);
+      formData.append("submit", '1');
+
+      $.ajax({
+          url:"includes/appointment.inc.php",
+          method:"POST",
+          data: formData,
+          contentType: false,
+          cache: false,
+          processData: false,
+          beforeSend:function() {
+            //alert('uploading');
+          },
+          success:function(data) {
+            //alert('uploaded');
+
+            if(data == "taken") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Sorry, but the day you selected is already taken.',
+                  confirmButtonColor: '#16a085',
+              }).then(function() {
+                window.location.href = 'appointment.php';
+              });
+            }
+            else if(data == "empty") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Fill empty field',
+                  confirmButtonColor: '#16a085',
+              });
+            }
+            else if (data == "success") {
+              Swal.fire({
+                  icon: 'success',
+                  text: 'Your submission has been sent',
+                  confirmButtonColor: '#16a085',
+              }).then(function() {
+                window.location.href = 'main.php';
+              });
+            }
+          }
+      });
     }
   </script>
 </body>
