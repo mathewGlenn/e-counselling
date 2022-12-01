@@ -34,7 +34,8 @@ CREATE TABLE tblappointment (
     appointment_case VARCHAR(250) NOT NULL,
     appointment_additional_information LONGTEXT NOT NULL,
     appointment_meeting_notes LONGTEXT NOT NULL,
-    appointment_status VARCHAR(250) NOT NULL
+    appointment_status VARCHAR(250) NOT NULL,
+    appointment_scheduledateformat VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE tblemployee (
