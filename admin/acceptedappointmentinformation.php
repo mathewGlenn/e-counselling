@@ -20,7 +20,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<?php 
+  <?php 
   include "includes/db.inc.php";
 
   $id = $_GET['id'];
