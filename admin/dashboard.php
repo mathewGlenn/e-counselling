@@ -29,6 +29,12 @@
   <?php
   include "includes/db.inc.php";
   include "includes/dashboard.inc.php";
+  include "includes/loginverify.inc.php";
+
+  //check session
+  if (!isset($_SESSION['employee_id'])) {
+      header("Location: login.php");
+  }
   ?>
 
   <div class="w-100">

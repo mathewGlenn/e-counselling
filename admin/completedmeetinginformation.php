@@ -22,6 +22,12 @@
 <body>
   <?php 
   include "includes/db.inc.php";
+  include "includes/loginverify.inc.php";
+
+  //check session
+  if (!isset($_SESSION['employee_id'])) {
+      header("Location: login.php");
+  }
 
   $id = $_GET['id'];
 
