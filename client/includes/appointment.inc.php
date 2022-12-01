@@ -17,17 +17,17 @@
         $additional = $_POST['additional'];
         $status = "pending";
 
-        if($availability == 0) {
-            echo "taken";
+        if(empty($scheduleText) || empty($arrangement) || empty($services)) {
+            echo "empty";
         }
         else {
-            if(empty($arrangement) || empty($services)) {
-                echo "empty";
-            }
-            else {
-                if($services == "Counselling Services") {
-                    if(empty($counselling) || empty($cases)) {
-                        echo "empty";
+            if($services == "Counselling Services") {
+                if(empty($counselling) || empty($cases)) {
+                    echo "empty";
+                }
+                else {
+                    if($availability == 0) {
+                        echo "taken";
                     }
                     else {
                         //created a template 
@@ -43,13 +43,18 @@
                             mysqli_stmt_bind_param($stmt, "ssssssssssss", $users_email, $users_fullname, $users_college, $users_course, $users_year, $scheduleText, $arrangement, $services, $counselling, $cases, $additional, $status);
                             //run parameters inside database
                             mysqli_stmt_execute($stmt);
-    
+
                             echo "success";
                         }
-    
+
                         $sql = "DELETE FROM tblschedule WHERE id='$scheduleValue';";
                         mysqli_query($conn, $sql);
                     }
+                }
+            }
+            else {
+                if($availability == 0) {
+                    echo "taken";
                 }
                 else {
                     //created a template 
@@ -65,10 +70,10 @@
                         mysqli_stmt_bind_param($stmt, "ssssssssss", $users_email, $users_fullname, $users_college, $users_course, $users_year, $scheduleText, $arrangement, $services, $additional, $status);
                         //run parameters inside database
                         mysqli_stmt_execute($stmt);
-    
+
                         echo "success";
                     }
-    
+
                     $sql = "DELETE FROM tblschedule WHERE id='$scheduleValue';";
                     mysqli_query($conn, $sql);
                 }
