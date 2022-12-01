@@ -28,6 +28,7 @@
 <body>
   <?php
   include "includes/db.inc.php";
+  include "includes/dashboard.inc.php";
   ?>
 
   <div class="w-100">
@@ -90,14 +91,14 @@
                 style="height: 100px; width: 200px">
                 <span class="text-light">Online</span>
                 <!--TODO: Change value here-->
-                <h1 class="text-light">120</h1>
+                <h1 class="text-light"><?php echo "$Online";?></h1>
               </div>
 
               <div class="bg-pink d-flex flex-column justify-content-center align-items-center"
                 style="height: 100px; width: 200px">
                 <span class="text-light">Face-to-face</span>
                 <!--TODO: Change value here-->
-                <h1 class="text-light">120</h1>
+                <h1 class="text-light"><?php echo "$FaceToFace";?></h1>
               </div>
             </div>
           </div>
@@ -182,8 +183,8 @@
 
     // Set data
     series1.data.setAll([
-      { category: "Online", value: 150 }, 
-      { category: "Face-to-face", value: 100 }
+      { category: "Online", value: "<?php echo "$Online";?>" }, 
+      { category: "Face-to-face", value: "<?php echo "$FaceToFace";?>" }
     ]);
     series1.appear(1000, 100);
 
@@ -232,13 +233,13 @@
 
     // Set data
     series2.data.setAll([
-      { category: "Individual Inventory", value: 100 },
-      { category: "Counselling Services", value: 100 },
-      { category: "Information Services", value: 100 },
-      { category: "Follow-up Services", value: 100 },
-      { category: "Psychological Testing and Evaluation", value: 140 },
-      { category: "Referral", value: 104 },
-      { category: "Placement Services", value: 140 }
+      { category: "Individual Inventory", value: "<?php echo "$IndividualInventory";?>" },
+      { category: "Counselling Services", value: "<?php echo "$CounsellingServices";?>" },
+      { category: "Information Services", value: "<?php echo "$InformationServices";?>" },
+      { category: "Follow-up Services", value: "<?php echo "$FollowUpServices";?>" },
+      { category: "Psychological Testing and Evaluation", value: "<?php echo "$PsychologicalTestingAndEvaluation";?>" },
+      { category: "Referral", value: "<?php echo "$Referral";?>" },
+      { category: "Placement Services", value: "<?php echo "$PlacementServices";?>" }
     ]);
     series2.appear(1000, 100);
 
@@ -287,10 +288,10 @@
 
     // Set data
     series3.data.setAll([
-      { category: "Individual", value: 100 },
-      { category: "Group", value: 100 },
-      { category: "Follow-up", value: 100 },
-      { category: "Consultaion", value: 100 }
+      { category: "Individual", value: "<?php echo "$Individual";?>" },
+      { category: "Group", value: "<?php echo "$Group";?>" },
+      { category: "Follow-up", value: "<?php echo "$FollowUp";?>" },
+      { category: "Consultaion", value: "<?php echo "$Consultaion";?>" }
     ]);
     series3.appear(1000, 100);
 
@@ -365,15 +366,15 @@
 
     // Set data
     var data4 = [
-      { category: "Family", value: 100 }, 
-      { category: "Girl-Boy Relationship", value: 200 },
-      { category: "Personal", value: 300 },
-      { category: "Testing Interpretation", value: 300 },
-      { category: "Academic", value: 300 },
-      { category: "Interpersonal", value: 300 },
-      { category: "Gender Sensitivity Issue", value: 300 },
-      { category: "Cultural Differences", value: 300 },
-      { category: "Career concern", value: 300 },
+      { category: "Family", value: parseInt("<?php echo "$Family";?>")}, 
+      { category: "Girl-Boy Relationship", value: parseInt("<?php echo "$GirlBoyRelationship";?>")}, 
+      { category: "Personal", value: parseInt("<?php echo "$Personal";?>")},
+      { category: "Testing Interpretation", value: parseInt("<?php echo "$TestingInterpretation";?>")},
+      { category: "Academic", value: parseInt("<?php echo "$Academic";?>")},
+      { category: "Interpersonal", value: parseInt("<?php echo "$Interpersonal";?>")},
+      { category: "Gender Sensitivity Issue", value: parseInt("<?php echo "$GenderSensitivityIssue";?>")},
+      { category: "Cultural Differences", value: parseInt("<?php echo "$CulturalDifferences";?>")},
+      { category: "Career concern", value: parseInt("<?php echo "$CareerConcern";?>")},
     ];
 
     xAxis.data.setAll(data4);
