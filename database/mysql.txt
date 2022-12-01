@@ -36,3 +36,11 @@ CREATE TABLE tblappointment (
     appointment_meeting_notes LONGTEXT NOT NULL,
     appointment_status VARCHAR(250) NOT NULL
 );
+
+CREATE TABLE tblemployee (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    employee_email VARCHAR(250) NOT NULL,
+    employee_password LONGTEXT NOT NULL
+);
+
+INSERT INTO tblemployee (employee_email, employee_password) VALUES ('admin2022@gmail.com', '$2y$10$f7q1ZF3WPKu8sB32r1.zGuIcpWfs88M5ct0At.Tqm3UtOWxMEEHbe');
