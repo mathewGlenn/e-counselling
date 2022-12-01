@@ -83,6 +83,11 @@
               ";
             }
           }
+          else {
+            echo "
+              <option hidden>No available</option>
+            ";
+          }
           ?>
           </select>
 
@@ -198,13 +203,11 @@
           success:function(data) {
             //alert('uploaded');
 
-            if(data == "taken") {
+            if(data == "availability") {
               Swal.fire({
                   icon: 'error',
-                  text: 'Sorry, but the day you selected is already taken.',
+                  text: 'No available date for appointment',
                   confirmButtonColor: '#16a085',
-              }).then(function() {
-                window.location.href = 'appointment.php';
               });
             }
             else if(data == "empty") {
@@ -212,6 +215,15 @@
                   icon: 'error',
                   text: 'Fill empty field',
                   confirmButtonColor: '#16a085',
+              });
+            }
+            else if(data == "taken") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Sorry, but the day you selected is already taken.',
+                  confirmButtonColor: '#16a085',
+              }).then(function() {
+                window.location.href = 'appointment.php';
               });
             }
             else if (data == "success") {

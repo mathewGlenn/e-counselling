@@ -17,7 +17,10 @@
         $additional = $_POST['additional'];
         $status = "pending";
 
-        if(empty($scheduleText) || empty($arrangement) || empty($services)) {
+        if($scheduleText == "No available") {
+            echo "availability";
+        }
+        else if(empty($arrangement) || empty($services)) {
             echo "empty";
         }
         else {
