@@ -8,35 +8,6 @@
   $result = mysqli_query($conn, $sql);
   $FaceToFace = mysqli_num_rows($result);
 
-  //Counselling Services
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Individual Inventory';";
-  $result = mysqli_query($conn, $sql);
-  $IndividualInventory = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Counselling Services';";
-  $result = mysqli_query($conn, $sql);
-  $CounsellingServices = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Information Services';";
-  $result = mysqli_query($conn, $sql);
-  $InformationServices = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Follow-up Services';";
-  $result = mysqli_query($conn, $sql);
-  $FollowUpServices = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Psychological Testing and Evaluation';";
-  $result = mysqli_query($conn, $sql);
-  $PsychologicalTestingAndEvaluation = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Referral';";
-  $result = mysqli_query($conn, $sql);
-  $Referral = mysqli_num_rows($result);
-
-  $sql = "SELECT * FROM tblappointment WHERE appointment_service='Placement Services';";
-  $result = mysqli_query($conn, $sql);
-  $PlacementServices = mysqli_num_rows($result);
-
   //Types of Counselling
   $sql = "SELECT * FROM tblappointment WHERE appointment_counselling='Individual';";
   $result = mysqli_query($conn, $sql);
