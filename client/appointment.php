@@ -98,7 +98,7 @@
             <option>Face-to-face</option>
           </select>
 
-          <span class="m-label mt-3">Service</span>
+          <!-- <span class="m-label mt-3">Service</span>
           <select id="services" type="text" class="m-input" onchange="enableType(this)">
             <option hidden></option>
             <option value="1">Individual Inventory</option>
@@ -108,10 +108,10 @@
             <option value="5">Psychological Testing and Evaluation</option>
             <option value="6">Referral</option>
             <option value="7">Placement Services</option>
-          </select>
+          </select> -->
 
           <span class="m-label mt-3 type" id="l-type">Type of counselling</span>
-          <select type="text" name="types" id="types" class="m-input type" onchange="enableCase(this)">
+          <select type="text" name="types" id="types" class="m-input type">
             <option hidden></option>
             <option value="1">Individual</option>
             <option value="2">Group</option>
@@ -141,33 +141,6 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    function enableType(answer) {
-      console.log(answer.value);
-      if (answer.value == 2) {
-        document.getElementById('types').classList.remove('type');
-        document.getElementById('l-type').classList.remove('type');
-      } else {
-        document.getElementById('types').classList.add('type');
-        document.getElementById('cases').classList.add('case');
-
-        document.getElementById('l-type').classList.add('type');
-        document.getElementById('l-case').classList.add('case');
-      }
-    }
-
-    function enableCase(answer) {
-      console.log(answer.value);
-      if (answer.value == 0) {
-        document.getElementById('cases').classList.add('case');
-        document.getElementById('l-case').classList.add('case');
-      } else {
-        document.getElementById('cases').classList.remove('case');
-        document.getElementById('l-case').classList.remove('case');
-      }
-    }
-  </script>
   
   <script>
     function btnSave() {

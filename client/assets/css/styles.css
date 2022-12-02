@@ -1,59 +1,65 @@
-*{
+* {
     color: white;
 }
 
-.title{
+.title {
     font-style: normal;
-font-weight: 700;
-font-size: 60px;
-line-height: 60px;
-/* identical to box height */
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+    /* identical to box height */
 
-
-color: #303030;
+    color: #303030;
 }
 
-.full-v{
-    height: 100vh ;
+select {
+    color: black;
+}
+
+option {
+    color: black;
+}
+
+.full-v {
+    height: 100vh;
     width: 100%;
 }
 
-.cont{
+.cont {
     height: 100vh;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
-      url(../img/counsel.png);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)), url(../img/counsel.png);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
 }
 
-.m-form{
+.m-form {
     width: 90%;
 }
 
-.section-1{
+.section-1 {
     display: flex;
     flex-direction: column;
 }
-.header{
+
+.header {
     flex-basis: 85%;
     width: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
-      url(../img/counsel.png);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)), url(../img/counsel.png);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: row;
 }
 
-.m-navbar{
+.m-navbar {
     flex-basis: 15%;
     width: 100%;
     background-color: #116736;
 }
 
-.outlined-cta{
+.outlined-cta {
     height: 55px;
     width: 190px;
     display: flex;
@@ -65,12 +71,12 @@ color: #303030;
     font-weight: 500;
 }
 
-.outlined-cta:hover{
-background-color: white;
-color:#116736 ;
+.outlined-cta:hover {
+    background-color: white;
+    color: #116736;
 }
 
-.borderless-btn{
+.borderless-btn {
     background-color: transparent;
     border: 0;
     transition: .25s;
@@ -78,213 +84,207 @@ color:#116736 ;
     font-weight: 400;
 }
 
-.borderless-btn:hover{
+.borderless-btn:hover {
     color: rgb(174, 174, 174);
 }
 
-.section-services{
+.section-services {
     background-color: #F3F3F3;
     padding: 60px 100px;
 }
 
-.service{
+.service {
     font-weight: 500;
-font-size: 30px;
-line-height: 36px;
+    font-size: 30px;
+    line-height: 36px;
 
-color: #303030;
+    color: #303030;
 }
 
-.check{
+.check {
     margin-right: 10px;
     height: 50px;
 }
 
-.services-list{
+.services-list {
     list-style: none;
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
 }
 
-.li-item{
+.li-item {
     margin-top: 20px;
 }
 
-.section-aboutus{
+.section-aboutus {
     background-color: #EBF9F7;
     display: flex;
     flex-direction: row;
     padding: 0 100px;
 }
 
-.abt-us-r1{
+.abt-us-r1 {
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.abt-us-r2{
+
+.abt-us-r2 {
     flex-basis: 50%;
 }
 
-.mt-m{
+.mt-m {
     margin-top: 100px;
 }
 
-.read-more{
+.read-more {
     width: 193px;
-height: 60px;
-background: #116736;
-display: flex;
-justify-content: center;
-align-items: center;
+    height: 60px;
+    background: #116736;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-font-style: normal;
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
-text-align: center;
-transition: .25s;
-cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    transition: .25s;
+    cursor: pointer;
 }
 
-.read-more:hover{
+.read-more:hover {
     background: #1a934e;
 }
 
-.section-contactus{
+.section-contactus {
     background-color: #F6F6F6;
     padding: 0 100px;
 }
 
-.contact{
+.contact {
     font-style: normal;
-font-weight: 500;
-font-size: 30px;
-line-height: 36px;
-color: #303030;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: #303030;
 }
 
-.scroll-top{
+.scroll-top {
     object-fit: contain;
     height: 60px;
     cursor: pointer;
 }
 
-.top-bar{
+.top-bar {
     height: 100px;
     background: #1a934e;
-width: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-.top-bar-img{
+.top-bar-img {
     height: 60px;
     margin: 0 30px;
 }
 
-.top-bar-title{
+.top-bar-title {
     font-style: normal;
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
-padding-right: 30px;
-color: #FFFFFF;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    padding-right: 30px;
+    color: #FFFFFF;
 }
 
-.cen-title{
+.cen-title {
     font-style: normal;
-font-weight: 600;
-font-size: 22px;
-line-height: 27px;
-/* identical to box height */
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
 
-color: #303030;
-padding: 0 20px;
-
+    color: #303030;
+    padding: 0 20px;
 }
 
-.m-label{
+.m-label {
     color: #116736;
-font-style: normal;
-font-weight: 500;
-font-size: 15px;
-line-height: 22px;
-/* identical to box height */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
 }
 
-.m-input{
-width: 450px;
-height: 45px;
-color: black;
-padding: 0 20px;
-background: #d8d8d8;
-border-radius: 5px;
-border: none;
+.m-input {
+    width: 450px;
+    height: 45px;
+    color: black;
+    padding: 0 20px;
+    background: #d8d8d8;
+    border-radius: 5px;
+    border: none;
 }
 
-.submit{
+.submit {
     margin-top: 20px;
     width: 450px;
-height: 45px;
-color: white;
-padding: 0 20px;
-background: #FFAA01;
-border-radius: 5px;
-border: none;
-transition: .25s;
+    height: 45px;
+    color: white;
+    padding: 0 20px;
+    background: #FFAA01;
+    border-radius: 5px;
+    border: none;
+    transition: .25s;
 }
 
-.submit:hover{
+.submit:hover {
     background: #d49007;
 }
 
-.info-title{
+.info-title {
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
     /* identical to box height */
-    
-    
+
     color: #116736;
 }
 
-.info-value{
+.info-value {
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    
+
     color: #0C0C0C;
-    
 }
-
-.type, .case{
-    display: none;
-}
-
-
 
 @media only screen and (max-width: 600px) {
-    .top-bar-title{
-    font-size: 15px;
-    line-height: 15px;
+    .top-bar-title {
+        font-size: 15px;
+        line-height: 15px;
     }
-    .cen-title{
-    font-weight: 600;
-    font-size: 18px;
-    
+
+    .cen-title {
+        font-weight: 600;
+        font-size: 18px;
+
     }
-    .m-input{
+
+    .m-input {
         width: 270px;
         height: 40px;
-        }
+    }
 
-        .submit{
-            width: 270px;
-            height: 40px;
-        }
-  }
+    .submit {
+        width: 270px;
+        height: 40px;
+    }
+}

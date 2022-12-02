@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="d-flex flex-row align-items-center justify-content-center mt-m" style="width: 100%;">
-                    <a href="services.html" style="text-decoration: none;">
+                    <a href="services.php" style="text-decoration: none;">
                         <span class="service">Read more about the services</span>
                         <i class="bi bi-arrow-right" style="color:black; font-size:30px; font-weight: 400;"></i>
                     </a>
@@ -140,8 +140,8 @@
                     <span class="title">Contact us</span>
 
                     <div class="d-flex flex-column mt-5">
-                        <span><img src="assets/img/ic_phone.png" alt=""> <i class="contact ms-3">0989098765</i></span>
-                        <span class="mt-3"><img src="assets/img/ic-mail.png" alt=""> <i class="contact ms-3">isu.ecounselling@gmail.com</i></span>
+                        <span><img src="assets/img/ic_phone.png" alt=""> <i class="contact ms-3">09752230506</i></span>
+                        <span class="mt-3"><img src="assets/img/ic-mail.png" alt=""> <i class="contact ms-3">guidance.cauayan@isu.edu.ph</i></span>
                     </div>
                 </div>
             </div>
