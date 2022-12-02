@@ -117,14 +117,7 @@
         </div>
 
         <div class="mt-4 d-flex flex-row">
-          <div class="card d-flex p-3 me-3 d-flex flex-row" style="height: 250px; width: 50%">
-            <span class="chart-title">Counselling Services</span>
-            <!--TODO: Insert chart here-->
-            <div id="chartdiv2" style="width: 100%; height: 100%;">
-            </div>
-          </div>
-
-          <div class="card d-flex p-3 d-flex flex-row" style="height: 250px; width: 50%">
+          <div class="card d-flex p-3 d-flex flex-row" style="height: 250px; width: 100%">
             <span class="chart-title">Types of Counselling</span>
             <!--TODO: Insert chart here-->
             <div id="chartdiv3" style="width: 100%; height: 100%;">
@@ -193,61 +186,6 @@
       { category: "Face-to-face", value: "<?php echo "$FaceToFace";?>" }
     ]);
     series1.appear(1000, 100);
-
-    // Create root element -------------------
-    var root2 = am5.Root.new("chartdiv2");
-
-    // Formatting numbers
-    root2.numberFormatter.setAll({
-      numberFormat: "#a",
-    });
-
-    // Set themes
-    root2.setThemes([
-      am5themes_Animated.new(root2)
-    ]);
-
-    // Create chart
-    var chart2 = root2.container.children.push(
-      am5percent.PieChart.new(root2, {
-        endAngle: 270
-      })
-    );
-
-    // Create series
-    var series2 = chart2.series.push(
-      am5percent.PieSeries.new(root2, {
-        valueField: "value",
-        categoryField: "category",
-        endAngle: 270,
-        legendLabelText: "{category}",
-        legendValueText: "{value}"
-      })
-    );
-    series2.slices.template.set('tooltipText', '{category}: {value}');
-    series2.labels.template.set('text', '{category}: {value}');
-    
-    series2.labels.template.setAll({
-      maxWidth: 100,
-      oversizedBehavior: "wrap",
-      fontSize: 12
-    });
-
-    series2.states.create("hidden", {
-      endAngle: -90
-    });
-
-    // Set data
-    series2.data.setAll([
-      { category: "Individual Inventory", value: "<?php echo "$IndividualInventory";?>" },
-      { category: "Counselling Services", value: "<?php echo "$CounsellingServices";?>" },
-      { category: "Information Services", value: "<?php echo "$InformationServices";?>" },
-      { category: "Follow-up Services", value: "<?php echo "$FollowUpServices";?>" },
-      { category: "Psychological Testing and Evaluation", value: "<?php echo "$PsychologicalTestingAndEvaluation";?>" },
-      { category: "Referral", value: "<?php echo "$Referral";?>" },
-      { category: "Placement Services", value: "<?php echo "$PlacementServices";?>" }
-    ]);
-    series2.appear(1000, 100);
 
     // Create root element -------------------
     var root3 = am5.Root.new("chartdiv3");

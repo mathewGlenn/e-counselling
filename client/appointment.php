@@ -98,18 +98,6 @@
             <option>Face-to-face</option>
           </select>
 
-          <!-- <span class="m-label mt-3">Service</span>
-          <select id="services" type="text" class="m-input" onchange="enableType(this)">
-            <option hidden></option>
-            <option value="1">Individual Inventory</option>
-            <option value="2">Counselling Services</option>
-            <option value="3">Information Services</option>
-            <option value="4">Follow-up Services</option>
-            <option value="5">Psychological Testing and Evaluation</option>
-            <option value="6">Referral</option>
-            <option value="7">Placement Services</option>
-          </select> -->
-
           <span class="m-label mt-3 type" id="l-type">Type of counselling</span>
           <select type="text" name="types" id="types" class="m-input type">
             <option hidden></option>
@@ -148,7 +136,6 @@
       var scheduleValue = $("#schedule").val();
 
       var arrangement = $("#arrangement").val();
-      var services = $("#services option:selected").text();
       var counselling = $("#types option:selected").text();
       var cases = $("#cases option:selected").text();
       var additional = $("#additional").val();
@@ -157,7 +144,6 @@
       formData.append("scheduleValue", scheduleValue);
       formData.append("scheduleText", scheduleText);
       formData.append("arrangement", arrangement);
-      formData.append("services", services);
       formData.append("counselling", counselling);
       formData.append("cases", cases);
       formData.append("additional", additional);

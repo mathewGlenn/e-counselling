@@ -45,21 +45,10 @@
       $users_year = $row['users_year'];
       $appointment_schedule = $row['appointment_schedule'];
       $appointment_arrangement = $row['appointment_arrangement'];
-      $appointment_service = $row['appointment_service'];
       $appointment_counselling = $row['appointment_counselling'];
       $appointment_case = $row['appointment_case'];
       $appointment_additional_information = $row['appointment_additional_information'];
     }
-  }
-
-  if($appointment_service != "Counselling Services") {
-    echo "
-    <style>
-      .hideme {
-        display: none;
-      }
-    </style>
-    ";
   }
   ?>
 
@@ -128,14 +117,11 @@
           <span class="info-name mt-3">Arrangement</span>
           <span class="info-val"><?php echo "$appointment_arrangement"; ?></span>
 
-          <span class="info-name mt-3">Counselling service</span>
-          <span class="info-val"><?php echo "$appointment_service"; ?></span>
+          <span class="info-name mt-3">Type of counselling</span>
+          <span class="info-val"><?php echo "$appointment_counselling"; ?></span>
 
-          <span class="info-name mt-3 hideme">Type of counselling</span>
-          <span class="info-val hideme"><?php echo "$appointment_counselling"; ?></span>
-
-          <span class="info-name mt-3 hideme">Case</span>
-          <span class="info-val hideme"><?php echo "$appointment_case"; ?></span>
+          <span class="info-name mt-3">Case</span>
+          <span class="info-val"><?php echo "$appointment_case"; ?></span>
         </div>
 
         <div class="d-flex flex-column p-4">

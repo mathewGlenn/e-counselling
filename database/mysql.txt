@@ -29,7 +29,6 @@ CREATE TABLE tblappointment (
     users_year VARCHAR(250) NOT NULL,
     appointment_schedule VARCHAR(250) NOT NULL,
     appointment_arrangement VARCHAR(250) NOT NULL,
-    appointment_service VARCHAR(250) NOT NULL,
     appointment_counselling VARCHAR(250) NOT NULL,
     appointment_case VARCHAR(250) NOT NULL,
     appointment_additional_information LONGTEXT NOT NULL,
