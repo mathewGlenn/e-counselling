@@ -271,9 +271,34 @@ option {
 }
 
 @media only screen and (max-width: 600px) {
-    .top-bar-title {
+
+    .header .s1{
+        padding-top: 0px;
+        flex-direction: column !important;
+    }
+
+    .header h1{
+        margin-top: 15px;
+        font-size: 25px !important;
+        text-align: center;
+    }
+
+    .header h5{
+        margin-top: 10px;
+        font-size: 20px !important;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .container-fluid .top-bar-title {
         font-size: 15px;
         line-height: 15px;
+        margin-left: 0px !important;
+    }
+
+    .collapse ul{
+        margin-right: 0 !important;
+        margin-left: auto !important;
     }
 
     .cen-title {
@@ -291,4 +316,88 @@ option {
         width: 270px;
         height: 40px;
     }
+    .service {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 15px;
+    
+        color: #303030;
+    }
+
+    .m-navbar .x1{
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .m-navbar .xt{
+        margin: unset  !important;
+    }
+
+    .m-navbar .xt:not(:last-child){
+        margin-bottom: 20px  !important;
+    }
+    
+    .check {
+        margin-right: 10px;
+        height: 50px;
+    }
+    
+    .section-services{
+        padding: 50px 20px;
+        height: fit-content;
+    }
+
+    .services-list {
+        list-style: none;
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+
+        margin: 0;
+        padding: 0;
+    }
+    .section-aboutus{
+        height: unset;
+        padding:10px 30px 50px 30px;
+    }
+    .section-aboutus .s1{
+        padding-top: 50px;
+        flex-direction: column-reverse !important;
+    }
+
+    .section-contactus{
+        height: unset;
+        padding: 50px 0;
+    }
+    .section-contactus .s1{
+        padding-top: 0;
+        flex-direction: column !important;
+    }
+
+    .abt-us-r1, .abt-us-r2{
+        flex-basis: unset;
+    }
+
+    .abt-us-r2 .s1{
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .s1{
+       
+        padding-top: 50px;
+        flex-direction: column !important;
+    }
+
+   .t1{
+        font-size: 30px;
+    }
+   .t2{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
 }

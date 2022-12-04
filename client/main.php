@@ -32,11 +32,11 @@
     <div class="w-100">
         <section class="section-1 full-v" id="home">
             <div class="header">
-                <div class="d-flex align-items-center justify-content-center" style="height: 100%; width: 100%;">
-                    <div class="d-flex flex-row align-items-center justify-content-center">
+                <div class="d-flex align-items-center justify-content-center s1" style="height: 100%; width: 100%;">
+                    <div class="d-flex flex-row align-items-center justify-content-center s1">
                         <img src="assets/img/isu_seal.png" alt="" style="height:200px;">
                         <div class="ms-4">
-                            <h1 style="font-size:55px;">ISU Cauayan E-Counselling</h1>
+                            <h1 style="font-size:55px;" class="isu-title">ISU Cauayan E-Counselling</h1>
                             <h5>Get someone to talk to about your queries, concerns, and problems.</h5>
                         </div>
                     </div>
@@ -44,21 +44,21 @@
             </div>
 
             <div class="m-navbar">
-                <div class="d-flex flex-row align-items-center justify-content-center"
+                <div class="d-flex flex-row align-items-center justify-content-center x1"
                     style="height: 100%; width: 100%;">
 
-                    <button class="borderless-btn me-5" onclick="location.href='profile.php';">Profile</button>
-                    <button class="borderless-btn me-5" onclick="location.href='#services';">Services</button>
-                    <div class="outlined-cta" onclick="location.href='appointment.php';">Set Appointment</div>
-                    <button class="borderless-btn ms-5" onclick="location.href='#contactus';">Contact</button>
-                    <button class="borderless-btn ms-5" onclick="location.href='#aboutus';">About</button>
+                    <button class="borderless-btn me-5 xt" onclick="location.href='profile.php';">Profile</button>
+                    <button class="borderless-btn me-5 xt" onclick="location.href='#services';">Services</button>
+                    <div class="outlined-cta xt" onclick="location.href='appointment.php';">Set Appointment</div>
+                    <button class="borderless-btn ms-5 xt" onclick="location.href='#contactus';">Contact</button>
+                    <button class="borderless-btn ms-5 xt" onclick="location.href='#aboutus';">About</button>
                 </div>
             </div>
         </section>
 
         <section class="section-services full-v" id="services">
             <div>
-                <span class="title mb-4">Services</span>
+                <span class="title mb-4 t1">Services</span>
 
                 <div class="mt-5">
                     <ul class="services-list">
@@ -109,9 +109,9 @@
         </section>
 
         <section class="section-aboutus full-v" id="aboutus">
-            <div class="d-flex flex-row align-items-center justify-content-center" style="width: 100%; height: 100%;">
+            <div class="d-flex flex-row align-items-center justify-content-center s1" style="width: 100%; height: 100%;">
                 <div class="abt-us-r1">
-                    <span class="title">About us</span>
+                    <span class="title t1">About us</span>
 
                     <span style="color: #303030;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                         volutpat interdum metus, et elementum eros euismod eget. Praesent dolor urna, luctus sed eros a,
@@ -125,23 +125,23 @@
                 </div>
 
                 <div class="abt-us-r2">
-                    <img src="assets/img/aboutus.svg" alt="">
+                    <img src="assets/img/aboutus.svg" alt="" style="width: 100%">
                 </div>
             </div>
         </section>
 
-        <section class="section-contactus full-v" id="contactus">
-            <div class="d-flex flex-row align-items-center justify-content-center" style="width: 100%; height: 100%;">
+        <section class="section-contactus full-v s-m" id="contactus">
+            <div class="d-flex flex-row align-items-center justify-content-center s1" style="width: 100%; height: 100%;">
                 <div class="abt-us-r1">
                     <img src="assets/img/contactus.svg" alt="" style="width: 80%">
                 </div>
 
                 <div class="abt-us-r2">
-                    <span class="title">Contact us</span>
+                    <span class="title t1">Contact us</span>
 
-                    <div class="d-flex flex-column mt-5">
-                        <span><img src="assets/img/ic_phone.png" alt=""> <i class="contact ms-3">09752230506</i></span>
-                        <span class="mt-3"><img src="assets/img/ic-mail.png" alt=""> <i class="contact ms-3">guidance.cauayan@isu.edu.ph</i></span>
+                    <div class="d-flex flex-column mt-5 s1">
+                        <span><img src="assets/img/ic_phone.png" alt=""> <i class="contact ms-3 t2">09752230506</i></span>
+                        <span class="mt-3"><img src="assets/img/ic-mail.png" alt=""> <i class="contact ms-3 t2">guidance.cauayan@isu.edu.ph</i></span>
                     </div>
                 </div>
             </div>

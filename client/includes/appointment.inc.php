@@ -24,13 +24,14 @@
         $arrangement = $_POST['arrangement'];
         $counselling = $_POST['counselling'];
         $cases = $_POST['cases'];
+        $followUp = $_POST['followUp'];
         $additional = $_POST['additional'];
         $status = "pending";
 
         if($scheduleText == "No available") {
             echo "availability";
         }
-        else if(empty($arrangement) || empty($counselling) || empty($cases)) {
+        else if(empty($arrangement) || empty($counselling) || empty($cases) || empty($followUp)) {
             echo "empty";
         }
         else {
@@ -39,7 +40,7 @@
             }
             else {
                 //created a template 
-                $sql = "INSERT INTO tblappointment (users_email, users_fullname, users_college, users_course, users_year, appointment_schedule, appointment_arrangement, appointment_counselling, appointment_case, appointment_additional_information, appointment_status, appointment_scheduledateformat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                $sql = "INSERT INTO tblappointment (users_email, users_fullname, users_college, users_course, users_year, appointment_schedule, appointment_arrangement, appointment_counselling, appointment_case, appointment_follow_up_question, appointment_additional_information, appointment_status, appointment_schedule_date_format) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
                 //create a prepared statement
                 $stmt = mysqli_stmt_init($conn);
                 //prepare the prepared statement
@@ -48,7 +49,7 @@
                 }
                 else {
                     //bind parameters to the placeholder
-                    mysqli_stmt_bind_param($stmt, "ssssssssssss", $users_email, $users_fullname, $users_college, $users_course, $users_year, $scheduleText, $arrangement, $counselling, $cases, $additional, $status, $sheduledateformat);
+                    mysqli_stmt_bind_param($stmt, "sssssssssssss", $users_email, $users_fullname, $users_college, $users_course, $users_year, $scheduleText, $arrangement, $counselling, $cases, $followUp, $additional, $status, $sheduledateformat);
                     //run parameters inside database
                     mysqli_stmt_execute($stmt);
 

@@ -203,6 +203,19 @@
           question3.innerHTML = "What is your goal for this session?"
         }
       }
+      else if(casePicked.value == "6") {
+        question.innerHTML = "Question about interpersona"
+      }
+      else if(casePicked.value == "7") {
+        question.innerHTML = "Question about gender"
+      }
+      else if(casePicked.value == "8") {
+        question.innerHTML = "Question about cultural"
+      }
+      else if(casePicked.value == "9") {
+        question.innerHTML = "Question about career"
+      }
+    }
 
     function btnSave() {
       var scheduleText = $("#schedule option:selected").text();
@@ -211,6 +224,7 @@
       var arrangement = $("#arrangement").val();
       var counselling = $("#types option:selected").text();
       var cases = $("#cases option:selected").text();
+      var followUp = $("#followUp").val();
       var additional = $("#additional").val();
 
       var formData = new FormData();
@@ -219,6 +233,7 @@
       formData.append("arrangement", arrangement);
       formData.append("counselling", counselling);
       formData.append("cases", cases);
+      formData.append("followUp", followUp);
       formData.append("additional", additional);
       formData.append("submit", '1');
 
