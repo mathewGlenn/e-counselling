@@ -38,10 +38,6 @@
   $result = mysqli_query($conn, $sql);
   $Personal = mysqli_num_rows($result);
 
-  $sql = "SELECT * FROM tblappointment WHERE appointment_case='Testing Interpretation';";
-  $result = mysqli_query($conn, $sql);
-  $TestingInterpretation = mysqli_num_rows($result);
-
   $sql = "SELECT * FROM tblappointment WHERE appointment_case='Academic';";
   $result = mysqli_query($conn, $sql);
   $Academic = mysqli_num_rows($result);

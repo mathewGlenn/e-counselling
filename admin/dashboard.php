@@ -313,7 +313,6 @@
       { category: "Family", value: parseInt("<?php echo "$Family";?>")}, 
       { category: "Girl-Boy Relationship", value: parseInt("<?php echo "$GirlBoyRelationship";?>")}, 
       { category: "Personal", value: parseInt("<?php echo "$Personal";?>")},
-      { category: "Testing Interpretation", value: parseInt("<?php echo "$TestingInterpretation";?>")},
       { category: "Academic", value: parseInt("<?php echo "$Academic";?>")},
       { category: "Interpersonal", value: parseInt("<?php echo "$Interpersonal";?>")},
       { category: "Gender Sensitivity Issue", value: parseInt("<?php echo "$GenderSensitivityIssue";?>")},
