@@ -123,7 +123,7 @@
 
           <span class="m-label mt-3">Follow-up question</span>
           <span class="is-2 mt-1 text-dark" id="followUpQ"></span>
-          <input id="additional" type="text" class="m-input">
+          <input id="followUp" type="text" class="m-input">
 
           <span class="m-label mt-3">Additional information</span>
           <input id="additional" type="text" class="m-input">
@@ -135,40 +135,37 @@
   </div>
   
   <script>
-
     let question = document.getElementById("followUpQ")
-        let casePicked = document.getElementById("cases")
-      casePicked.onchange = function(){
-
-
-
-        if(casePicked.value == "1"){
-          question.innerHTML = "Question about family"
-        } else if(casePicked.value == "2"){
-          question.innerHTML = "Question about girl-boy relationship"
-        }
-        else if(casePicked.value == "3"){
-          question.innerHTML = "Question about 3"
-        }
-        else if(casePicked.value == "4"){
-          question.innerHTML = "Question about 4"
-        }
-        else if(casePicked.value == "5"){
-          question.innerHTML = "Question about 5"
-        }
-        else if(casePicked.value == "6"){
-          question.innerHTML = "Question about interpersona"
-        }
-        else if(casePicked.value == "7"){
-          question.innerHTML = "Question about gender"
-        }
-        else if(casePicked.value == "8"){
-          question.innerHTML = "Question about cultural"
-        }
-        else if(casePicked.value == "9"){
-          question.innerHTML = "Question about career"
-        }
+    let casePicked = document.getElementById("cases")
+    casePicked.onchange = function() {
+      if(casePicked.value == "1") {
+        question.innerHTML = "Question about family"
+      } 
+      else if(casePicked.value == "2") {
+        question.innerHTML = "Question about girl-boy relationship"
       }
+      else if(casePicked.value == "3") {
+        question.innerHTML = "Question about 3"
+      }
+      else if(casePicked.value == "4") {
+        question.innerHTML = "Question about 4"
+      }
+      else if(casePicked.value == "5") {
+        question.innerHTML = "Question about 5"
+      }
+      else if(casePicked.value == "6") {
+        question.innerHTML = "Question about interpersona"
+      }
+      else if(casePicked.value == "7") {
+        question.innerHTML = "Question about gender"
+      }
+      else if(casePicked.value == "8") {
+        question.innerHTML = "Question about cultural"
+      }
+      else if(casePicked.value == "9") {
+        question.innerHTML = "Question about career"
+      }
+    }
 
     function btnSave() {
       var scheduleText = $("#schedule option:selected").text();
@@ -177,6 +174,7 @@
       var arrangement = $("#arrangement").val();
       var counselling = $("#types option:selected").text();
       var cases = $("#cases option:selected").text();
+      var followUp = $("#followUp").val();
       var additional = $("#additional").val();
 
       var formData = new FormData();
@@ -185,6 +183,7 @@
       formData.append("arrangement", arrangement);
       formData.append("counselling", counselling);
       formData.append("cases", cases);
+      formData.append("followUp", followUp);
       formData.append("additional", additional);
       formData.append("submit", '1');
 
