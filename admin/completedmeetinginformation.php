@@ -47,6 +47,7 @@
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
       $appointment_case = $row['appointment_case'];
+      $appointment_follow_up_question = $row['appointment_follow_up_question'];
       $appointment_additional_information = $row['appointment_additional_information'];
       $appointment_meeting_notes = $row['appointment_meeting_notes'];
     }
@@ -123,6 +124,9 @@
 
           <span class="info-name mt-3">Case</span>
           <span class="info-val"><?php echo "$appointment_case"; ?></span>
+
+          <span class="info-name mt-3">Answer to the Follow-up question</span>
+          <span class="info-val" style="font-weight: normal;"><?php echo "$appointment_follow_up_question"; ?></span>
         </div>
 
         <div class="d-flex flex-column p-4">
