@@ -134,8 +134,6 @@
           <span class="is-2 mt-1 text-dark" id="q3"></span>
           <input id="inQ3" type="text" class="m-input hide">
 
-
-
           <button class="submit" onclick="btnSave()">Set appointment</button>
         </div>
       </div>
