@@ -31,8 +31,10 @@ CREATE TABLE tblappointment (
     appointment_arrangement VARCHAR(250) NOT NULL,
     appointment_counselling VARCHAR(250) NOT NULL,
     appointment_case VARCHAR(250) NOT NULL,
-    appointment_follow_up_question LONGTEXT NOT NULL,
     appointment_additional_information LONGTEXT NOT NULL,
+    appointment_question_answer_1 LONGTEXT NOT NULL,
+    appointment_question_answer_2 LONGTEXT NOT NULL,
+    appointment_question_answer_3 LONGTEXT NOT NULL,
     appointment_meeting_notes LONGTEXT NOT NULL,
     appointment_status VARCHAR(250) NOT NULL,
     appointment_schedule_date_format VARCHAR(250) NOT NULL

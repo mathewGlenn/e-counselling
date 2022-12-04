@@ -134,7 +134,7 @@
           <span class="is-2 mt-1 text-dark" id="q3"></span>
           <input id="inQ3" type="text" class="m-input hide">
 
-          <button class="submit" onclick="btnSave()">Set appointment</button>
+          <button class="submit" onclick="btnSave()" style="margin-bottom: 2rem;">Set appointment</button>
         </div>
       </div>
     </div>
@@ -148,6 +148,7 @@
     let question1 = document.getElementById("q1");
     let question2 = document.getElementById("q2");
     let question3 = document.getElementById("q3");
+
     let casePicked = document.getElementById("cases");
 
     casePicked.onchange = function() {
@@ -195,18 +196,6 @@
         question2.innerHTML = "How did you get this issue?"
         question3.innerHTML = "What is your goal for this session?"
       }
-      else if(casePicked.value == "6") {
-        question.innerHTML = "Question about interpersona"
-      }
-      else if(casePicked.value == "7") {
-        question.innerHTML = "Question about gender"
-      }
-      else if(casePicked.value == "8") {
-        question.innerHTML = "Question about cultural"
-      }
-      else if(casePicked.value == "9") {
-        question.innerHTML = "Question about career"
-      }
     }
 
     function btnSave() {
@@ -216,8 +205,11 @@
       var arrangement = $("#arrangement").val();
       var counselling = $("#types option:selected").text();
       var cases = $("#cases option:selected").text();
-      var followUp = $("#followUp").val();
       var additional = $("#additional").val();
+
+      var question1 = $("#inQ1").val();
+      var question2 = $("#inQ2").val();
+      var question3 = $("#inQ3").val();
 
       var formData = new FormData();
       formData.append("scheduleValue", scheduleValue);
@@ -225,8 +217,10 @@
       formData.append("arrangement", arrangement);
       formData.append("counselling", counselling);
       formData.append("cases", cases);
-      formData.append("followUp", followUp);
       formData.append("additional", additional);
+      formData.append("question1", question1);
+      formData.append("question2", question2);
+      formData.append("question3", question3);
       formData.append("submit", '1');
 
       $.ajax({
