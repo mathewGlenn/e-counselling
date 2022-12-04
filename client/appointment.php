@@ -143,65 +143,59 @@
   </div>
   
   <script>
+    let inp1 = document.getElementById('inQ1');
+    let inp2 = document.getElementById('inQ2');
+    let inp3 = document.getElementById('inQ3');
 
-    let inp1 = document.getElementById('inQ1')
-    let inp2 = document.getElementById('inQ2')
-    let inp3 = document.getElementById('inQ3')
+    let question1 = document.getElementById("q1");
+    let question2 = document.getElementById("q2");
+    let question3 = document.getElementById("q3");
+    let casePicked = document.getElementById("cases");
 
-    let question1 = document.getElementById("q1")
-    let question2 = document.getElementById("q2")
-    let question3 = document.getElementById("q3")
-
-    let casePicked = document.getElementById("cases")
-
-
-
-    casePicked.onchange = function(){
-
+    casePicked.onchange = function() {
       inp1.classList.remove('hide');
       inp2.classList.remove('hide');
       inp3.classList.remove('hide');
 
-
-        if(casePicked.value == "1"){
-          question1.innerHTML = "Describe your Family issue."
-          question2.innerHTML = "How did your family begin to experience this problem?"
-          question3.innerHTML = "How did this issue affect you?"
-        } else if(casePicked.value == "2"){
-          question1.innerHTML = "Describe your issue with your relationship."
-          question2.innerHTML = "How often do you experience these issues?"
-          question3.innerHTML = "How do each of you feel about this problem?"
-        }
-        else if(casePicked.value == "3"){
-          question1.innerHTML = "Describe your Personal experience of the issue."
-          question2.innerHTML = "How did this issue affected your lifestyle?"
-          question3.innerHTML = "How do each of you feel about this problem?"
-        }
-        else if(casePicked.value == "4"){
-          question1.innerHTML = "Describe the issue on your academic."
-          question2.innerHTML = "Is there anyone responsible for this issue?"
-          question3.innerHTML = "How did this problem affected your study?"
-        }
-        else if(casePicked.value == "5"){
-          question1.innerHTML = "Describe your Interpersonal issues."
-          question2.innerHTML = "How did you get this issues?"
-          question3.innerHTML = "How much did this issue affected you?"
-        }
-        else if(casePicked.value == "6"){
-          question1.innerHTML = "Describe the issue."
-          question2.innerHTML = "How did this issue affected your environment?"
-          question3.innerHTML = "How do you feel about it?"
-        }
-        else if(casePicked.value == "7"){
-          question1.innerHTML = "Describe the issue."
-          question2.innerHTML = "Do you often get this problem?"
-          question3.innerHTML = "How do you feel about it?"
-        }
-        else if(casePicked.value == "8"){
-          question1.innerHTML = "Describe your issue."
-          question2.innerHTML = "How did you get this issue?"
-          question3.innerHTML = "What is your goal for this session?"
-        }
+      if(casePicked.value == "1") {
+        question1.innerHTML = "Describe your Family issue."
+        question2.innerHTML = "How did your family begin to experience this problem?"
+        question3.innerHTML = "How did this issue affect you?"
+      } 
+      else if(casePicked.value == "2") {
+        question1.innerHTML = "Describe your issue with your relationship."
+        question2.innerHTML = "How often do you experience these issues?"
+        question3.innerHTML = "How do each of you feel about this problem?"
+      }
+      else if(casePicked.value == "3") {
+        question1.innerHTML = "Describe your Personal experience of the issue."
+        question2.innerHTML = "How did this issue affected your lifestyle?"
+        question3.innerHTML = "How do each of you feel about this problem?"
+      }
+      else if(casePicked.value == "4") {
+        question1.innerHTML = "Describe the issue on your academic."
+        question2.innerHTML = "Is there anyone responsible for this issue?"
+        question3.innerHTML = "How did this problem affected your study?"
+      }
+      else if(casePicked.value == "5") {
+        question1.innerHTML = "Describe your Interpersonal issues."
+        question2.innerHTML = "How did you get this issues?"
+        question3.innerHTML = "How much did this issue affected you?"
+      }
+      else if(casePicked.value == "6") {
+        question1.innerHTML = "Describe the issue."
+        question2.innerHTML = "How did this issue affected your environment?"
+        question3.innerHTML = "How do you feel about it?"
+      }
+      else if(casePicked.value == "7") {
+        question1.innerHTML = "Describe the issue."
+        question2.innerHTML = "Do you often get this problem?"
+        question3.innerHTML = "How do you feel about it?"
+      }
+      else if(casePicked.value == "8") {
+        question1.innerHTML = "Describe your issue."
+        question2.innerHTML = "How did you get this issue?"
+        question3.innerHTML = "What is your goal for this session?"
       }
       else if(casePicked.value == "6") {
         question.innerHTML = "Question about interpersona"
