@@ -266,6 +266,10 @@ option {
     color: #0C0C0C;
 }
 
+.hide{
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     .top-bar-title {
         font-size: 15px;

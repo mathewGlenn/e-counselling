@@ -113,20 +113,28 @@
             <option value="1">Family</option>
             <option value="2">Girl-Boy Relationship</option>
             <option value="3">Personal</option>
-            <option value="4">Testing Interpretation</option>
-            <option value="5">Academic</option>
-            <option value="6">Interpersonal</option>
-            <option value="7">Gender Sensitivity Issue</option>
-            <option value="8">Cultural Differences</option>
-            <option value="9">Career concern</option>
+            <option value="4">Academic</option>
+            <option value="5">Interpersonal</option>
+            <option value="6">Gender Sensitivity Issue</option>
+            <option value="7">Cultural Differences</option>
+            <option value="8">Career concern</option>
           </select>
-
-          <span class="m-label mt-3">Follow-up question</span>
-          <span class="is-2 mt-1 text-dark" id="followUpQ"></span>
-          <input id="additional" type="text" class="m-input">
 
           <span class="m-label mt-3">Additional information</span>
           <input id="additional" type="text" class="m-input">
+
+          <span class="m-label mt-3">Follow-up questions</span>
+
+          <span class="is-2 mt-1 text-dark" id="q1"></span>
+          <input id="inQ1" type="text" class="m-input hide">
+
+          <span class="is-2 mt-1 text-dark" id="q2"></span>
+          <input id="inQ2" type="text" class="m-input hide">
+
+          <span class="is-2 mt-1 text-dark" id="q3"></span>
+          <input id="inQ3" type="text" class="m-input hide">
+
+
 
           <button class="submit" onclick="btnSave()">Set appointment</button>
         </div>
@@ -136,37 +144,63 @@
   
   <script>
 
-    let question = document.getElementById("followUpQ")
-        let casePicked = document.getElementById("cases")
-      casePicked.onchange = function(){
+    let inp1 = document.getElementById('inQ1')
+    let inp2 = document.getElementById('inQ2')
+    let inp3 = document.getElementById('inQ3')
 
+    let question1 = document.getElementById("q1")
+    let question2 = document.getElementById("q2")
+    let question3 = document.getElementById("q3")
+
+    let casePicked = document.getElementById("cases")
+
+
+
+    casePicked.onchange = function(){
+
+      inp1.classList.remove('hide');
+      inp2.classList.remove('hide');
+      inp3.classList.remove('hide');
 
 
         if(casePicked.value == "1"){
-          question.innerHTML = "Question about family"
+          question1.innerHTML = "Describe your Family issue."
+          question2.innerHTML = "How did your family begin to experience this problem?"
+          question3.innerHTML = "How did this issue affect you?"
         } else if(casePicked.value == "2"){
-          question.innerHTML = "Question about girl-boy relationship"
+          question1.innerHTML = "Describe your issue with your relationship."
+          question2.innerHTML = "How often do you experience these issues?"
+          question3.innerHTML = "How do each of you feel about this problem?"
         }
         else if(casePicked.value == "3"){
-          question.innerHTML = "Question about 3"
+          question1.innerHTML = "Describe your Personal experience of the issue."
+          question2.innerHTML = "How did this issue affected your lifestyle?"
+          question3.innerHTML = "How do each of you feel about this problem?"
         }
         else if(casePicked.value == "4"){
-          question.innerHTML = "Question about 4"
+          question1.innerHTML = "Describe the issue on your academic."
+          question2.innerHTML = "Is there anyone responsible for this issue?"
+          question3.innerHTML = "How did this problem affected your study?"
         }
         else if(casePicked.value == "5"){
-          question.innerHTML = "Question about 5"
+          question1.innerHTML = "Describe your Interpersonal issues."
+          question2.innerHTML = "How did you get this issues?"
+          question3.innerHTML = "How much did this issue affected you?"
         }
         else if(casePicked.value == "6"){
-          question.innerHTML = "Question about interpersona"
+          question1.innerHTML = "Describe the issue."
+          question2.innerHTML = "How did this issue affected your environment?"
+          question3.innerHTML = "How do you feel about it?"
         }
         else if(casePicked.value == "7"){
-          question.innerHTML = "Question about gender"
+          question1.innerHTML = "Describe the issue."
+          question2.innerHTML = "Do you often get this problem?"
+          question3.innerHTML = "How do you feel about it?"
         }
         else if(casePicked.value == "8"){
-          question.innerHTML = "Question about cultural"
-        }
-        else if(casePicked.value == "9"){
-          question.innerHTML = "Question about career"
+          question1.innerHTML = "Describe your issue."
+          question2.innerHTML = "How did you get this issue?"
+          question3.innerHTML = "What is your goal for this session?"
         }
       }
 
