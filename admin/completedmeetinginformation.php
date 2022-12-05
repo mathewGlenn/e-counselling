@@ -47,8 +47,10 @@
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
       $appointment_case = $row['appointment_case'];
-      $appointment_follow_up_question = $row['appointment_follow_up_question'];
       $appointment_additional_information = $row['appointment_additional_information'];
+      $appointment_question_answer_1 = $row['appointment_question_answer_1'];
+      $appointment_question_answer_2 = $row['appointment_question_answer_2'];
+      $appointment_question_answer_3 = $row['appointment_question_answer_3'];
       $appointment_meeting_notes = $row['appointment_meeting_notes'];
     }
   }
@@ -94,8 +96,11 @@
     <div class="main">
       <span class="page-title">Completed appointment information</span>
 
-      <div class="d-flex flex-row justify-content-around mt-4">
-        <div class="d-flex flex-column p-4">
+      <!-- <div class="d-flex flex-row justify-content-around mt-4">
+      <div class="d-flex flex-column p-4"> -->
+
+      <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
+        <div class="d-flex flex-column">
           <span class="info-name">Name</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
@@ -124,9 +129,6 @@
 
           <span class="info-name mt-3">Case</span>
           <span class="info-val"><?php echo "$appointment_case"; ?></span>
-
-          <span class="info-name mt-3">Answer to the Follow-up question</span>
-          <span class="info-val" style="font-weight: normal;"><?php echo "$appointment_follow_up_question"; ?></span>
         </div>
 
         <div class="d-flex flex-column p-4">
@@ -146,8 +148,7 @@
         <span class="info-val mt-2 is-2" id="q3">3. Lorem Ipsum DOlor sit amit?</span>
         <p class=" mt-2 font-weight-normal" id="ans3">Lorem Ipsum DOlor sit a</p>
       </div>
-
-
+      
       <div class="mt-2">
         <span class="title-2 ">Notes from the meeting</span>
       </div>
@@ -167,54 +168,52 @@
     let ans2 = document.getElementById('ans2')
     let ans3 = document.getElementById('ans3')
 
-    let chosenCase = "Girl-Boy Relationship";
+    let chosenCase = "<?php echo "$appointment_case"; ?>";
 
-    // Get from database
-    ans1.innerHTML = ""
-    ans2.innerHTML = ""
-    ans3.innerHTML = ""
+    ans1.innerHTML = "<?php echo "$appointment_question_answer_1"; ?>"
+    ans2.innerHTML = "<?php echo "$appointment_question_answer_2"; ?>"
+    ans3.innerHTML = "<?php echo "$appointment_question_answer_3"; ?>"
 
-    if(chosenCase == "Family"){
-          question1.innerHTML = "Describe your Family issue.";
-          question2.innerHTML = "How did your family begin to experience this problem?"
-          question3.innerHTML = "How did this issue affect you?"
-        } 
-        else if(chosenCase == "Girl-Boy Relationship"){
-          question1.innerHTML = "Describe your issue with your relationship."
-          question2.innerHTML = "How often do you experience these issues?"
-          question3.innerHTML = "How do each of you feel about this problem?"
-        }
-        else if(chosenCase == "Personal"){
-          question1.innerHTML = "Describe your Personal experience of the issue."
-          question2.innerHTML = "How did this issue affected your lifestyle?"
-          question3.innerHTML = "How do each of you feel about this problem?"
-        }
-        else if(chosenCase == "Academic"){
-          question1.innerHTML = "Describe the issue on your academic."
-          question2.innerHTML = "Is there anyone responsible for this issue?"
-          question3.innerHTML = "How did this problem affected your study?"
-        }
-        else if(chosenCase == "Interpersonal"){
-          question1.innerHTML = "Describe your Interpersonal issues."
-          question2.innerHTML = "How did you get this issues?"
-          question3.innerHTML = "How much did this issue affected you?"
-        }
-        else if(chosenCase == "Gender Sensitivity Issue"){
-          question1.innerHTML = "Describe the issue."
-          question2.innerHTML = "How did this issue affected your environment?"
-          question3.innerHTML = "How do you feel about it?"
-        }
-        else if(chosenCase == "Cultural Differences"){
-          question1.innerHTML = "Describe the issue."
-          question2.innerHTML = "Do you often get this problem?"
-          question3.innerHTML = "How do you feel about it?"
-        }
-        else if(chosenCase == "Career concern"){
-          question1.innerHTML = "Describe your issue."
-          question2.innerHTML = "How did you get this issue?"
-          question3.innerHTML = "What is your goal for this session?"
-        }
-
+    if(chosenCase == "Family") {
+      question1.innerHTML = "Describe your Family issue.";
+      question2.innerHTML = "How did your family begin to experience this problem?"
+      question3.innerHTML = "How did this issue affect you?"
+    } 
+    else if(chosenCase == "Girl-Boy Relationship") {
+      question1.innerHTML = "Describe your issue with your relationship."
+      question2.innerHTML = "How often do you experience these issues?"
+      question3.innerHTML = "How do each of you feel about this problem?"
+    }
+    else if(chosenCase == "Personal") {
+      question1.innerHTML = "Describe your Personal experience of the issue."
+      question2.innerHTML = "How did this issue affected your lifestyle?"
+      question3.innerHTML = "How do each of you feel about this problem?"
+    }
+    else if(chosenCase == "Academic") {
+      question1.innerHTML = "Describe the issue on your academic."
+      question2.innerHTML = "Is there anyone responsible for this issue?"
+      question3.innerHTML = "How did this problem affected your study?"
+    }
+    else if(chosenCase == "Interpersonal") {
+      question1.innerHTML = "Describe your Interpersonal issues."
+      question2.innerHTML = "How did you get this issues?"
+      question3.innerHTML = "How much did this issue affected you?"
+    }
+    else if(chosenCase == "Gender Sensitivity Issue") {
+      question1.innerHTML = "Describe the issue."
+      question2.innerHTML = "How did this issue affected your environment?"
+      question3.innerHTML = "How do you feel about it?"
+    }
+    else if(chosenCase == "Cultural Differences") {
+      question1.innerHTML = "Describe the issue."
+      question2.innerHTML = "Do you often get this problem?"
+      question3.innerHTML = "How do you feel about it?"
+    }
+    else if(chosenCase == "Career concern") {
+      question1.innerHTML = "Describe your issue."
+      question2.innerHTML = "How did you get this issue?"
+      question3.innerHTML = "What is your goal for this session?"
+    }
   </script>
 </body>
 </html>
