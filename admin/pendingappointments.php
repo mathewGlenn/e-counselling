@@ -106,7 +106,7 @@
               $count++;
 
               $id = $row['id'];
-              $fullname = $row['users_fullname'];
+              $fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
               $email = $row['users_email'];
               $schedule = $row['appointment_schedule'];
               $arrangement = $row['appointment_arrangement'];
@@ -131,7 +131,7 @@
 
   <script>
     $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
+      window.location = $(this).data("href");
     });
   </script>
 </body>

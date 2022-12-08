@@ -11,24 +11,51 @@
 
     if($_POST['submit'] == "save") {
         $id = $_POST['id'];
+        $email = $_POST['email'];
+        $schedule = $_POST['schedule'];
+
         $status = "accepted";
 
-        //created a template 
-        $sql = "UPDATE tblappointment SET appointment_status=? WHERE id=?;";
-        //create a prepared statement
-        $stmt = mysqli_stmt_init($conn);
-        //prepare the prepared statement
-        if(!mysqli_stmt_prepare($stmt, $sql)) {
-            echo "SQL statement failed";
-        }
-        else {
-            //bind parameters to the placeholder
-            mysqli_stmt_bind_param($stmt, "ss", $status, $id);
-            //run parameters inside database
-            mysqli_stmt_execute($stmt);
+        /* sending email */
+        $mail = new PHPMailer();
 
-            echo "success";
-        }
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'senderemail378@gmail.com';
+        $mail->Password = 'ufabafqhrimodhyr';
+        $mail->SMTPSecure = 'ssl'; // tls | ssl
+        $mail->Port = '465'; // 587 | 465
+
+        $mail->setFrom('senderemail378@gmail.com', 'ISU Cauayan E-Counselling');
+        $mail->addAddress("$email");
+
+        $mail->isHTML(true);
+        $mail->Subject = 'ISU Cauayan E-Counselling';
+        $mail->Body = "
+        <p style='font-size: 15px;'>Congratulations. Your appointment has been accepted on $schedule. See you!<p>
+        ";
+    
+        $mail->send();
+
+        // //created a template 
+        // $sql = "UPDATE tblappointment SET appointment_status=? WHERE id=?;";
+        // //create a prepared statement
+        // $stmt = mysqli_stmt_init($conn);
+        // //prepare the prepared statement
+        // if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //     echo "SQL statement failed";
+        // }
+        // else {
+        //     //bind parameters to the placeholder
+        //     mysqli_stmt_bind_param($stmt, "ss", $status, $id);
+        //     //run parameters inside database
+        //     mysqli_stmt_execute($stmt);
+
+        //     echo "success";
+        // }
+
+        echo "success";
     }
 
     if($_POST['submit'] == "cancel") {
@@ -59,28 +86,29 @@
             $mail->isHTML(true);
             $mail->Subject = 'ISU Cauayan E-Counselling';
             $mail->Body = "
-            <h1 style='font-size: 15px; font-family: century gothic; font-weight: 700;'>Sorry your appointment has been canceled.<h1>
-            <h1 style='font-size: 15px; font-family: century gothic; font-weight: 100;'>Reason: $reason<h1>
+            <p style='font-size: 15px;'>Sorry your appointment has been canceled. <br> Reason: $reason<p>
             ";
         
             $mail->send();
 
-            //created a template 
-            $sql = "UPDATE tblappointment SET appointment_status=? WHERE id=?;";
-            //create a prepared statement
-            $stmt = mysqli_stmt_init($conn);
-            //prepare the prepared statement
-            if(!mysqli_stmt_prepare($stmt, $sql)) {
-                echo "SQL statement failed";
-            }
-            else {
-                //bind parameters to the placeholder
-                mysqli_stmt_bind_param($stmt, "ss", $status, $id);
-                //run parameters inside database
-                mysqli_stmt_execute($stmt);
+            // //created a template 
+            // $sql = "UPDATE tblappointment SET appointment_status=? WHERE id=?;";
+            // //create a prepared statement
+            // $stmt = mysqli_stmt_init($conn);
+            // //prepare the prepared statement
+            // if(!mysqli_stmt_prepare($stmt, $sql)) {
+            //     echo "SQL statement failed";
+            // }
+            // else {
+            //     //bind parameters to the placeholder
+            //     mysqli_stmt_bind_param($stmt, "ss", $status, $id);
+            //     //run parameters inside database
+            //     mysqli_stmt_execute($stmt);
 
-                echo "success";
-            }
+            //     echo "success";
+            // }
+
+            echo "success";
         }
     }
 ?>

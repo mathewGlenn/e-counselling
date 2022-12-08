@@ -38,11 +38,18 @@
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $users_id = $row['id'];
+
+      $users_fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
       $users_email = $row['users_email'];
-      $users_fullname = $row['users_fullname'];
+      $users_phone = $row['users_phone'];
+      $users_age = $row['users_age'];
+
+      $users_student_id = $row['users_student_id'];
       $users_college = $row['users_college'];
       $users_course = $row['users_course'];
       $users_year = $row['users_year'];
+      $users_semester = $row['users_semester'];
+      
       $appointment_schedule = $row['appointment_schedule'];
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
@@ -107,13 +114,13 @@
         <div class="d-flex flex-column">
 
           <span class="info-name">Student ID</span>
-          <span class="info-val"><?php echo "$users_fullname"; ?></span>
+          <span class="info-val"><?php echo "$users_student_id"; ?></span>
 
           <span class="info-name mt-3">Name</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
           <span class="info-name mt-3">Phone Number</span>
-          <span class="info-val"><?php echo "$appointment_case"; ?></span>
+          <span class="info-val"><?php echo "$users_phone"; ?></span>
 
           <span class="info-name mt-3">Email</span>
           <span class="info-val"><?php echo "$users_email"; ?></span>
@@ -254,8 +261,12 @@
           if (result.value) {
             var formData = new FormData();
             id = "<?php echo "$users_id"; ?>";
+            email = "<?php echo "$users_email"; ?>";
+            var schedule = "<?php echo "$appointment_schedule"; ?>";
 
             formData.append("id", id);
+            formData.append("email", email);
+            formData.append("schedule", schedule);
             formData.append("submit", 'save');
 
             $.ajax({
