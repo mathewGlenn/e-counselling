@@ -101,18 +101,20 @@
   </div>
 
   <script>
-    $("#college").change(function() {
-      switch ($(this).val()) {
-        case '1st':
-          $("#course").html("");
-          break;
-        case '2nd':
-          $("#course").html("");
-          break;
-        case '3rd':
-          $("#course").html("<option>BSIT</option><option>CCSICT</option>");
-          break;
-      }
+    $(document).ready(function() {
+        $("#college").change(function() {
+        switch ($(this).val()) {
+          case '1st':
+            $("#course").html("");
+            break;
+          case '2nd':
+            $("#course").html("");
+            break;
+          case '3rd':
+            $("#course").html("<option>BSIT</option><option>CCSICT</option>");
+            break;
+        }
+      });
     });
 
     function btnNext() {
