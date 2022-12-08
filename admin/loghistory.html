@@ -55,8 +55,8 @@
           Accepted appointments
         </div>
 
-        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='completedmeetings.php';">
-          <i class="fa-solid fa-handshake ic-active me-3"></i>
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='completedmeetings.php';">
+          <i class="fa-solid fa-handshake ic-inactive me-3"></i>
           Completed meetings
         </div>
 
@@ -65,10 +65,17 @@
           Appointment dates
         </div>
 
+        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
+          <i class="fa-solid fa-users ic-active me-3"></i>
+          Manage Users
+        </div>
         <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
           <i class="fa-solid fa-user ic-inactive me-3"></i>
           My Account
         </div>
+
+        
+
       </div>
     </div>
 
@@ -80,13 +87,15 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Login Date</th>
-              <th scope="col">User Email</th>
-              <th scope="col">User Role</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
             </tr>
           </thead>
           <tbody id="tbody">
                 <tr style='cursor: pointer;' class='clickable-row' data-href='completedmeetinginformation.php?id=$id'>
                   <th scope='row'>$</th>
+                  <td>$</td>
                   <td>$</td>
                   <td>$</td>
                   <td>$</td>

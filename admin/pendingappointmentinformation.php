@@ -106,7 +106,7 @@
       <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
         <div class="d-flex flex-column">
 
-          <span class="info-name">Student</span>
+          <span class="info-name">Student ID</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
           <span class="info-name mt-3">Name</span>
