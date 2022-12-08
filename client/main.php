@@ -37,7 +37,6 @@
                         <img src="assets/img/isu_seal.png" alt="" style="height:200px;">
                         <div class="ms-4">
                             <h1 style="font-size:55px;" class="isu-title">ISU Cauayan E-Counselling</h1>
-                            <h5>Get someone to talk to about your queries, concerns, and problems.</h5>
                         </div>
                     </div>
                 </div>
@@ -119,7 +118,7 @@
                         placerat lorem fermentum porta ac quis odio.
                     </span>
 
-                    <div class="read-more">
+                    <div class="read-more" onclick="window.location.href='about.html'">
                         Read more
                     </div>
                 </div>

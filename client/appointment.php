@@ -57,11 +57,11 @@
     <div class="main mt-3">
       <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
         <div style="text-align:center;">
-          <span class="cen-title">Fill all the information below to book for an appointment</span>
+          <span class="cen-title">Fill the information below to book for an appointment</span>
         </div>
 
         <div class="mt-4 d-flex flex-column">
-          <span class="m-label">Schedule of appointment</span>
+          <span class="m-label">Schedule of appointment <strong class="required">*</strong></span>
           <select id="schedule" type="text" class="m-input">
 
           <?php
@@ -91,14 +91,14 @@
           ?>
           </select>
 
-          <span class="m-label mt-3">Meeting arrangement</span>
+          <span class="m-label mt-3">Meeting arrangement <strong class="required">*</strong></span>
           <select id="arrangement" type="text" class="m-input">
             <option hidden></option>
             <option>Online</option>
             <option>Face-to-face</option>
           </select>
 
-          <span class="m-label mt-3 type" id="l-type">Type of counselling</span>
+          <span class="m-label mt-3 type" id="l-type">Type of counselling <strong class="required">*</strong></span>
           <select type="text" name="types" id="types" class="m-input type">
             <option hidden></option>
             <option value="1">Individual</option>
@@ -107,7 +107,7 @@
             <option value="4">Consultaion</option>
           </select>
 
-          <span class="m-label mt-3 case" id="l-case">Case</span>
+          <span class="m-label mt-3 case" id="l-case">Case <strong class="required">*</strong></span>
           <select type="text" name="cases" class="m-input case" id="cases">
             <option hidden></option>
             <option value="1">Family</option>
@@ -123,7 +123,7 @@
           <span class="m-label mt-3">Additional information</span>
           <input id="additional" type="text" class="m-input">
 
-          <span class="m-label mt-3">Follow-up questions</span>
+          <span class="m-label mt-3">Follow-up questions <strong class="required">*</strong></span>
 
           <span class="is-2 mt-1 text-dark" id="q1"></span>
           <input id="inQ1" type="text" class="m-input hide">

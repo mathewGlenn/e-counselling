@@ -42,37 +42,93 @@
         </div>
       </nav>
 
-      <div class="main mt-3">
+      <div class="main mt-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">  
-          <div style="text-align:center;">
             <span class="cen-title">Fill all the information below to continue on making your account.</span>
-          </div>
-
+          <span class="h2 mt-3 cen-title">Step 1/3</span>
           <div class="mt-4 d-flex flex-column">
-            <span class="m-label">Full Name</span>
-            <input id="fullname" type="text" class="m-input" placeholder="Last name, First name, Middle initial">
 
-            <span class="m-label mt-3">College</span>
-            <input id="college" type="text" class="m-input" placeholder="ex. CCSICT, IAT, SAC">
+            <div  class="mt-4 d-flex justify-content-around reg-forms">
+              <div class=" d-flex flex-column reg-forms-col-1"> 
+                <span class="m-label">First Name <strong class="required">*</strong></span>
+                <input id="firstName" type="text" class="m-input">
+    
+                <span class="m-label mt-3">Last Name <strong class="required">*</strong></span>
+                <input id="lastName" type="text" class="m-input">
+    
+                <span class="m-label mt-3">Email Address <strong class="required">*</strong></span>
+                <input id="fullname" type="text" class="m-input">
+    
+                <span class="m-label mt-3">Phone Number <strong class="required">*</strong></span>
+                <input id="fullname" type="text" class="m-input">
+                
+                <span class="m-label mt-3">Age <strong class="required">*</strong></span>
+                <input id="fullname" type="tel" class="m-input">
+               </div>
+    
+               <div class=" d-flex flex-column reg-forms-col-2">
+                <span class="m-label">Student ID <strong class="required">*</strong></span>
+                <input id="fullname" type="text" class="m-input">
+    
+                <span class="m-label mt-3">College <strong class="required">*</strong></span>
+                <select id="college" type="text" class="m-input">
+                  <option value="1st">CAS</option>
+                  <option value="2nd">CBM</option>
+                  <option value="3rd">CCSICT</option>
+                  <option value="4th">CCJE</option>
+                  <option value="4th">SAS</option>
+                </select>
+    
+                <span class="m-label mt-3">Course <strong class="required">*</strong></span>
+                <select id="course" type="text" class="m-input">
+                  <option value="">--Select Course--</option>
+                </select>
+    
+    
+                <span class="m-label mt-3">Year Level <strong class="required">*</strong></span>
+                <select id="year" type="text" class="m-input">
+                  <option value="1st">1st Year</option>
+                  <option value="2nd">2nd Year</option>
+                  <option value="3rd">3rd Year</option>
+                  <option value="4th">4th Year</option>
+                </select>
 
-            <span class="m-label mt-3">Course</span>
-            <input id="course" type="text" class="m-input" placeholder="ex. BSIT, BSE, HRM">
+                <span class="m-label mt-3">Semester <strong class="required">*</strong></span>
+                <select id="sem" type="text" class="m-input">
+                  <option value="1st">1st Sem</option>
+                  <option value="2nd">2nd Sem</option>
+  
+                </select>
+               </div>
+            </div>
 
-            <span class="m-label mt-3">Year</span>
-            <select id="year" type="text" class="m-input">
-              <option value="1st">1st Year</option>
-              <option value="2nd">2nd Year</option>
-              <option value="3rd">3rd Year</option>
-              <option value="4th">4th Year</option>
-            </select>
-
-            <button class="submit" onclick="btnSave()">Save</button>
+            
           </div>
+          <button class="submit mt-4 mb-5" onclick="window.location.href='verifyemail.html'">Next</button>
         </div>
       </div>
     </div>
 
     <script>
+      
+      $(document).ready(function () {
+  $("#college").change(function () {
+     switch($(this).val()) {
+        case '1st':
+            $("#course").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
+            break;
+        case '2nd':
+            $("#course").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
+            break;
+        case '3rd':
+            $("#course").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+            break;
+        default:
+            $("#course").html("<option value=''>--select one--</option>");
+     }
+  });
+});
+
       function btnSave() {
         var formData = new FormData();
 
@@ -118,6 +174,8 @@
             }
         });
       }
+
+
   </script>
 </body>
 </html>

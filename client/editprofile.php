@@ -19,7 +19,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <?php
+ <?php
   include "includes/db.inc.php";
   include "includes/loginverify.inc.php";
 
@@ -51,7 +51,8 @@
           </ul>
 
           <div class="d-flex flex-md-row flex-wrap">
-            <a href='includes/logout.inc.php'><button type='button' class='btn btn-secondary pr-4'>Logout</button></a>
+            <a href='includes/logout.inc.php'><button type='button' class='btn me-4 btn-secondary pr-4'>Logout</button></a>
+            <a href='deleteaccount.html'><button type='button' class='btn btn-danger pr-4'>Delete Account</button></a>
           </div>
         </div>
       </div>
@@ -64,26 +65,62 @@
         </div>
 
         <div class="mt-4 d-flex flex-column">
-          <span class="m-label">Full Name</span>
-          <input id="fullname" type="text" class="m-input" placeholder="Last name, First name, Middle initial" value="<?php echo "$users_fullname"; ?>">
+          <div  class="mt-4 d-flex justify-content-around reg-forms">
+            <div class=" d-flex flex-column reg-forms-col-1"> 
+              <span class="m-label">First Name</span>
+              <input id="firstName" type="text" class="m-input">
+  
+              <span class="m-label mt-3">Last Name</span>
+              <input id="lastName" type="text" class="m-input">
+  
+              <span class="m-label mt-3 ">Email Address</span>
+              <input id="fullname" type="text" disabled class="m-input">
+  
+              <span class="m-label mt-3">Phone Number</span>
+              <input id="fullname" type="text" class="m-input">
+              
+              <span class="m-label mt-3">Age</span>
+              <input id="fullname" type="tel" class="m-input">
+             </div>
+  
+             <div class=" d-flex flex-column reg-forms-col-2">
+              <span class="m-label">Student ID</span>
+              <input id="fullname" type="text" class="m-input">
+  
+              <span class="m-label mt-3">College</span>
+              <select id="college" type="text" class="m-input">
+                <option value="1st">CAS</option>
+                <option value="2nd">CBM</option>
+                <option value="3rd">CCSICT</option>
+                <option value="4th">CCJE</option>
+                <option value="4th">SAS</option>
+              </select>
+  
+              <span class="m-label mt-3">Course</span>
+              <select id="course" type="text" class="m-input">
+                <option value="">--Select Course--</option>
+              </select>
+  
+  
+              <span class="m-label mt-3">Year Level</span>
+              <select id="year" type="text" class="m-input">
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+              </select>
 
-          <span class="m-label mt-3">College</span>
-          <input id="college" type="text" class="m-input" placeholder="ex. CCSICT, IAT, SAC" value="<?php echo "$users_college"; ?>">
+              <span class="m-label mt-3">Semester</span>
+              <select id="sem" type="text" class="m-input">
+                <option value="1st">1st Sem</option>
+                <option value="2nd">2nd Sem</option>
 
-          <span class="m-label mt-3">Course</span>
-          <input id="course" type="text" class="m-input" placeholder="ex. BSIT, BSE, HRM" value="<?php echo "$users_course"; ?>">
-
-          <span class="m-label mt-3">Year</span>
-          <select id="year" type="text" class="m-input">
-            <option hidden><?php echo "$users_year"; ?></option>
-            <option value="1st">1st Year</option>
-            <option value="2nd">2nd Year</option>
-            <option value="3rd">3rd Year</option>
-            <option value="4th">4th Year</option>
-          </select>
-
-          <button class="submit" onclick="btnUpdate()">Save changes</button>
+              </select>
+             </div>
+          </div>
+       
         </div>
+        <button class="submit mt-5" onclick="btnUpdate()">Save changes</button>
       </div>
     </div>
   </div>

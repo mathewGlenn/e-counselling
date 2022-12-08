@@ -1,7 +1,10 @@
 * {
     color: white;
 }
-
+.required{
+    color: rgb(212, 65, 65);
+    font-size: 20px;
+}
 .title {
     font-style: normal;
     font-weight: 700;
@@ -51,6 +54,10 @@ option {
     background-position: center;
     display: flex;
     flex-direction: row;
+}
+
+.about-header {
+    height: 40vh;
 }
 
 .m-navbar {
@@ -269,8 +276,22 @@ option {
 .hide{
     display: none;
 }
+.reg-forms-col-1{
+    margin-right: 50px ;
+}
 
 @media only screen and (max-width: 600px) {
+
+    .reg-forms{
+        flex-direction: column;
+        align-items: center;
+    }
+    .reg-forms-col-1{
+        margin-right: 0px;
+    }
+    .reg-forms-col-2{
+        margin-top: 20px;
+    }
 
     .header .s1{
         padding-top: 0px;
@@ -308,12 +329,12 @@ option {
     }
 
     .m-input {
-        width: 270px;
+        width: 90vw;
         height: 40px;
     }
 
     .submit {
-        width: 270px;
+        width: 90vw;
         height: 40px;
     }
     .service {
