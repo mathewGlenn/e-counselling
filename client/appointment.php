@@ -134,7 +134,7 @@
           <span class="is-2 mt-1 text-dark" id="q3"></span>
           <input id="inQ3" type="text" class="m-input hide">
 
-          <button class="submit" onclick="btnSave()" style="margin-bottom: 2rem;">Set appointment</button>
+          <button id="btnSave" class="submit" onclick="btnSave()" style="margin-bottom: 2rem;">Set appointment</button>
         </div>
       </div>
     </div>
@@ -232,6 +232,9 @@
           processData: false,
           beforeSend:function() {
             //alert('uploading');
+
+            $('#btnSave').text('Loading...');
+            $('#btnSave').prop('disabled', true);
           },
           success:function(data) {
             //alert('uploaded');
@@ -242,6 +245,9 @@
                   text: 'No available date for appointment',
                   confirmButtonColor: '#16a085',
               });
+
+              $('#btnSave').text('Set appointment');
+              $('#btnSave').prop('disabled', false);
             }
             else if(data == "empty") {
               Swal.fire({
@@ -249,6 +255,9 @@
                   text: 'Fill empty field',
                   confirmButtonColor: '#16a085',
               });
+
+              $('#btnSave').text('Set appointment');
+              $('#btnSave').prop('disabled', false);
             }
             else if(data == "taken") {
               Swal.fire({
