@@ -102,19 +102,19 @@
 
   <script>
     $("#college").change(function() {
-      if($(this).val() == "CAS") {
+      if($("#college").val() == "CAS") {
         $("#course").html("");
       }
-      else if ($(this).val() == "CBM") {
+      else if ($("#college").val() == "CBM") {
         $("#course").html("");
       }
-      else if ($(this).val() == "CCSICT") {
+      else if ($("#college").val() == "CCSICT") {
         $("#course").html("<option>BSIT</option><option>BSCS</option>");
       }
-      else if ($(this).val() == "CCJE") {
+      else if ($("#college").val() == "CCJE") {
         $("#course").html("");
       }
-      else if ($(this).val() == "SAS") {
+      else if ($("#college").val() == "SAS") {
         $("#course").html("");
       }
     });
