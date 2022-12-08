@@ -74,18 +74,18 @@
               <input id="lastName" type="text" class="m-input" value="<?php echo "$users_lastname"; ?>">
   
               <span class="m-label mt-3 ">Email Address</span>
-              <input id="fullname" type="text" disabled class="m-input" value="<?php echo "$users_email"; ?>">
+              <input id="email" type="text" disabled class="m-input" value="<?php echo "$users_email"; ?>">
   
               <span class="m-label mt-3">Phone Number</span>
-              <input id="fullname" type="text" class="m-input" value="<?php echo "$users_phone"; ?>">
+              <input id="phone" type="text" class="m-input" value="<?php echo "$users_phone"; ?>">
               
               <span class="m-label mt-3">Age</span>
-              <input id="fullname" type="tel" class="m-input" value="<?php echo "$users_age"; ?>">
+              <input id="age" type="tel" class="m-input" value="<?php echo "$users_age"; ?>">
             </div>
   
             <div class=" d-flex flex-column reg-forms-col-2">
               <span class="m-label">Student ID</span>
-              <input id="fullname" type="text" class="m-input" value="<?php echo "$users_student_id"; ?>">
+              <input id="studentID" type="text" class="m-input" value="<?php echo "$users_student_id"; ?>">
   
               <span class="m-label mt-3">College</span>
               <select id="college" type="text" class="m-input">
@@ -112,7 +112,7 @@
               </select>
 
               <span class="m-label mt-3">Semester</span>
-              <select id="sem" type="text" class="m-input">
+              <select id="semester" type="text" class="m-input">
                 <option hidden><?php echo "$users_semester"; ?></option>
                 <option value="1st">1st Sem</option>
                 <option value="2nd">2nd Sem</option>
@@ -120,13 +120,13 @@
             </div>
           </div>
         </div>
-        <button class="submit mt-5" onclick="btnUpdate()">Save changes</button>
+        <button id="btnUpdate" class="submit mt-5" onclick="btnUpdate()">Save changes</button>
       </div>
     </div>
   </div>
 
   <script>
-    function selectCollege() {
+    $("#college").change(function() {
       if($("#college").val() == "CAS") {
         $("#course").html("");
       }
@@ -142,26 +142,33 @@
       else if ($("#college").val() == "SAS") {
         $("#course").html("");
       }
-    }
-
-    selectCollege();
-
-    $("#college").change(function() {
-      selectCollege();
     });
 
     function btnUpdate() {
       var formData = new FormData();
 
-      var fullname = $('#fullname').val();
+      var firstName = $('#firstName').val();
+      var lastName = $('#lastName').val();
+      var phone = $('#phone').val();
+      var age = $('#age').val();
+
+      var studentID = $('#studentID').val();
       var college = $('#college').val();
       var course = $('#course').val();
       var year = $('#year').val();
+      var semester = $('#semester').val();
 
-      formData.append("fullname", fullname);
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("phone", phone);
+      formData.append("age", age);
+
+      formData.append("studentID", studentID);
       formData.append("college", college);
       formData.append("course", course);
       formData.append("year", year);
+      formData.append("semester", semester);
+ 
       formData.append("submit", '1');
 
       $.ajax({
@@ -173,6 +180,9 @@
           processData: false,
           beforeSend:function() {
             //alert('uploading');
+
+            $('#btnUpdate').text('Loading...');
+            $('#btnUpdate').prop('disabled', true);
           },
           success:function(data) {
             //alert('uploaded');
@@ -183,6 +193,9 @@
                   text: 'Fill empty field',
                   confirmButtonColor: '#16a085',
               });
+
+              $('#btnUpdate').text('Save changes');
+              $('#btnUpdate').prop('disabled', false);
             }
             else if (data == "success") {
               window.location.href = 'profile.php';
