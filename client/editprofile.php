@@ -52,7 +52,7 @@
 
           <div class="d-flex flex-md-row flex-wrap">
             <a href='includes/logout.inc.php'><button type='button' class='btn me-4 btn-secondary pr-4'>Logout</button></a>
-            <a href='deleteaccount.html'><button type='button' class='btn btn-danger pr-4'>Delete Account</button></a>
+            <a href='deleteaccount.php'><button type='button' class='btn btn-danger pr-4'>Delete Account</button></a>
           </div>
         </div>
       </div>

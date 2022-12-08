@@ -19,52 +19,42 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <?php
-    //start session
-    session_start();
-    //check session
-    if(isset($_SESSION['users_id'])) {
-      header("Location: main.php");
-    }
-    ?>
+  <?php
+  include "includes/db.inc.php";
+  include "includes/loginverify.inc.php";
 
-    <script>
-    if(localStorage.getItem('users_verify') != 'true') {
-      window.location.href = 'login.php';
-    }
-    </script>
-    
-    <div class="w-100">
-      <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
-        <div class="container-fluid">
-          <img class="logo" src="assets/img/isu_seal.png" style="height:60px;">
-          <span class="top-bar-title ms-4 me-5">ISU E-counselling</span>
-        </div>
-      </nav>
+  //check session
+  if (!isset($_SESSION['users_id'])) {
+      header("Location: login.php");
+  }
+  ?>
+  
+  <div class="w-100">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
+      <div class="container-fluid">
+        <img class="logo" src="assets/img/isu_seal.png" style="height:60px;">
+        <span class="top-bar-title ms-4 me-5">ISU E-counselling</span>
+      </div>
+    </nav>
 
-      <div class="main mt-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">  
-            <span class="cen-title">Delete Account</span>
-          <span class=" mt-3 cen-title">You are about to delete your account. Please enter your password to continue.</span>
-          <div class="mt-4 d-flex flex-column">
-
-              <div class=" d-flex flex-column"> 
-               
-                
-                <span class="m-label mt-3">Password</span>
-                <input id="otp" type="text" class="m-input">
-               </div>
-    
+    <div class="main mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">  
+        <span class="cen-title">Delete Account</span>
+        <span class=" mt-3 cen-title">You are about to delete your account. Please enter your password to continue.</span>
+        <div class="mt-4 d-flex flex-column">
+          <div class=" d-flex flex-column"> 
+            <span class="m-label mt-3">Password</span>
+            <input id="otp" type="text" class="m-input">
           </div>
-          <button class="btn btn-danger mt-4" >Delete account</button>
-          <button class="btn btn-secondary mt-3 mb-5" >Cancel</button>
         </div>
+
+        <button class="btn btn-danger mt-4" >Delete account</button>
+        <button class="btn btn-secondary mt-3 mb-5" >Cancel</button>
       </div>
     </div>
+  </div>
 
-    <script>
-
-
+  <script>
   </script>
 </body>
 </html>
