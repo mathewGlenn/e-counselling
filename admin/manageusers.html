@@ -50,8 +50,8 @@
           Pending appointments
         </div>
 
-        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='acceptedappointments.php';">
-          <i class="fa-solid fa-address-card ic-active me-3"></i>
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='acceptedappointments.php';">
+          <i class="fa-solid fa-address-card ic-inactive me-3"></i>
           Accepted appointments
         </div>
 
@@ -65,67 +65,75 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
+        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
+            <i class="fa-solid fa-users ic-active me-3"></i>
+            Manage Users
+          </div>
+
+          <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
             <i class="fa-solid fa-user ic-inactive me-3"></i>
-            My Account
+            Profile
           </div>
       </div>
     </div>
 
     <div class="main">
-      <span class="page-title">Accepted appointments</span>
-      <div class="mt-5">
-        <table class="table table-hover">
-          <thead class="thead">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Schedule</th>
-              <th scope="col">Arrangement</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id="tbody">
-            <?php
-            $sql = "SELECT * FROM tblappointment WHERE appointment_status='accepted' ORDER BY id DESC;";
-            $result = mysqli_query($conn, $sql);
-            $resultCheck = mysqli_num_rows($result);
-  
-            $count = 0;
-        
-            if ($resultCheck > 0) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                $count++;
-  
-                $id = $row['id'];
-                $fullname = $row['users_fullname'];
-                $email = $row['users_email'];
-                $schedule = $row['appointment_schedule'];
-                $arrangement = $row['appointment_arrangement'];
-  
-                echo "
-                <tr style='cursor: context-menu;'>
-                  <th scope='row'>$count</th>
-                  <td>$fullname</td>
-                  <td>$email</td>
-                  <td>$schedule</td>
-                  <td>$arrangement</td>
-                  <td>
-                    <a href='acceptedappointmentinformation.php?id=$id'>
-                      <div class='tbl-btn-edit'>
-                        <i class='fa-solid fa-pen'></i>
-                      </div>
-                    </a>
-                  </td>
-                </tr>
-                ";
-              }
-            }
-            ?>
-          </tbody>
-        </table>
+      <span class="page-title">Admin Users</span>
+      <div class="d-flex flex-row">
+        <div class="mt-5 w-50 me-5 px-2">
+          <table class="table table-hover">
+            <thead class="thead">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+                  <tr>
+                    <th scope='row'>$</th>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="w-50 card p-5">
+          <span class="title-2">Add User</span>
+
+          <span class="m-label mt-3">Name</span>
+          <input class="m-input w-100" id="name"></input>
+
+          <span class="m-label mt-3">Email</span>
+          <input class="m-input w-100" id="email"></input>
+
+          
+          <span class="m-label mt-3">User Role</span>
+          <select id="role" type="text" class="m-input w-100">
+            <option hidden></option>
+            <option>Admin</option>
+            <option>Counsellor</option>
+          </select>
+
+          <span class="m-label mt-3">Password</span>
+          <input type="password" class="m-input w-100" id="timePicker">
+
+          <span class="m-label mt-3">Confirm Password</span>
+          <input type="password" class="m-input w-100" id="timePicker">
+          
+
+          <button type="button" class="btn btn-primary mt-4" onclick="btnSave()">Add</button>
+        </div>
       </div>
   </div>
+
+  <script>
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+  </script>
 </body>
 </html>

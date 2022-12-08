@@ -89,6 +89,11 @@
           <i class="fa-solid fa-calendar-check ic-inactive me-3"></i>
           Appointment dates
         </div>
+
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
+            <i class="fa-solid fa-user ic-inactive me-3"></i>
+            My Account
+          </div>
       </div>
     </div>
 
@@ -98,10 +103,14 @@
       <!-- <div class="d-flex flex-row justify-content-around mt-4">
       <div class="d-flex flex-column p-4"> -->
 
-      <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
-        <div class="d-flex flex-column">
-          <span class="info-name">Name</span>
+      <span class="info-name">Student</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
+
+          <span class="info-name mt-3">Name</span>
+          <span class="info-val"><?php echo "$users_fullname"; ?></span>
+
+          <span class="info-name mt-3">Phone Number</span>
+          <span class="info-val"><?php echo "$appointment_case"; ?></span>
 
           <span class="info-name mt-3">Email</span>
           <span class="info-val"><?php echo "$users_email"; ?></span>
