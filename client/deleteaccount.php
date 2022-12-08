@@ -44,17 +44,73 @@
         <div class="mt-4 d-flex flex-column">
           <div class=" d-flex flex-column"> 
             <span class="m-label mt-3">Password</span>
-            <input id="otp" type="text" class="m-input">
+            <input id="password" type="password" class="m-input" autocomplete="off">
           </div>
         </div>
-
-        <button class="btn btn-danger mt-4" >Delete account</button>
-        <button class="btn btn-secondary mt-3 mb-5" >Cancel</button>
+        <button id="btnDelete" onclick="btnDelete()" class="btn btn-danger mt-4" >Delete account</button>
+        <button onclick="location.href='editprofile.php';" class="btn btn-secondary mt-3 mb-5" >Cancel</button>
       </div>
     </div>
   </div>
 
   <script>
+    function btnDelete() {
+      var formData = new FormData();
+
+      var password = $('#password').val();
+
+      formData.append("password", password);
+ 
+      formData.append("submit", '1');
+
+      $.ajax({
+          url:"includes/deleteaccount.inc.php",
+          method:"POST",
+          data: formData,
+          contentType: false,
+          cache: false,
+          processData: false,
+          beforeSend:function() {
+            //alert('uploading');
+
+            $('#btnDelete').text('Loading...');
+            $('#btnDelete').prop('disabled', true);
+          },
+          success:function(data) {
+            //alert('uploaded');
+
+            if(data == "empty") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Fill empty field',
+                  confirmButtonColor: '#16a085',
+              });
+
+              $('#btnDelete').text('Delete account');
+              $('#btnDelete').prop('disabled', false);
+            }
+            else if (data == "password") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Wrong password',
+                  confirmButtonColor: '#16a085',
+              });
+
+              $('#btnDelete').text('Delete account');
+              $('#btnDelete').prop('disabled', false);
+            }
+            else if (data == "success") {
+              Swal.fire({
+                  icon: 'success',
+                  text: 'Your account has been deleted',
+                  confirmButtonColor: '#16a085',
+              }).then(function() {
+                window.location.href = 'login.php';
+              });
+            }
+          }
+      });
+    }
   </script>
 </body>
 </html>
