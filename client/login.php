@@ -57,7 +57,7 @@
 
               <button type="button" class="btn my-4" style="width: 100%; background-color: #ffaa01" id="login" onclick="btnLogin()">Login</button>
 
-              <a href="signup.php" style="color: white; margin-top: 20px;">No account yet? Sign up here.</a>
+              <a href="fillinfo.php" style="color: white; margin-top: 20px;">No account yet? Sign up here.</a>
             </form>
           </div>
         </div>
