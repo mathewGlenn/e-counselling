@@ -115,13 +115,13 @@
   $("#college").change(function () {
      switch($(this).val()) {
         case '1st':
-            $("#course").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
+            $("#course").html("");
             break;
         case '2nd':
-            $("#course").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
+            $("#course").html("");
             break;
         case '3rd':
-            $("#course").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+            $("#course").html("<option value='test'>BSIT</option><option value='test2'>CCSICT</option>");
             break;
         default:
             $("#course").html("<option value=''>--select one--</option>");
