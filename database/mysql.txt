@@ -6,12 +6,17 @@ USE dbisucec;
 
 CREATE TABLE tblusers (
     id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    users_firstname VARCHAR(250) NOT NULL,
+    users_lastname VARCHAR(250) NOT NULL,
     users_email VARCHAR(250) NOT NULL,
-    users_password LONGTEXT NOT NULL,
-    users_fullname VARCHAR(250) NOT NULL,
+    users_phone VARCHAR(250) NOT NULL,
+    users_age VARCHAR(250) NOT NULL,
+    users_student_id VARCHAR(250) NOT NULL,
     users_college VARCHAR(250) NOT NULL,
     users_course VARCHAR(250) NOT NULL,
-    users_year VARCHAR(250) NOT NULL
+    users_year VARCHAR(250) NOT NULL,
+    users_semester VARCHAR(250) NOT NULL,
+    users_password LONGTEXT NOT NULL
 );
 
 CREATE TABLE tblschedule (
@@ -22,11 +27,16 @@ CREATE TABLE tblschedule (
 
 CREATE TABLE tblappointment (
     id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    users_firstname VARCHAR(250) NOT NULL,
+    users_lastname VARCHAR(250) NOT NULL,
     users_email VARCHAR(250) NOT NULL,
-    users_fullname VARCHAR(250) NOT NULL,
+    users_phone VARCHAR(250) NOT NULL,
+    users_age VARCHAR(250) NOT NULL,
+    users_student_id VARCHAR(250) NOT NULL,
     users_college VARCHAR(250) NOT NULL,
     users_course VARCHAR(250) NOT NULL,
     users_year VARCHAR(250) NOT NULL,
+    users_semester VARCHAR(250) NOT NULL,
     appointment_schedule VARCHAR(250) NOT NULL,
     appointment_arrangement VARCHAR(250) NOT NULL,
     appointment_counselling VARCHAR(250) NOT NULL,
