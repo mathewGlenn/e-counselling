@@ -74,7 +74,7 @@
                 $mail->isHTML(true);
                 $mail->Subject = 'ISU Cauayan E-Counselling';
                 $mail->Body = "
-                <h1 style='font-size: 15px; font-family: century gothic; font-weight: 100;'>Your OTP Pin: $otp<h1>
+                <p style='font-size: 15px;'>Your OTP Pin: $otp<p>
                 ";
             
                 $mail->send();
