@@ -23,16 +23,16 @@
     //start session
     session_start();
     //check session
-    if(isset($_SESSION['users_id'])) {
-      header("Location: main.php");
-    }
+    // if(isset($_SESSION['users_id'])) {
+    //   header("Location: main.php");
+    // }
     ?>
 
-    <script>
+    <!-- <script>
     if(localStorage.getItem('users_verify') != 'true') {
       window.location.href = 'login.php';
     }
-    </script> 
+    </script>  -->
     
     <div class="w-100">
       <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #116736; color: white;">
