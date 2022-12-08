@@ -68,42 +68,43 @@
           <div  class="mt-4 d-flex justify-content-around reg-forms">
             <div class=" d-flex flex-column reg-forms-col-1"> 
               <span class="m-label">First Name</span>
-              <input id="firstName" type="text" class="m-input">
+              <input id="firstName" type="text" class="m-input" value="<?php echo "$users_firstname"; ?>">
   
               <span class="m-label mt-3">Last Name</span>
-              <input id="lastName" type="text" class="m-input">
+              <input id="lastName" type="text" class="m-input" value="<?php echo "$users_lastname"; ?>">
   
               <span class="m-label mt-3 ">Email Address</span>
-              <input id="fullname" type="text" disabled class="m-input">
+              <input id="fullname" type="text" disabled class="m-input" value="<?php echo "$users_email"; ?>">
   
               <span class="m-label mt-3">Phone Number</span>
-              <input id="fullname" type="text" class="m-input">
+              <input id="fullname" type="text" class="m-input" value="<?php echo "$users_phone"; ?>">
               
               <span class="m-label mt-3">Age</span>
-              <input id="fullname" type="tel" class="m-input">
-             </div>
+              <input id="fullname" type="tel" class="m-input" value="<?php echo "$users_age"; ?>">
+            </div>
   
-             <div class=" d-flex flex-column reg-forms-col-2">
+            <div class=" d-flex flex-column reg-forms-col-2">
               <span class="m-label">Student ID</span>
-              <input id="fullname" type="text" class="m-input">
+              <input id="fullname" type="text" class="m-input" value="<?php echo "$users_student_id"; ?>">
   
               <span class="m-label mt-3">College</span>
               <select id="college" type="text" class="m-input">
-                <option value="1st">CAS</option>
-                <option value="2nd">CBM</option>
-                <option value="3rd">CCSICT</option>
-                <option value="4th">CCJE</option>
-                <option value="4th">SAS</option>
+                <option hidden><?php echo "$users_college"; ?></option>
+                <option value="CAS">CAS</option>
+                <option value="CBM">CBM</option>
+                <option value="CCSICT">CCSICT</option>
+                <option value="CCJE">CCJE</option>
+                <option value="SAS">SAS</option>
               </select>
   
               <span class="m-label mt-3">Course</span>
               <select id="course" type="text" class="m-input">
-                <option value="">--Select Course--</option>
+                <option hidden><?php echo "$users_course"; ?></option>
               </select>
-  
   
               <span class="m-label mt-3">Year Level</span>
               <select id="year" type="text" class="m-input">
+                <option hidden><?php echo "$users_year"; ?></option>
                 <option value="1st">1st Year</option>
                 <option value="2nd">2nd Year</option>
                 <option value="3rd">3rd Year</option>
@@ -112,13 +113,12 @@
 
               <span class="m-label mt-3">Semester</span>
               <select id="sem" type="text" class="m-input">
+                <option hidden><?php echo "$users_semester"; ?></option>
                 <option value="1st">1st Sem</option>
                 <option value="2nd">2nd Sem</option>
-
               </select>
-             </div>
+            </div>
           </div>
-       
         </div>
         <button class="submit mt-5" onclick="btnUpdate()">Save changes</button>
       </div>
@@ -126,46 +126,70 @@
   </div>
 
   <script>
-      function btnUpdate() {
-        var formData = new FormData();
-
-        var fullname = $('#fullname').val();
-        var college = $('#college').val();
-        var course = $('#course').val();
-        var year = $('#year').val();
-
-        formData.append("fullname", fullname);
-        formData.append("college", college);
-        formData.append("course", course);
-        formData.append("year", year);
-        formData.append("submit", '1');
-
-        $.ajax({
-            url:"includes/editprofile.inc.php",
-            method:"POST",
-            data: formData,
-            contentType: false,
-            cache: false,
-            processData: false,
-            beforeSend:function() {
-              //alert('uploading');
-            },
-            success:function(data) {
-              //alert('uploaded');
-
-              if(data == "empty") {
-                Swal.fire({
-                    icon: 'error',
-                    text: 'Fill empty field',
-                    confirmButtonColor: '#16a085',
-                });
-              }
-              else if (data == "success") {
-                window.location.href = 'profile.php';
-              }
-            }
-        });
+    function selectCollege() {
+      if($("#college").val() == "CAS") {
+        $("#course").html("");
       }
+      else if ($("#college").val() == "CBM") {
+        $("#course").html("");
+      }
+      else if ($("#college").val() == "CCSICT") {
+        $("#course").html("<option>BSIT</option><option>BSCS</option>");
+      }
+      else if ($("#college").val() == "CCJE") {
+        $("#course").html("");
+      }
+      else if ($("#college").val() == "SAS") {
+        $("#course").html("");
+      }
+    }
+
+    selectCollege();
+
+    $("#college").change(function() {
+      selectCollege();
+    });
+
+    function btnUpdate() {
+      var formData = new FormData();
+
+      var fullname = $('#fullname').val();
+      var college = $('#college').val();
+      var course = $('#course').val();
+      var year = $('#year').val();
+
+      formData.append("fullname", fullname);
+      formData.append("college", college);
+      formData.append("course", course);
+      formData.append("year", year);
+      formData.append("submit", '1');
+
+      $.ajax({
+          url:"includes/editprofile.inc.php",
+          method:"POST",
+          data: formData,
+          contentType: false,
+          cache: false,
+          processData: false,
+          beforeSend:function() {
+            //alert('uploading');
+          },
+          success:function(data) {
+            //alert('uploaded');
+
+            if(data == "empty") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Fill empty field',
+                  confirmButtonColor: '#16a085',
+              });
+            }
+            else if (data == "success") {
+              window.location.href = 'profile.php';
+            }
+          }
+      });
+    }
   </script>
 </body>
 </html>
