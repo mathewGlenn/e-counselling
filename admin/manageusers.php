@@ -134,7 +134,13 @@
                       <td>$name</td>
                       <td>$email</td>
                       <td>$role</td>
-                      <td><button class="btn btn-primary"><i class="fa-solid fa-edit"></i></button></td>
+                      <td>
+                      <a href='manageusersedit.php?id=$id'>
+                        <button class='btn btn-primary' style='width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;'>
+                          <i class='fa-solid fa-edit fa-sm' style='color: white; padding-left: 1px;'></i>
+                        </button>
+                      </a>
+                      </td>
                     </tr>
                     ";
                   }
@@ -170,86 +176,87 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      function btnSave() {
-      var formData = new FormData();
-      var name = $('#name').val();
-      var email = $('#email').val();
-      var role = $('#role').val();
-      var password = $('#password').val();
-      var confirmPassword = $('#confirmPassword').val();
+  <script>
+  function btnSave() {
+    var formData = new FormData();
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var role = $('#role').val();
+    var password = $('#password').val();
+    var confirmPassword = $('#confirmPassword').val();
 
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("role", role);
-      formData.append("password", password);
-      formData.append("confirmPassword", confirmPassword);
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("role", role);
+    formData.append("password", password);
+    formData.append("confirmPassword", confirmPassword);
 
-      formData.append("submit", '1');
+    formData.append("submit", '1');
 
-      $.ajax({
-        url:"includes/manageusers.inc.php",
-        method:"POST",
-        data: formData,
-        contentType: false,
-        cache: false,
-        processData: false,
-        beforeSend:function() {
-          //alert('uploading');
+    $.ajax({
+      url:"includes/manageusers.inc.php",
+      method:"POST",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend:function() {
+        //alert('uploading');
 
-          $('#btnSave').text('Loading...');
-          $('#btnSave').prop('disabled', true);
-        },
-        success:function(data) {
-          //alert('uploaded');
+        $('#btnSave').text('Loading...');
+        $('#btnSave').prop('disabled', true);
+      },
+      success:function(data) {
+        //alert('uploaded');
 
-          if(data == "empty") {
-            Swal.fire({
-                icon: 'error',
-                text: 'Fill empty field',
-                confirmButtonColor: '#16a085',
-            });
+        if(data == "empty") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Fill empty field',
+              confirmButtonColor: '#16a085',
+          });
 
-            $('#btnSave').text('Save');
-            $('#btnSave').prop('disabled', false);
-          }
-          else if(data == "email1") {
-            Swal.fire({
-                icon: 'error',
-                text: 'Invalid Email',
-                confirmButtonColor: '#16a085',
-            });
-
-            $('#btnSave').text('Save');
-            $('#btnSave').prop('disabled', false);
-          }
-          else if(data == "email2") {
-            Swal.fire({
-                icon: 'error',
-                text: 'Email already exist',
-                confirmButtonColor: '#16a085',
-            });
-
-            $('#btnSave').text('Save');
-            $('#btnSave').prop('disabled', false);
-          }
-          else if(data == "password") {
-            Swal.fire({
-                icon: 'error',
-                text: 'Password do not match',
-                confirmButtonColor: '#16a085',
-            });
-
-            $('#btnSave').text('Save');
-            $('#btnSave').prop('disabled', false);
-          }
-          else if (data == "success") {
-            window.location.href = 'manageusers.php';
-          }
+          $('#btnSave').text('Save');
+          $('#btnSave').prop('disabled', false);
         }
-      });
-    }
-    </script>
+        else if(data == "email1") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Invalid Email',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnSave').text('Save');
+          $('#btnSave').prop('disabled', false);
+        }
+        else if(data == "email2") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Email already exist',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnSave').text('Save');
+          $('#btnSave').prop('disabled', false);
+        }
+        else if(data == "password") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Password do not match',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnSave').text('Save');
+          $('#btnSave').prop('disabled', false);
+        }
+        else if (data == "success") {
+          window.location.href = 'manageusers.php';
+        }
+      }
+    });
+  }
+  </script>
 </body>
 </html>
