@@ -71,10 +71,11 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
-            <i class="fa-solid fa-user ic-inactive me-3"></i>
-            My Account
-          </div>
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2"
+          onclick="location.href='profile.php';">
+          <i class="fa-solid fa-user ic-inactive me-3"></i>
+          My Account
+        </div>
       </div>
     </div>
 
