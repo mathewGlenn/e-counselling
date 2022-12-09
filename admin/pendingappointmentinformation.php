@@ -109,7 +109,6 @@
 
       <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
         <div class="d-flex flex-column">
-
           <span class="info-name">Student ID</span>
           <span class="info-val"><?php echo "$users_student_id"; ?></span>
 
@@ -130,7 +129,6 @@
 
           <span class="info-name mt-3">Year</span>
           <span class="info-val"><?php echo "$users_year"; ?></span>
-          
         </div>
 
         <div class="d-flex flex-column p-4">

@@ -20,13 +20,13 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <?php 
+  <?php
   include "includes/db.inc.php";
   include "includes/loginverify.inc.php";
 
   //check session
   if (!isset($_SESSION['employee_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
 
   $id = $_GET['id'];
@@ -38,11 +38,18 @@
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $users_id = $row['id'];
+
+      $users_fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
       $users_email = $row['users_email'];
-      $users_fullname = "";
+      $users_phone = $row['users_phone'];
+      $users_age = $row['users_age'];
+
+      $users_student_id = $row['users_student_id'];
       $users_college = $row['users_college'];
       $users_course = $row['users_course'];
       $users_year = $row['users_year'];
+      $users_semester = $row['users_semester'];
+      
       $appointment_schedule = $row['appointment_schedule'];
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
@@ -91,26 +98,25 @@
         </div>
 
         <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
-            <i class="fa-solid fa-user ic-inactive me-3"></i>
-            My Account
-          </div>
+          <i class="fa-solid fa-user ic-inactive me-3"></i>
+          My Account
+        </div>
       </div>
     </div>
 
     <div class="main">
       <span class="page-title">Accepted appointment information</span>
 
-      <div class="d-flex flex-row justify-content-around mt-4">
-      <div class="d-flex flex-column p-4">
-
-      <span class="info-name">Student</span>
-          <span class="info-val"><?php echo "$users_fullname"; ?></span>
+      <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
+        <div class="d-flex flex-column">
+        <span class="info-name">Student ID</span>
+          <span class="info-val"><?php echo "$users_student_id"; ?></span>
 
           <span class="info-name mt-3">Name</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
           <span class="info-name mt-3">Phone Number</span>
-          <span class="info-val"><?php echo "$appointment_case"; ?></span>
+          <span class="info-val"><?php echo "$users_phone"; ?></span>
 
           <span class="info-name mt-3">Email</span>
           <span class="info-val"><?php echo "$users_email"; ?></span>
@@ -141,7 +147,7 @@
 
         <div class="d-flex flex-column p-4">
           <span class="info-name">Note from the appointer</span>
-          <textarea disabled class="mt-2 p-2" style=" height: 100%; width: 260px; background: #efefef; border-radius: 10px;"><?php echo "$appointment_additional_information";?></textarea>
+          <textarea disabled class="mt-2 p-2" style=" height: 100%; width: 260px; background: #efefef; border-radius: 10px;"><?php echo "$appointment_additional_information"; ?></textarea>
         </div>
       </div>
 
@@ -167,7 +173,7 @@
       </div>
 
       <div class="mt-2">
-        <button class="btn btn-success" onclick="btnComplete()">Complete meeting</button>
+        <button id="btnComplete" style="width: 160px;" class="btn btn-success" onclick="btnComplete()">Complete meeting</button>
       </div>
     </div>
   </div>
@@ -187,93 +193,96 @@
     ans2.innerHTML = "<?php echo "$appointment_question_answer_2"; ?>"
     ans3.innerHTML = "<?php echo "$appointment_question_answer_3"; ?>"
 
-    if(chosenCase == "Family") {
+    if (chosenCase == "Family") {
       question1.innerHTML = "Describe your Family issue.";
       question2.innerHTML = "How did your family begin to experience this problem?"
       question3.innerHTML = "How did this issue affect you?"
-    } 
-    else if(chosenCase == "Girl-Boy Relationship") {
+    }
+    else if (chosenCase == "Girl-Boy Relationship") {
       question1.innerHTML = "Describe your issue with your relationship."
       question2.innerHTML = "How often do you experience these issues?"
       question3.innerHTML = "How do each of you feel about this problem?"
     }
-    else if(chosenCase == "Personal") {
+    else if (chosenCase == "Personal") {
       question1.innerHTML = "Describe your Personal experience of the issue."
       question2.innerHTML = "How did this issue affected your lifestyle?"
       question3.innerHTML = "How do each of you feel about this problem?"
     }
-    else if(chosenCase == "Academic") {
+    else if (chosenCase == "Academic") {
       question1.innerHTML = "Describe the issue on your academic."
       question2.innerHTML = "Is there anyone responsible for this issue?"
       question3.innerHTML = "How did this problem affected your study?"
     }
-    else if(chosenCase == "Interpersonal") {
+    else if (chosenCase == "Interpersonal") {
       question1.innerHTML = "Describe your Interpersonal issues."
       question2.innerHTML = "How did you get this issues?"
       question3.innerHTML = "How much did this issue affected you?"
     }
-    else if(chosenCase == "Gender Sensitivity Issue") {
+    else if (chosenCase == "Gender Sensitivity Issue") {
       question1.innerHTML = "Describe the issue."
       question2.innerHTML = "How did this issue affected your environment?"
       question3.innerHTML = "How do you feel about it?"
     }
-    else if(chosenCase == "Cultural Differences") {
+    else if (chosenCase == "Cultural Differences") {
       question1.innerHTML = "Describe the issue."
       question2.innerHTML = "Do you often get this problem?"
       question3.innerHTML = "How do you feel about it?"
     }
-    else if(chosenCase == "Career concern") {
+    else if (chosenCase == "Career concern") {
       question1.innerHTML = "Describe your issue."
       question2.innerHTML = "How did you get this issue?"
       question3.innerHTML = "What is your goal for this session?"
     }
-    
+
     function btnComplete() {
       Swal.fire({
         icon: 'warning',
         text: 'Are you sure you want to save this appointment as complete?',
         confirmButtonColor: '#34495e',
-        confirmButtonText:`Yes`,
+        confirmButtonText: `Yes`,
         cancelButtonColor: '#16a085',
-        cancelButtonText:`No`,
+        cancelButtonText: `No`,
         showCancelButton: true,
         reverseButtons: true,
         focusCancel: true
-        }).then((result) => {
-          if (result.value) {
-            var formData = new FormData();
-            var id = "<?php echo "$users_id"; ?>";
-            var notes = $('#notes').val();
+      }).then((result) => {
+        if (result.value) {
+          var formData = new FormData();
+          var id = "<?php echo "$users_id"; ?>";
+          var notes = $('#notes').val();
 
-            formData.append("id", id);
-            formData.append("notes", notes);
-            formData.append("submit", '1');
+          formData.append("id", id);
+          formData.append("notes", notes);
+          formData.append("submit", '1');
 
-            $.ajax({
-                url:"includes/acceptedappointmentinformation.inc.php",
-                method:"POST",
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData: false,
-                beforeSend:function() {
-                  //alert('uploading');
-                },
-                success:function(data) {
-                  //alert('uploaded');
+          $.ajax({
+            url: "includes/acceptedappointmentinformation.inc.php",
+            method: "POST",
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+              //alert('uploading');
 
-                  if (data == "success") {
-                    Swal.fire({
-                        icon: 'success',
-                        text: 'Appointment has been completed',
-                        confirmButtonColor: '#16a085',
-                    }).then(function() {
-                      window.location.href = 'acceptedappointments.php';
-                    });
-                  }
-                }
-            });
- 	        }
+              $('#btnComplete').text('Loading...');
+              $('#btnComplete').prop('disabled', true);
+            },
+            success: function(data) {
+              //alert('uploaded');
+
+              if (data == "success") {
+                Swal.fire({
+                  icon: 'success',
+                  text: 'Appointment has been completed',
+                  confirmButtonColor: '#16a085',
+                }).then(function() {
+                  window.location.href = 'acceptedappointments.php';
+                });
+              }
+            }
+          });
+        }
       });
     }
   </script>

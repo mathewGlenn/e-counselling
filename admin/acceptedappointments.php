@@ -99,7 +99,7 @@
                 $count++;
   
                 $id = $row['id'];
-                $fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
+                $fullname = $row['users_firstname'] . " " . $row['users_lastname'];
                 $email = $row['users_email'];
                 $schedule = $row['appointment_schedule'];
                 $arrangement = $row['appointment_arrangement'];
