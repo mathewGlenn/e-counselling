@@ -91,7 +91,7 @@
     <div class="main">
       <div class="d-flex justify-content-between flex-row">
         <span class="page-title">My Account</span>
-        <button class="btn btn-primary px-4">Edit</button>
+        <button class="btn btn-primary px-4" onclick="location.href='myaccountedit.php';">Edit</button>
       </div>
 
       <div class="d-flex flex-row">

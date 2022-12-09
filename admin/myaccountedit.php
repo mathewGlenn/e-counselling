@@ -26,7 +26,7 @@
 
   //check session
   if (!isset($_SESSION['employee_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
   ?>
 
@@ -65,16 +65,26 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
-            <i class="fa-solid fa-users ic-inactive me-3"></i>
+        <?php
+        if ($employee_role == "Admin") {
+          echo "
+          <div class='sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2' onclick='btnManageUser()'>
+            <i class='fa-solid fa-users ic-inactive me-3'></i>
             Manage Users
           </div>
+          ";
+        }
+        ?>
+        <script>
+          function btnManageUser() {
+            location.href = 'manageusers.php';
+          }
+        </script>
 
-          <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
-            <i class="fa-solid fa-user ic-active me-3"></i>
-            My Account
-          </div>
-
+        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
+          <i class="fa-solid fa-user ic-active me-3"></i>
+          My Account
+        </div>
       </div>
     </div>
 
@@ -88,30 +98,93 @@
           <span class="title-2"></span>
 
           <span class="m-label mt-3">Name</span>
-          <input class="m-input w-100" id="name"></input>
+          <input class="m-input w-100" id="name" value="<?php echo $employee_name; ?>">
 
           <span class="m-label mt-3">Email</span>
-          <input class="m-input w-100" id="email"></input>
-          
+          <input class="m-input w-100" id="email" value="<?php echo $employee_email; ?>" disabled>
+
           <span class="m-label mt-3">Current Password</span>
-          <input type="password" class="m-input w-100" id="timePicker">
+          <input type="password" class="m-input w-100" id="currentpassword">
 
           <span class="m-label mt-3">New Password</span>
-          <input type="password" class="m-input w-100" id="timePicker">
+          <input type="password" class="m-input w-100" id="newpassword">
 
           <span class="m-label mt-3">Confirm Password</span>
-          <input type="password" class="m-input w-100" id="timePicker">
-          
+          <input type="password" class="m-input w-100" id="confirmpassword">
 
-          <button type="button" class="btn btn-primary mt-4" onclick="btnSave()">Save</button>
+          <button id="btnUpdate" type="button" class="btn btn-primary mt-4" onclick="btnUpdate()">Save changes</button>
         </div>
       </div>
+    </div>
   </div>
 
   <script>
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
+  function btnUpdate() {
+    var formData = new FormData();
+    var name = $('#name').val();
+    var currentpassword = $('#currentpassword').val();
+    var newpassword = $('#newpassword').val();
+    var confirmpassword = $('#confirmpassword').val();
+
+    formData.append("name", name);
+    formData.append("currentpassword", currentpassword);
+    formData.append("newpassword", newpassword);
+    formData.append("confirmpassword", confirmpassword);
+
+    formData.append("submit", '1');
+
+    $.ajax({
+      url:"includes/myaccountedit.inc.php",
+      method:"POST",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend:function() {
+        //alert('uploading');
+
+        $('#btnUpdate').text('Loading...');
+        $('#btnUpdate').prop('disabled', true);
+      },
+      success:function(data) {
+        //alert('uploaded');
+
+        if(data == "empty") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Fill empty field',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnUpdate').text('Save changes');
+          $('#btnUpdate').prop('disabled', false);
+        }
+        else if (data == "password1") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Wrong current password',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnUpdate').text('Save changes');
+          $('#btnUpdate').prop('disabled', false);
+        }
+        else if(data == "password2") {
+          Swal.fire({
+              icon: 'error',
+              text: 'Password do not match',
+              confirmButtonColor: '#16a085',
+          });
+
+          $('#btnUpdate').text('Save changes');
+          $('#btnUpdate').prop('disabled', false);
+        }
+        else if (data == "success") {
+          window.location.href = 'myaccount.php';
+        }
+      }
     });
+  }
   </script>
 </body>
 </html>
