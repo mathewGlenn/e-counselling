@@ -69,13 +69,11 @@
           <i class="fa-solid fa-users ic-active me-3"></i>
           Manage Users
         </div>
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
+
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
           <i class="fa-solid fa-user ic-inactive me-3"></i>
           My Account
         </div>
-
-        
-
       </div>
     </div>
 
@@ -93,22 +91,16 @@
             </tr>
           </thead>
           <tbody id="tbody">
-                <tr style='cursor: pointer;' class='clickable-row' data-href='completedmeetinginformation.php?id=$id'>
-                  <th scope='row'>$</th>
-                  <td>$</td>
-                  <td>$</td>
-                  <td>$</td>
-                  <td>$</td>
-                </tr>
+            <tr style='cursor: pointer;' class='clickable-row'>
+              <th scope='row'></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
       </div>
   </div>
-
-  <script>
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
-    });
-  </script>
 </body>
 </html>
