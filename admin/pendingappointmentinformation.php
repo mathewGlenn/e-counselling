@@ -167,10 +167,10 @@
 
       <div class="mt-5 d-flex flex-column justify-content-center align-items-center">
         <div>
-          <button id="btnAccept" class="btn btn-primary" onclick="btnAccept()">Accept Appointment</button>
+          <button id="btnAccept" style="width: 180px;" class="btn btn-primary" onclick="btnAccept()">Accept Appointment</button>
         </div>
         <div class="mt-2">
-          <button id="btnCancel"  class="btn btn-secondary" onclick="btnCancel()">Cancel Appointment</button>
+          <button id="btnCancel" style="width: 180px;" class="btn btn-secondary" onclick="btnCancel()">Cancel Appointment</button>
         </div>
       </div>
     </div>
@@ -292,6 +292,7 @@
                   beforeSend:function() {
                     //alert('uploading');
 
+                    $('#btnAccept').text('Loading...');
                     $('#btnAccept').prop('disabled', true);
                     $('#btnCancel').prop('disabled', true);
                   },
@@ -326,6 +327,7 @@
                 beforeSend:function() {
                   //alert('uploading');
 
+                  $('#btnAccept').text('Loading...');
                   $('#btnAccept').prop('disabled', true);
                   $('#btnCancel').prop('disabled', true);
                 },
@@ -400,6 +402,7 @@
                 beforeSend:function() {
                   //alert('uploading');
 
+                  $('#btnCancel').text('Loading...');
                   $('#btnAccept').prop('disabled', true);
                   $('#btnCancel').prop('disabled', true);
                 },
