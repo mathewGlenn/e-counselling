@@ -28,6 +28,10 @@
   if (!isset($_SESSION['employee_id'])) {
     header("Location: login.php");
   }
+
+  if($employee_role != "Admin") {
+    header("Location: login.php");
+  }
   ?>
 
   <div class="w-100">
@@ -68,8 +72,8 @@
         <?php 
         if($employee_role == "Admin") {
           echo "
-          <div class='sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2' onclick='btnManageUser()'>
-            <i class='fa-solid fa-users ic-inactive me-3'></i>
+          <div class='sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2' onclick='btnManageUser()'>
+            <i class='fa-solid fa-users ic-active me-3'></i>
             Manage Users
           </div>
           ";
