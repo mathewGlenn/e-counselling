@@ -63,6 +63,7 @@ INSERT INTO tblemployee (employee_name, employee_email, employee_role, employee_
 CREATE TABLE tbllog (
     id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     log_date VARCHAR(250) NOT NULL,
+    log_time VARCHAR(250) NOT NULL,
     log_name VARCHAR(250) NOT NULL,
     log_email VARCHAR(250) NOT NULL,
     log_role VARCHAR(250) NOT NULL
