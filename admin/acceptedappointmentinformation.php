@@ -100,8 +100,8 @@
     <div class="main">
       <span class="page-title">Accepted appointment information</span>
 
-      <!-- <div class="d-flex flex-row justify-content-around mt-4">
-      <div class="d-flex flex-column p-4"> -->
+      <div class="d-flex flex-row justify-content-around mt-4">
+      <div class="d-flex flex-column p-4">
 
       <span class="info-name">Student</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
