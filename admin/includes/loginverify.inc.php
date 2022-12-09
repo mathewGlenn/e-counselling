@@ -11,6 +11,10 @@
     if ($resultCheck > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $employee_id = $row['id'];
+            $employee_name = $row['employee_name'];
+            $employee_email = $row['employee_email'];
+            $employee_role = $row['employee_role'];
+            $employee_password = $row['employee_password'];
         }
     }
     else {

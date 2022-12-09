@@ -26,7 +26,7 @@
 
   //check session
   if (!isset($_SESSION['employee_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
   ?>
 
@@ -79,8 +79,8 @@
 
     <div class="main">
       <div class="d-flex flex-row ">
-        <span class="page-title">Admin Users</span>
-        <button class="btn btn-primary ms-5">Login history</button>
+        <span class="page-title">Manage Users</span>
+        <button onclick="window.location.href = 'loginhistory.php';" class="btn btn-primary ms-5">Login history</button>
       </div>
 
       <div class="d-flex flex-row">
@@ -95,12 +95,35 @@
               </tr>
             </thead>
             <tbody id="tbody">
-                  <tr>
-                    <th scope='row'>$</th>
-                    <td>$</td>
-                    <td>$</td>
-                    <td>$</td>
-                  </tr>
+              <?php
+              $sql = "SELECT * FROM tblemployee;";
+              $result = mysqli_query($conn, $sql);
+              $resultCheck = mysqli_num_rows($result);
+
+              $count = 0;
+          
+              if ($resultCheck > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $id = $row['id'];
+                  $name = $row['employee_name'];
+                  $email = $row['employee_email'];
+                  $role = $row['employee_role'];
+
+                  if($employee_id != $id) {
+                    $count++;
+                    
+                    echo "
+                    <tr>
+                      <th scope='row'>$count</th>
+                      <td>$name</td>
+                      <td>$email</td>
+                      <td>$role</td>
+                    </tr>
+                    ";
+                  }
+                }
+              }
+              ?>
             </tbody>
           </table>
         </div>
@@ -114,7 +137,6 @@
           <span class="m-label mt-3">Email</span>
           <input class="m-input w-100" id="email"></input>
 
-          
           <span class="m-label mt-3">Role</span>
           <select id="role" type="text" class="m-input w-100">
             <option value="" hidden>--Select Role--</option>
@@ -123,21 +145,94 @@
           </select>
 
           <span class="m-label mt-3">Password</span>
-          <input type="password" class="m-input w-100" id="timePicker">
+          <input type="password" class="m-input w-100" id="password">
 
           <span class="m-label mt-3">Confirm Password</span>
-          <input type="password" class="m-input w-100" id="timePicker">
-          
-
-          <button type="button" class="btn btn-primary mt-4" onclick="btnSave()">Add</button>
+          <input type="password" class="m-input w-100" id="confirmPassword">
+          <button id="btnSave" type="button" class="btn btn-primary mt-4" onclick="btnSave()">Save</button>
         </div>
       </div>
-  </div>
+    </div>
 
-  <script>
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
-    });
-  </script>
+    <script>
+      function btnSave() {
+      var formData = new FormData();
+      var name = $('#name').val();
+      var email = $('#email').val();
+      var role = $('#role').val();
+      var password = $('#password').val();
+      var confirmPassword = $('#confirmPassword').val();
+
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("role", role);
+      formData.append("password", password);
+      formData.append("confirmPassword", confirmPassword);
+
+      formData.append("submit", '1');
+
+      $.ajax({
+        url:"includes/manageusers.inc.php",
+        method:"POST",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend:function() {
+          //alert('uploading');
+
+          $('#btnSave').text('Loading...');
+          $('#btnSave').prop('disabled', true);
+        },
+        success:function(data) {
+          //alert('uploaded');
+
+          if(data == "empty") {
+            Swal.fire({
+                icon: 'error',
+                text: 'Fill empty field',
+                confirmButtonColor: '#16a085',
+            });
+
+            $('#btnSave').text('Save');
+            $('#btnSave').prop('disabled', false);
+          }
+          else if(data == "email1") {
+            Swal.fire({
+                icon: 'error',
+                text: 'Invalid Email',
+                confirmButtonColor: '#16a085',
+            });
+
+            $('#btnSave').text('Save');
+            $('#btnSave').prop('disabled', false);
+          }
+          else if(data == "email2") {
+            Swal.fire({
+                icon: 'error',
+                text: 'Email already exist',
+                confirmButtonColor: '#16a085',
+            });
+
+            $('#btnSave').text('Save');
+            $('#btnSave').prop('disabled', false);
+          }
+          else if(data == "password") {
+            Swal.fire({
+                icon: 'error',
+                text: 'Password do not match',
+                confirmButtonColor: '#16a085',
+            });
+
+            $('#btnSave').text('Save');
+            $('#btnSave').prop('disabled', false);
+          }
+          else if (data == "success") {
+            window.location.href = 'manageusers.php';
+          }
+        }
+      });
+    }
+    </script>
 </body>
 </html>
