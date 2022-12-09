@@ -59,3 +59,11 @@ CREATE TABLE tblemployee (
 );
 
 INSERT INTO tblemployee (employee_name, employee_email, employee_role, employee_password) VALUES ('', 'admin2022@gmail.com', 'Admin', '$2y$10$f7q1ZF3WPKu8sB32r1.zGuIcpWfs88M5ct0At.Tqm3UtOWxMEEHbe');
+
+CREATE TABLE tbllog (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    log_date VARCHAR(250) NOT NULL,
+    log_name VARCHAR(250) NOT NULL,
+    log_email VARCHAR(250) NOT NULL,
+    log_role VARCHAR(250) NOT NULL
+);
