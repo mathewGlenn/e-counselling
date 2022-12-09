@@ -122,7 +122,7 @@
     </div>
 
     <div class="main">
-      <span class="page-title">Completed appointment information</span>
+      <span class="page-title">Completed meeting information</span>
 
       <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
         <div class="d-flex flex-column">

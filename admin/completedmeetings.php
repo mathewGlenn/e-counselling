@@ -91,7 +91,7 @@
     </div>
 
     <div class="main">
-      <span class="page-title">Completed meetings</span>
+      <span class="page-title">List of completed meetings</span>
       <div class="d-flex flex-row justify-content-end mt-5">
         <button class="btn btn-primary me-3"><i class="fa-solid fa-print text-white me-2"></i>Print</button>
         <button onclick="ExportToExcel()" class="btn btn-success"><i class="fa-solid fa-table text-white me-2"></i>Excel</button>

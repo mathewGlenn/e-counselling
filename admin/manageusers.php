@@ -107,6 +107,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody id="tbody">
@@ -133,6 +134,7 @@
                       <td>$name</td>
                       <td>$email</td>
                       <td>$role</td>
+                      <td><button class="btn btn-primary"><i class="fa-solid fa-edit"></i></button></td>
                     </tr>
                     ";
                   }
