@@ -26,7 +26,7 @@
 
   //check session
   if (!isset($_SESSION['employee_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
   ?>
 
@@ -65,10 +65,21 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
-          <i class="fa-solid fa-users ic-inactive me-3"></i>
-          Manage Users
-        </div>
+        <?php 
+        if($employee_role == "Admin") {
+          echo "
+          <div class='sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2' onclick='btnManageUser()'>
+            <i class='fa-solid fa-users ic-inactive me-3'></i>
+            Manage Users
+          </div>
+          ";
+        }
+        ?>
+        <script>
+          function btnManageUser() {
+            location.href='manageusers.php';
+          }
+        </script>
 
         <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
           <i class="fa-solid fa-user ic-active me-3"></i>
@@ -82,28 +93,22 @@
         <span class="page-title">My Account</span>
         <button class="btn btn-primary px-4">Edit</button>
       </div>
-      <div class="d-flex flex-row">
 
+      <div class="d-flex flex-row">
         <div class="w-50 ms-auto me-auto mt-5 card p-5">
           <span class="title-2"></span>
 
           <span class="m-label mt-3">Name</span>
-          <span class="h5">Juan DelaCruz</span>
+          <span class="h5"><?php echo $employee_name; ?></span>
 
           <span class="m-label mt-3">Email</span>
-          <span class="h5">Juandeldela@gmail.cucumber</span>
+          <span class="h5"><?php echo $employee_email; ?></span>
 
           <span class="m-label mt-3">Role</span>
-          <span class="h5">Admin</span>
-
+          <span class="h5"><?php echo $employee_role; ?></span>
         </div>
       </div>
+    </div>
   </div>
-
-  <script>
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
-    });
-  </script>
 </body>
 </html>

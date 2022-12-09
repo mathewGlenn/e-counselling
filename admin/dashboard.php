@@ -33,7 +33,7 @@
 
   //check session
   if (!isset($_SESSION['employee_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
   ?>
 
@@ -72,10 +72,21 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
-          <i class="fa-solid fa-users ic-inactive me-3"></i>
-          Manage Users
-        </div>
+        <?php 
+        if($employee_role == "Admin") {
+          echo "
+          <div class='sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2' onclick='btnManageUser()'>
+            <i class='fa-solid fa-users ic-inactive me-3'></i>
+            Manage Users
+          </div>
+          ";
+        }
+        ?>
+        <script>
+          function btnManageUser() {
+            location.href='manageusers.php';
+          }
+        </script>
 
         <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
           <i class="fa-solid fa-user ic-inactive me-3"></i>
