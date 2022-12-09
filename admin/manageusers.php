@@ -96,7 +96,7 @@
             </thead>
             <tbody id="tbody">
               <?php
-              $sql = "SELECT * FROM tblemployee;";
+              $sql = "SELECT * FROM tblemployee ORDER BY id DESC;";
               $result = mysqli_query($conn, $sql);
               $resultCheck = mysqli_num_rows($result);
 

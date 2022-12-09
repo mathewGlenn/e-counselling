@@ -85,19 +85,43 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Login Date</th>
+              <th scope="col">Login Time</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Role</th>
             </tr>
           </thead>
           <tbody id="tbody">
-            <tr style='cursor: pointer;' class='clickable-row'>
-              <th scope='row'></th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            <?php
+            $sql = "SELECT * FROM tbllog ORDER BY id DESC;";
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+
+            $count = 0;
+        
+            if ($resultCheck > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $id = $row['id'];
+                $log_date = $row['log_date'];
+                $log_time = $row['log_time'];
+                $log_name = $row['log_name'];
+                $log_email = $row['log_email'];
+                $log_role = $row['log_role'];
+
+                $count++;
+                  
+                echo "
+                <tr>
+                  <th scope='row'>$log_date</th>
+                  <td>$log_time</td>
+                  <td>$log_name</td>
+                  <td>$log_email</td>
+                  <td>$log_role</td>
+                </tr>
+                ";
+              }
+            }
+            ?>
           </tbody>
         </table>
       </div>
