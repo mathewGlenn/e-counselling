@@ -47,40 +47,40 @@
       </div>
 
       <div class="d-flex mt-5 flex-column align-items-center w-100">
-        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3"
-          onclick="location.href='dashboard.php';">
+        <div class="sidebar-btn-active d-flex flex-row justify-content-start align-items-center px-3" onclick="location.href='dashboard.php';">
           <i class="fa-solid fa-chart-area ic-active me-3"></i>
           Dashboard
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2"
-          onclick="location.href='pendingappointments.php';">
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='pendingappointments.php';">
           <i class="fa-solid fa-hourglass-start ic-inactive me-3"></i>
           Pending appointments
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2"
-          onclick="location.href='acceptedappointments.php';">
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='acceptedappointments.php';">
           <i class="fa-solid fa-address-card ic-inactive me-3"></i>
           Accepted appointments
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2"
-          onclick="location.href='completedmeetings.php';">
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='completedmeetings.php';">
           <i class="fa-solid fa-handshake ic-inactive me-3"></i>
           Completed meetings
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2"
-          onclick="location.href='appointmentdates.php';">
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='appointmentdates.php';">
           <i class="fa-solid fa-calendar-check ic-inactive me-3"></i>
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
-            <i class="fa-solid fa-user ic-inactive me-3"></i>
-            My Account
-          </div>
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
+          <i class="fa-solid fa-users ic-inactive me-3"></i>
+          Manage Users
+        </div>
+
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
+          <i class="fa-solid fa-user ic-inactive me-3"></i>
+          My Account
+        </div>
       </div>
     </div>
 

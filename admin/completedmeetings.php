@@ -67,7 +67,12 @@
           Appointment dates
         </div>
 
-        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='manageusers.php';">
+          <i class="fa-solid fa-users ic-inactive me-3"></i>
+          Manage Users
+        </div>
+
+        <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='myaccount.php';">
           <i class="fa-solid fa-user ic-inactive me-3"></i>
           My Account
         </div>
@@ -75,7 +80,7 @@
     </div>
 
     <div class="main">
-      <span class="page-title">Completed Meetings</span>
+      <span class="page-title">Completed meetings</span>
       <div class="d-flex flex-row justify-content-end mt-5">
         <button class="btn btn-primary me-3"><i class="fa-solid fa-print text-white me-2"></i>Print</button>
         <button onclick="ExportToExcel()" class="btn btn-success"><i class="fa-solid fa-table text-white me-2"></i>Excel</button>
