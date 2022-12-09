@@ -9,6 +9,11 @@
             echo "empty";
         }
         else {
+            //convert date
+            date_default_timezone_set('Asia/Manila');
+            $date = strtotime($datePicker);
+            $datePicker = date('Y-m-d', $date);
+
             //created a template 
             $sql = "INSERT INTO tblschedule (schedule_date, schedule_time) VALUES (?, ?);";
             //create a prepared statement
