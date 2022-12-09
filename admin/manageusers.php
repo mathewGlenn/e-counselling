@@ -78,9 +78,7 @@
     </div>
 
     <div class="main">
-
       <div class="d-flex flex-row ">
-        
         <span class="page-title">Admin Users</span>
         <button class="btn btn-primary ms-5">Login history</button>
       </div>
@@ -117,9 +115,9 @@
           <input class="m-input w-100" id="email"></input>
 
           
-          <span class="m-label mt-3">User Role</span>
+          <span class="m-label mt-3">Role</span>
           <select id="role" type="text" class="m-input w-100">
-            <option hidden></option>
+            <option value="" hidden>--Select Role--</option>
             <option>Admin</option>
             <option>Counsellor</option>
           </select>

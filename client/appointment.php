@@ -93,14 +93,14 @@
 
           <span class="m-label mt-3">Meeting arrangement <strong class="required">*</strong></span>
           <select id="arrangement" type="text" class="m-input">
-            <option hidden></option>
+            <option value="" hidden></option>
             <option>Online</option>
             <option>Face-to-face</option>
           </select>
 
           <span class="m-label mt-3 type" id="l-type">Type of counselling <strong class="required">*</strong></span>
           <select type="text" name="types" id="types" class="m-input type">
-            <option hidden></option>
+            <option value="" hidden></option>
             <option value="1">Individual</option>
             <option value="2">Group</option>
             <option value="3">Follow-up</option>
@@ -109,7 +109,7 @@
 
           <span class="m-label mt-3 case" id="l-case">Case <strong class="required">*</strong></span>
           <select type="text" name="cases" class="m-input case" id="cases">
-            <option hidden></option>
+            <option value="" hidden></option>
             <option value="1">Family</option>
             <option value="2">Girl-Boy Relationship</option>
             <option value="3">Personal</option>
