@@ -38,11 +38,18 @@
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $users_id = $row['id'];
+
+      $users_fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
       $users_email = $row['users_email'];
-      $users_fullname = $row['users_fullname'];
+      $users_phone = $row['users_phone'];
+      $users_age = $row['users_age'];
+
+      $users_student_id = $row['users_student_id'];
       $users_college = $row['users_college'];
       $users_course = $row['users_course'];
       $users_year = $row['users_year'];
+      $users_semester = $row['users_semester'];
+      
       $appointment_schedule = $row['appointment_schedule'];
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
@@ -96,19 +103,16 @@
     <div class="main">
       <span class="page-title">Completed appointment information</span>
 
-      <!-- <div class="d-flex flex-row justify-content-around mt-4">
-      <div class="d-flex flex-column p-4"> -->
-
       <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
         <div class="d-flex flex-column">
-        <span class="info-name">Student</span>
-          <span class="info-val"><?php echo "$users_fullname"; ?></span>
+          <span class="info-name">Student ID</span>
+          <span class="info-val"><?php echo "$users_student_id"; ?></span>
 
           <span class="info-name mt-3">Name</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
           <span class="info-name mt-3">Phone Number</span>
-          <span class="info-val"><?php echo "$appointment_case"; ?></span>
+          <span class="info-val"><?php echo "$users_phone"; ?></span>
 
           <span class="info-name mt-3">Email</span>
           <span class="info-val"><?php echo "$users_email"; ?></span>
@@ -162,11 +166,6 @@
       <div class="d-flex flex-column py-2">
         <textarea disabled class="mt-2 p-2" style="height: 150px; width: 100%; background: #efefef; border-radius: 10px;"><?php echo "$appointment_meeting_notes";?></textarea>
       </div>
-
-      <div class="sidebar-btn-inactive d-flex flex-row justify-content-start align-items-center px-3 mt-2" onclick="location.href='profile.php';">
-            <i class="fa-solid fa-user ic-inactive me-3"></i>
-            My Account
-          </div>
     </div>
   </div>
 
