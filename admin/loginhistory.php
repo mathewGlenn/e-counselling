@@ -112,7 +112,8 @@
                   
                 echo "
                 <tr>
-                  <th scope='row'>$log_date</th>
+                  <th scope='row'>$count</th>
+                  <td>$log_date</td>
                   <td>$log_time</td>
                   <td>$log_name</td>
                   <td>$log_email</td>

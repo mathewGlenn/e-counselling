@@ -58,7 +58,7 @@ CREATE TABLE tblemployee (
     employee_password LONGTEXT NOT NULL
 );
 
-INSERT INTO tblemployee (employee_name, employee_email, employee_role, employee_password) VALUES ('', 'admin2022@gmail.com', 'Admin', '$2y$10$f7q1ZF3WPKu8sB32r1.zGuIcpWfs88M5ct0At.Tqm3UtOWxMEEHbe');
+INSERT INTO tblemployee (employee_name, employee_email, employee_role, employee_password) VALUES ('Welcome', 'admin2022@gmail.com', 'Admin', '$2y$10$f7q1ZF3WPKu8sB32r1.zGuIcpWfs88M5ct0At.Tqm3UtOWxMEEHbe');
 
 CREATE TABLE tbllog (
     id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,

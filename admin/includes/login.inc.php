@@ -29,6 +29,7 @@
                 if($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
+
                         $password = password_verify($password, $row['employee_password']);
 
                         $plaintext = $id;
@@ -39,6 +40,19 @@
                             session_start();
                             //create session
                             $_SESSION['employee_id'] = $id;
+
+                            //add login history
+                            date_default_timezone_set('Asia/Manila');
+                            $date = date('Y-m-d');
+                            $time = date('Y-m-d H:i:s');
+                            $time = date('h:i A', strtotime($time));
+
+                            $employee_name = $row['employee_name'];
+                            $employee_email = $row['employee_email'];
+                            $employee_role = $row['employee_role'];
+
+                            $sql = "INSERT INTO tbllog (log_date, log_time, log_name, log_email, log_role) VALUES ('$date', '$time', '$employee_name', '$employee_email', '$employee_role');";
+                            mysqli_query($conn, $sql);
         
                             echo "success";
                         }
