@@ -120,9 +120,6 @@
             <option value="8">Career concern</option>
           </select>
 
-          <span class="m-label mt-3">Additional information</span>
-          <input id="additional" type="text" class="m-input">
-
           <span class="m-label mt-3">Follow-up questions <strong class="required">*</strong></span>
 
           <span class="is-2 mt-1 text-dark" id="q1"></span>
@@ -205,7 +202,6 @@
       var arrangement = $("#arrangement").val();
       var counselling = $("#types option:selected").text();
       var cases = $("#cases option:selected").text();
-      var additional = $("#additional").val();
 
       var question1 = $("#inQ1").val();
       var question2 = $("#inQ2").val();
@@ -217,7 +213,6 @@
       formData.append("arrangement", arrangement);
       formData.append("counselling", counselling);
       formData.append("cases", cases);
-      formData.append("additional", additional);
       formData.append("question1", question1);
       formData.append("question2", question2);
       formData.append("question3", question3);

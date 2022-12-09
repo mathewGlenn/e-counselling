@@ -24,7 +24,6 @@
         $arrangement = $_POST['arrangement'];
         $counselling = $_POST['counselling'];
         $cases = $_POST['cases'];
-        $additional = $_POST['additional'];
         $question1 = $_POST['question1'];
         $question2 = $_POST['question2'];
         $question3 = $_POST['question3'];
@@ -42,7 +41,7 @@
             }
             else {
                 //created a template 
-                $sql = "INSERT INTO tblappointment (users_firstname, users_lastname, users_email, users_phone, users_age, users_student_id, users_college, users_course, users_year, users_semester, appointment_schedule, appointment_arrangement, appointment_counselling, appointment_case, appointment_additional_information, appointment_question_answer_1, appointment_question_answer_2, appointment_question_answer_3, appointment_status, appointment_schedule_date_format) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                $sql = "INSERT INTO tblappointment (users_firstname, users_lastname, users_email, users_phone, users_age, users_student_id, users_college, users_course, users_year, users_semester, appointment_schedule, appointment_arrangement, appointment_counselling, appointment_case, appointment_question_answer_1, appointment_question_answer_2, appointment_question_answer_3, appointment_status, appointment_schedule_date_format) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
                 //create a prepared statement
                 $stmt = mysqli_stmt_init($conn);
                 //prepare the prepared statement
@@ -51,7 +50,7 @@
                 }
                 else {
                     //bind parameters to the placeholder
-                    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssss", $users_firstname, $users_lastname, $users_email, $users_phone, $users_age, $users_student_id, $users_college, $users_course, $users_year, $users_semester, $scheduleText, $arrangement, $counselling, $cases, $additional, $question1, $question2, $question3, $status, $sheduledateformat);
+                    mysqli_stmt_bind_param($stmt, "sssssssssssssssssss", $users_firstname, $users_lastname, $users_email, $users_phone, $users_age, $users_student_id, $users_college, $users_course, $users_year, $users_semester, $scheduleText, $arrangement, $counselling, $cases, $question1, $question2, $question3, $status, $sheduledateformat);
                     //run parameters inside database
                     mysqli_stmt_execute($stmt);
 
