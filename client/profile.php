@@ -67,7 +67,7 @@
 
           <div class="d-flex flex-column mt-5">
             <span class="info-title">Name</span>
-            <span class="info-value"><?php echo "$users_fullname"; ?></span>
+            <span class="info-value"><?php echo "$users_firstname $users_lastname"; ?></span>
 
             <span class="info-title mt-3">Email</span>
             <span class="info-value"><?php echo "$users_email"; ?></span>

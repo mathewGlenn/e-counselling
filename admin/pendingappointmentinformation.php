@@ -38,11 +38,18 @@
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $users_id = $row['id'];
+
+      $users_fullname = $row['users_firstname'] . " " . $row['users_lastname']; 
       $users_email = $row['users_email'];
-      $users_fullname = $row['users_fullname'];
+      $users_phone = $row['users_phone'];
+      $users_age = $row['users_age'];
+
+      $users_student_id = $row['users_student_id'];
       $users_college = $row['users_college'];
       $users_course = $row['users_course'];
       $users_year = $row['users_year'];
+      $users_semester = $row['users_semester'];
+      
       $appointment_schedule = $row['appointment_schedule'];
       $appointment_arrangement = $row['appointment_arrangement'];
       $appointment_counselling = $row['appointment_counselling'];
@@ -100,20 +107,17 @@
     <div class="main">
       <span class="page-title">Pending appointment information</span>
 
-      <!-- <div class="d-flex flex-row justify-content-around mt-4">
-      <div class="d-flex flex-column p-4"> -->
-
       <div class="d-flex flex-row mt-4" style="padding-bottom: 0.9rem;">
         <div class="d-flex flex-column">
 
           <span class="info-name">Student ID</span>
-          <span class="info-val"><?php echo "$users_fullname"; ?></span>
+          <span class="info-val"><?php echo "$users_student_id"; ?></span>
 
           <span class="info-name mt-3">Name</span>
           <span class="info-val"><?php echo "$users_fullname"; ?></span>
 
           <span class="info-name mt-3">Phone Number</span>
-          <span class="info-val"><?php echo "$appointment_case"; ?></span>
+          <span class="info-val"><?php echo "$users_phone"; ?></span>
 
           <span class="info-name mt-3">Email</span>
           <span class="info-val"><?php echo "$users_email"; ?></span>
@@ -163,18 +167,10 @@
 
       <div class="mt-5 d-flex flex-column justify-content-center align-items-center">
         <div>
-          <button class="btn btn-primary" onclick="btnAccept()">Accept Appointment</button>
+          <button id="btnAccept" style="width: 180px;" class="btn btn-primary" onclick="btnAccept()">Accept Appointment</button>
         </div>
         <div class="mt-2">
-          <button class="btn btn-secondary" onclick="btnCancel()">Cancel Appointment</button>
-        </div>
-
-        <div id="wrapper-reason" class="mt-4 d-flex flex-column d-none">
-          <span class="m-label ">Reason for cancelling appointment</span>
-          <input id="cancellingReason" type="text" class="m-input mt-2">
-          <div class="mt-3">
-            <button id="btnSent" type="button" class="btn btn-warning" style="width:450px;" onclick="btnSent()">Send notice to appointer</button>
-          </div>
+          <button id="btnCancel" style="width: 180px;" class="btn btn-secondary" onclick="btnCancel()">Cancel Appointment</button>
         </div>
       </div>
     </div>
@@ -250,14 +246,77 @@
         showCancelButton: true,
         reverseButtons: true,
         focusCancel: true
-        }).then((result) => {
-          if (result.value) {
-            var formData = new FormData();
-            id = "<?php echo "$users_id"; ?>";
+      }).then((result) => {
+        if (result.value) {
+          //data
+          var formData = new FormData();
+          id = "<?php echo "$users_id"; ?>";
+          email = "<?php echo "$users_email"; ?>";
+          var schedule = "<?php echo "$appointment_schedule"; ?>";
+          var arrangement = "<?php echo "$appointment_arrangement"; ?>";
+          var meetingLink = "";
 
-            formData.append("id", id);
-            formData.append("submit", 'save');
+          formData.append("id", id);
+          formData.append("email", email);
+          formData.append("schedule", schedule);
+          formData.append("submit", 'accept');
 
+          if(arrangement == "Online") {
+            //meeting link
+            (async () => {
+              const { value: data } = await Swal.fire({
+                  title: 'Meeting Link',
+                  input: 'text',
+                  inputLabel: 'Paste here meeting link',
+                  inputPlaceholder: 'Enter meeting link',
+                  confirmButtonColor: '#16a085',
+                  inputValidator: (value) => {
+                      if (!value) {
+                        return 'You need to input meeting link'
+                      }
+                  }
+              })
+
+              if (data) {
+                meetingLink = data;
+                formData.append("meetingLink", meetingLink);
+
+                //submit
+                $.ajax({
+                  url:"includes/pendingappointmentinformation.inc.php",
+                  method:"POST",
+                  data: formData,
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  beforeSend:function() {
+                    //alert('uploading');
+
+                    $('#btnAccept').text('Loading...');
+                    $('#btnAccept').prop('disabled', true);
+                    $('#btnCancel').prop('disabled', true);
+                  },
+                  success:function(data) {
+                    //alert('uploaded');
+
+                    if (data == "success") {
+                      Swal.fire({
+                        icon: 'success',
+                        text: 'Appointment has been accepted',
+                        confirmButtonColor: '#16a085',
+                      }).then(function() {
+                        window.location.href = 'pendingappointments.php';
+                      });
+                    }
+                  }
+                });
+              }
+            })();
+          }
+          else {
+            formData.append("meetingLink", meetingLink);
+
+            //submit
             $.ajax({
                 url:"includes/pendingappointmentinformation.inc.php",
                 method:"POST",
@@ -267,76 +326,103 @@
                 processData: false,
                 beforeSend:function() {
                   //alert('uploading');
+
+                  $('#btnAccept').text('Loading...');
+                  $('#btnAccept').prop('disabled', true);
+                  $('#btnCancel').prop('disabled', true);
                 },
                 success:function(data) {
                   //alert('uploaded');
 
                   if (data == "success") {
                     Swal.fire({
-                        icon: 'success',
-                        text: 'Appointment has been accepted',
-                        confirmButtonColor: '#16a085',
+                      icon: 'success',
+                      text: 'Appointment has been accepted',
+                      confirmButtonColor: '#16a085',
                     }).then(function() {
                       window.location.href = 'pendingappointments.php';
                     });
                   }
                 }
             });
- 	        }
+          }
+        }
       });
     }
 
     function btnCancel() {
-      $("#wrapper-reason").removeClass("d-none");
-    }
+      Swal.fire({
+        icon: 'warning',
+        text: 'Are you sure you want to cancel appointment?',
+        confirmButtonColor: '#34495e',
+        confirmButtonText:`Yes`,
+        cancelButtonColor: '#16a085',
+        cancelButtonText:`No`,
+        showCancelButton: true,
+        reverseButtons: true,
+        focusCancel: true
+      }).then((result) => {
+        if (result.value) {
+          //data
+          var formData = new FormData();
+          id = "<?php echo "$users_id"; ?>";
+          email = "<?php echo "$users_email"; ?>";
+          var reason = "";
 
-    function btnSent() {
-      var formData = new FormData();
-      id = "<?php echo "$users_id"; ?>";
-      email = "<?php echo "$users_email"; ?>";
-      var reason = $('#cancellingReason').val();
+          formData.append("id", id);
+          formData.append("email", email);
+          formData.append("submit", 'cancel');
 
-      formData.append("id", id);
-      formData.append("email", email);
-      formData.append("reason", reason);
-      formData.append("submit", 'cancel');
+          //meeting cancellation
+          (async () => {
+            const { value: data } = await Swal.fire({
+                title: 'Meeting Cancellation',
+                input: 'text',
+                inputLabel: 'Reason for cancelling appointment',
+                inputPlaceholder: 'Enter explanation',
+                confirmButtonColor: '#16a085',
+                inputValidator: (value) => {
+                    if (!value) {
+                      return 'You need to input explanation'
+                    }
+                }
+            })
 
-      $.ajax({
-          url:"includes/pendingappointmentinformation.inc.php",
-          method:"POST",
-          data: formData,
-          contentType: false,
-          cache: false,
-          processData: false,
-          beforeSend:function() {
-            //alert('uploading');
+            if (data) {
+              reason = data;
+              formData.append("reason", reason);
 
-            $('#btnSent').text('Sending...');
-            $('#btnSent').prop('disabled', true);
-          },
-          success:function(data) {
-            //alert('uploaded');
+              $.ajax({
+                url:"includes/pendingappointmentinformation.inc.php",
+                method:"POST",
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend:function() {
+                  //alert('uploading');
 
-            if (data == "empty") {
-              $('#btnSent').text('Send notice to appointer');
-              $('#btnSent').prop('disabled', false);
-              
-              Swal.fire({
-                  icon: 'error',
-                  text: 'Please provide an explanation for the cancellation of the appointment',
-                  confirmButtonColor: '#16a085',
+                  $('#btnCancel').text('Loading...');
+                  $('#btnAccept').prop('disabled', true);
+                  $('#btnCancel').prop('disabled', true);
+                },
+                success:function(data) {
+                  //alert('uploaded');
+
+                  if (data == "success") {
+                    Swal.fire({
+                      icon: 'success',
+                      text: 'Appointment has been canceled',
+                      confirmButtonColor: '#16a085',
+                    }).then(function() {
+                      window.location.href = 'pendingappointments.php';
+                    });
+                  }
+                }
               });
             }
-            else if (data == "success") {
-              Swal.fire({
-                  icon: 'success',
-                  text: 'Appointment has been canceled',
-                  confirmButtonColor: '#16a085',
-              }).then(function() {
-                window.location.href = 'pendingappointments.php';
-              });
-            }
-          }
+          })();
+        }
       });
     }
   </script>

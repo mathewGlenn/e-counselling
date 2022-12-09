@@ -83,6 +83,8 @@
             processData: false,
             beforeSend:function() {
               //alert('uploading');
+              
+              $('#login').prop('disabled', true);
             },
             success:function(data) {
               //alert('uploaded');
@@ -93,6 +95,8 @@
                     text: 'Fill empty field',
                     confirmButtonColor: '#16a085',
                 });
+
+                $('#login').prop('disabled', false);
               }
               else if(data == "email") {
                 Swal.fire({
@@ -100,6 +104,8 @@
                     text: 'No user',
                     confirmButtonColor: '#16a085',
                 });
+
+                $('#login').prop('disabled', false);
               }
               else if (data == "password") {
                 Swal.fire({
@@ -107,6 +113,8 @@
                     text: 'Wrong password',
                     confirmButtonColor: '#16a085',
                 });
+
+                $('#login').prop('disabled', false);
               }
               else if (data == "success") {
                 window.location.href = 'main.php';

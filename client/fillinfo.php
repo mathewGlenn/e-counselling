@@ -102,16 +102,20 @@
 
   <script>
     $("#college").change(function() {
-      switch ($(this).val()) {
-        case '1st':
-          $("#course").html("");
-          break;
-        case '2nd':
-          $("#course").html("");
-          break;
-        case '3rd':
-          $("#course").html("<option>BSIT</option><option>CCSICT</option>");
-          break;
+      if($("#college").val() == "CAS") {
+        $("#course").html("");
+      }
+      else if ($("#college").val() == "CBM") {
+        $("#course").html("");
+      }
+      else if ($("#college").val() == "CCSICT") {
+        $("#course").html("<option>BSIT</option><option>BSCS</option>");
+      }
+      else if ($("#college").val() == "CCJE") {
+        $("#course").html("");
+      }
+      else if ($("#college").val() == "SAS") {
+        $("#course").html("");
       }
     });
 

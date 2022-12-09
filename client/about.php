@@ -19,7 +19,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-
     <div class="w-100">
         <section class=" full-v" id="home" style="height: 400px ;">
             <div class="header about-header">
@@ -34,10 +33,8 @@
         </section>
         
         <section class="w-75 m-auto" id="home" >
-
             <p class="h6" style="color:black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est delectus pariatur alias. Obcaecati impedit culpa, sed explicabo animi quam quas quos sint voluptates accusamus reiciendis maxime dolores fugit accusantium repudiandae.</p>
         </section>
-
     </div>
 </body>
 </html>

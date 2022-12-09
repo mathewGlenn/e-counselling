@@ -11,11 +11,19 @@
     if ($resultCheck > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $users_id = $row['id'];
+            $users_firstname = $row['users_firstname'];
+            $users_lastname = $row['users_lastname'];
             $users_email = $row['users_email'];
-            $users_fullname = $row['users_fullname'];
+            $users_phone = $row['users_phone'];
+            $users_age = $row['users_age'];
+
+            $users_student_id = $row['users_student_id'];
             $users_college = $row['users_college'];
             $users_course = $row['users_course'];
             $users_year = $row['users_year'];
+            $users_semester = $row['users_semester'];
+            
+            $users_password = $row['users_password'];
         }
     }
     else {
