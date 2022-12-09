@@ -18,6 +18,8 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <!-- sweetalert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- sheetjs -->
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 </head>
 <body>
   <?php
@@ -76,10 +78,10 @@
       <span class="page-title">Completed Meetings</span>
       <div class="d-flex flex-row justify-content-end mt-5">
         <button class="btn btn-primary me-3"><i class="fa-solid fa-print text-white me-2"></i>Print</button>
-        <button class="btn btn-success"><i class="fa-solid fa-table text-white me-2"></i>Excel</button>
+        <button onclick="ExportToExcel()" class="btn btn-success"><i class="fa-solid fa-table text-white me-2"></i>Excel</button>
       </div>
       <div class="mt-5">
-        <table class="table table-hover">
+        <table id="tableExportToExcel" class="table table-hover">
           <thead class="thead">
             <tr>
               <th scope="col">#</th>
@@ -128,6 +130,14 @@
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
     });
+
+    function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('tableExportToExcel');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl ?
+      XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+      XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
   </script>
 </body>
 </html>
