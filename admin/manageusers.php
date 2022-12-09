@@ -147,10 +147,10 @@
           <span class="title-2">Add User</span>
 
           <span class="m-label mt-3">Name</span>
-          <input class="m-input w-100" id="name"></input>
+          <input class="m-input w-100" id="name">
 
           <span class="m-label mt-3">Email</span>
-          <input class="m-input w-100" id="email"></input>
+          <input class="m-input w-100" id="email">
 
           <span class="m-label mt-3">Role</span>
           <select id="role" type="text" class="m-input w-100">
@@ -160,10 +160,10 @@
           </select>
 
           <span class="m-label mt-3">Password</span>
-          <input type="password" class="m-input w-100" id="password" autocomplete="off">
+          <input type="password" class="m-input w-100" id="password">
 
           <span class="m-label mt-3">Confirm Password</span>
-          <input type="password" class="m-input w-100" id="confirmPassword" autocomplete="off">
+          <input type="password" class="m-input w-100" id="confirmPassword">
           <button id="btnSave" type="button" class="btn btn-primary mt-4" onclick="btnSave()">Save</button>
         </div>
       </div>
