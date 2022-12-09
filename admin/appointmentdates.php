@@ -139,7 +139,7 @@
           <span class="m-label mt-3">Time</span>
           <input type="time" class="m-input w-100" id="timePicker">
 
-          <button type="button" class="btn btn-primary mt-4" onclick="btnSave()">Save</button>
+          <button id="btnSave" type="button" class="btn btn-primary mt-4" onclick="btnSave()">Save</button>
         </div>
       </div>
   </div>
@@ -212,6 +212,8 @@
                 processData: false,
                 beforeSend:function() {
                   //alert('uploading');
+
+                  $('.btnDelete').prop('disabled', true);
                 },
                 success:function(data) {
                   //alert('uploaded');
@@ -243,6 +245,9 @@
           processData: false,
           beforeSend:function() {
             //alert('uploading');
+
+            $('#btnSave').text('Loading...');
+            $('#btnSave').prop('disabled', true);
           },
           success:function(data) {
             //alert('uploaded');
@@ -253,6 +258,9 @@
                   text: 'Fill empty field',
                   confirmButtonColor: '#16a085',
               });
+
+              $('#btnSave').text('Save');
+              $('#btnSave').prop('disabled', false);
             }
             else if (data == "success") {
               window.location.href = 'appointmentdates.php';
