@@ -67,11 +67,13 @@
               <span class="m-label mt-3">College <strong class="required">*</strong></span>
               <select id="college" type="text" class="m-input">
                 <option value="" hidden>--Select College--</option>
-                <option value="CAS">CAS</option>
                 <option value="CBM">CBM</option>
                 <option value="CCSICT">CCSICT</option>
                 <option value="CCJE">CCJE</option>
                 <option value="SAS">SAS</option>
+                <option value="CED">CED</option>
+                <option value="IAT">IAT</option>
+                <option value="PS">PS</option>
               </select>
 
               <span class="m-label mt-3">Course <strong class="required">*</strong></span>
@@ -102,20 +104,53 @@
 
   <script>
     $("#college").change(function() {
-      if($("#college").val() == "CAS") {
-        $("#course").html("");
-      }
-      else if ($("#college").val() == "CBM") {
-        $("#course").html("");
+      if($("#college").val() == "CBM") {
+        $("#course").html(`
+          <option value='BSB'>BSB</option>
+          <option value='BSE'>BSE</option>
+          <option value='BSHM'>BSHM</option>
+          <option value='BSTM'>BSTM</option>
+          <option value='BSAIS'>BSAIS</option>
+          <option value='BSMA'>BSMA</option>
+        `);
       }
       else if ($("#college").val() == "CCSICT") {
-        $("#course").html("<option>BSIT</option><option>BSCS</option>");
+        $("#course").html(`
+          <option value='BSIT'>BSIT</option>
+          <option value='BSCS'>BSCS</option>
+        `);
       }
       else if ($("#college").val() == "CCJE") {
-        $("#course").html("");
+        $("#course").html(`
+          <option value='BSC'>BSC</option>
+        `);
       }
       else if ($("#college").val() == "SAS") {
-        $("#course").html("");
+        $("#course").html(`
+          <option value='BAELS'>BAELS</option>
+          <option value='BAPS'>BAPS</option>
+          <option value='BSLM'>BSLM</option>
+        `);
+      }
+      else if ($("#college").val() == "CED") {
+        $("#course").html(`
+          <option value='BEE'>BEE</option>
+          <option value='BSEM'>BSEM</option>
+        `);
+      }
+      else if ($("#college").val() == "IAT") {
+        $("#course").html(`
+          <option value='BAT'>BAT</option>
+          <option value='APT'>APT</option>
+          <option value='CPT'>CPT</option>
+          <option value='FM'>FM</option>
+          <option value='PHT'>PHT</option>
+        `);
+      }
+      else if ($("#college").val() == "PS") {
+        $("#course").html(`
+          <option value='BS Industrial Tech'>BS Industrial Tech</option>
+        `);
       }
     });
 

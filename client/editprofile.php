@@ -90,16 +90,17 @@
               <span class="m-label mt-3">College</span>
               <select id="college" type="text" class="m-input">
                 <option hidden><?php echo "$users_college"; ?></option>
-                <option value="CAS">CAS</option>
                 <option value="CBM">CBM</option>
                 <option value="CCSICT">CCSICT</option>
                 <option value="CCJE">CCJE</option>
                 <option value="SAS">SAS</option>
+                <option value="CED">CED</option>
+                <option value="IAT">IAT</option>
+                <option value="PS">PS</option>
               </select>
   
               <span class="m-label mt-3">Course</span>
               <select id="course" type="text" class="m-input">
-                <option hidden><?php echo "$users_course"; ?></option>
               </select>
   
               <span class="m-label mt-3">Year Level</span>
@@ -126,22 +127,132 @@
   </div>
 
   <script>
-    $("#college").change(function() {
-      if($("#college").val() == "CAS") {
-        $("#course").html("");
-      }
-      else if ($("#college").val() == "CBM") {
-        $("#course").html("");
+    function SelectCollege() {
+      var college = `<?php echo "$users_college"; ?>`;
+
+      if($("#college").val() == "CBM") {
+        if(college == 'CBM') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BSB'>BSB</option>
+            <option value='BSE'>BSE</option>
+            <option value='BSHM'>BSHM</option>
+            <option value='BSTM'>BSTM</option>
+            <option value='BSAIS'>BSAIS</option>
+            <option value='BSMA'>BSMA</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BSB'>BSB</option>
+            <option value='BSE'>BSE</option>
+            <option value='BSHM'>BSHM</option>
+            <option value='BSTM'>BSTM</option>
+            <option value='BSAIS'>BSAIS</option>
+            <option value='BSMA'>BSMA</option>
+          `);
+        }
       }
       else if ($("#college").val() == "CCSICT") {
-        $("#course").html("<option>BSIT</option><option>BSCS</option>");
+        if(college == 'CCSICT') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BSIT'>BSIT</option>
+            <option value='BSCS'>BSCS</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BSIT'>BSIT</option>
+            <option value='BSCS'>BSCS</option>
+          `);
+        }
       }
       else if ($("#college").val() == "CCJE") {
-        $("#course").html("");
+        if(college == 'CCJE') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BSC'>BSC</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BSC'>BSC</option>
+          `);
+        }
       }
       else if ($("#college").val() == "SAS") {
-        $("#course").html("");
+        if(college == 'SAS') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BAELS'>BAELS</option>
+            <option value='BAPS'>BAPS</option>
+            <option value='BSLM'>BSLM</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BAELS'>BAELS</option>
+            <option value='BAPS'>BAPS</option>
+            <option value='BSLM'>BSLM</option>
+          `);
+        }
       }
+      else if ($("#college").val() == "CED") {
+        if(college == 'CED') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BEE'>BEE</option>
+            <option value='BSEM'>BSEM</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BEE'>BEE</option>
+            <option value='BSEM'>BSEM</option>
+          `);
+        }
+      }
+      else if ($("#college").val() == "IAT") {
+        if(college == 'IAT') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BAT'>BAT</option>
+            <option value='APT'>APT</option>
+            <option value='CPT'>CPT</option>
+            <option value='FM'>FM</option>
+            <option value='PHT'>PHT</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BAT'>BAT</option>
+            <option value='APT'>APT</option>
+            <option value='CPT'>CPT</option>
+            <option value='FM'>FM</option>
+            <option value='PHT'>PHT</option>
+          `);
+        }
+      }
+      else if ($("#college").val() == "PS") {
+        if(college == 'PS') {
+          $("#course").html(`
+            <option hidden><?php echo "$users_course"; ?></option>
+            <option value='BS Industrial Tech'>BS Industrial Tech</option>
+          `);
+        }
+        else {
+          $("#course").html(`
+            <option value='BS Industrial Tech'>BS Industrial Tech</option>
+          `);
+        }
+      }
+    }
+
+    SelectCollege();
+    
+    $("#college").change(function() {
+      SelectCollege();
     });
 
     function btnUpdate() {
