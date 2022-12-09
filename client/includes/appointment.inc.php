@@ -12,11 +12,6 @@
         if ($availability > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $sheduledateformat = $row['schedule_date'];
-
-                //timezone manila
-                date_default_timezone_set('Asia/Manila');
-                $date = strtotime($sheduledateformat);
-                $sheduledateformat = date('Y-m-d', $date);
             }
         }
 
