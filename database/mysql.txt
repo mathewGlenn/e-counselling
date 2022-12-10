@@ -22,7 +22,8 @@ CREATE TABLE tblusers (
 CREATE TABLE tblschedule (
     id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     schedule_date VARCHAR(250) NOT NULL,
-    schedule_time LONGTEXT NOT NULL
+    schedule_time VARCHAR(250) NOT NULL,
+    schedule_timestamp LONGTEXT NOT NULL
 );
 
 CREATE TABLE tblappointment (
