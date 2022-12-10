@@ -30,6 +30,8 @@
   if (!isset($_SESSION['employee_id'])) {
     header("Location: login.php");
   }
+
+  include "includes/autodeleteshedule.inc.php";
   ?>
 
   <div class="w-100">
