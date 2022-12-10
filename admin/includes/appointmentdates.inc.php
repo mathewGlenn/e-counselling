@@ -14,8 +14,23 @@
             $date = strtotime($datePicker);
             $datePicker = date('Y-m-d', $date);
 
+            //convert time
+            $date = strtotime($timePicker);
+            $timePicker = date('H:i:s', $date);
+
+            //timestamp
+            $timestamp = $datePicker . " " . $timePicker;
+
+            $d = DateTime::createFromFormat(
+                'Y-m-d H:i:s',
+                $timestamp,
+                new DateTimeZone('GMT+08:00')
+            );
+            
+            $timestamp = $d->getTimestamp();
+
             //created a template 
-            $sql = "INSERT INTO tblschedule (schedule_date, schedule_time) VALUES (?, ?);";
+            $sql = "INSERT INTO tblschedule (schedule_date, schedule_time, schedule_timestamp) VALUES (?, ?, ?);";
             //create a prepared statement
             $stmt = mysqli_stmt_init($conn);
             //prepare the prepared statement
@@ -24,7 +39,7 @@
             }
             else {
                 //bind parameters to the placeholder
-                mysqli_stmt_bind_param($stmt, "ss", $datePicker, $timePicker);
+                mysqli_stmt_bind_param($stmt, "sss", $datePicker, $timePicker, $timestamp);
                 //run parameters inside database
                 mysqli_stmt_execute($stmt);
 
