@@ -25,7 +25,7 @@
 
   //check session
   if (!isset($_SESSION['users_id'])) {
-      header("Location: login.php");
+    header("Location: login.php");
   }
   ?>
   
