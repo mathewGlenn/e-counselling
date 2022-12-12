@@ -93,7 +93,7 @@
     <div class="main">
       <span class="page-title">List of completed meetings</span>
       <div class="d-flex flex-row justify-content-end mt-5">
-        <button class="btn btn-primary me-3"><i class="fa-solid fa-print text-white me-2"></i>Print</button>
+        <button id="print" class="btn btn-primary me-3"><i class="fa-solid fa-print text-white me-2"></i>Print</button>
         <button onclick="ExportToExcel()" class="btn btn-success"><i class="fa-solid fa-table text-white me-2"></i>Excel</button>
       </div>
       <div class="mt-5">
@@ -154,6 +154,10 @@
       XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
       XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
     }
+
+    $('#print').click(function() {
+        $("<iframe>").hide().attr("src", "print.php").appendTo("body");
+    });
   </script>
 </body>
 </html>

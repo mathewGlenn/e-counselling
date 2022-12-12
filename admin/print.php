@@ -137,6 +137,7 @@
         }
 
         .title-name {
+            text-align: center;
             font-size: 20px;
             font-weight: 700;
         }
@@ -188,30 +189,55 @@
 <body>
     <div class="print-wrapper">
         <div class="logo-section">
-            <img class="logo-img" src="images/merge.png">
-            <img class="logo-img" src="images/minecraft.png">
+            <img class="logo-img" src="../admin/assets/img/isu_seal.png">
         </div>
 
         <div class="title-section">
-            <p class="title-name">Room Type Reports</p>
-            <p class="title-year">2022</p>
+            <p class="title-name">ISU Cauayan Student Counselling<br>List of completed meetings</p>
+            <p class="title-year"></p>
         </div>
 
         <div class="table-section">
             <table class="table-main">
                 <tr class="table-tr-column">
-                    <th class="table-th-column">Room Type</th>
-                    <th class="table-th-column">Price</th>
-                    <th class="table-th-column">Date</th>
+                    <th class="table-th-column">Name</th>
+                    <th class="table-th-column">Email</th>
+                    <th class="table-th-column">Schedule</th>
+                    <th class="table-th-column">Arrangement</th>
                 </tr>
 
                 <tr class='table-tr-rows'></tr>
 
-                <tr class='table-tr-rows'>
-                    <td class='table-td-rows'>$roomtype</td>
-                    <td class='table-td-rows'>$price</td>
-                    <td class='table-td-rows'>$date</td>
-                </tr>
+                <?php
+                    include "includes/db.inc.php";
+                    
+                    $sql = "SELECT * FROM tblappointment WHERE appointment_status='completed' ORDER BY id DESC;";
+                    $result = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($result);
+          
+                    $count = 0;
+                
+                    if ($resultCheck > 0) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        $count++;
+          
+                        $id = $row['id'];
+                        $fullname = $row['users_firstname'] . " " . $row['users_lastname'];
+                        $email = $row['users_email'];
+                        $schedule = $row['appointment_schedule'];
+                        $arrangement = $row['appointment_arrangement'];
+
+                        echo "
+                        <tr class='table-tr-rows'>
+                            <td class='table-td-rows'>$fullname</td>
+                            <td class='table-td-rows'>$email</td>
+                            <td class='table-td-rows'>$schedule</td>
+                            <td class='table-td-rows'>$arrangement</td>
+                        </tr>
+                        ";
+                      }
+                    }
+                ?>
             </table>
         </div>
     </div>
