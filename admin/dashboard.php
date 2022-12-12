@@ -98,9 +98,6 @@
     <div class="main">
       <div class="d-flex flex-row justify-content-between">
         <span class="page-title">Dashboard</span>
-        <a href="includes/logout.inc.php">
-          <button class="btn btn-danger">Logout</button>
-        </a>
       </div>
 
       <div>

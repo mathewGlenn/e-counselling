@@ -193,8 +193,7 @@
         </div>
 
         <div class="title-section">
-            <p class="title-name">Room Type Reports</p>
-            <p class="title-year">2022</p>
+            <p class="title-name" style="text-alignment:center">Isabela State University - Cauayan City<br>Student Counselling</p>
         </div>
 
         <div class="table-section">

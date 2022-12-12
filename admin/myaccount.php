@@ -91,7 +91,13 @@
     <div class="main">
       <div class="d-flex justify-content-between flex-row">
         <span class="page-title">My Account</span>
-        <button class="btn btn-primary px-4" onclick="location.href='myaccountedit.php';">Edit</button>
+
+        <div class="d-flex flex-row ms-auto">
+        <button class="btn btn-primary px-4 me-4" onclick="location.href='myaccountedit.php';">Edit</button>
+        <a href="includes/logout.inc.php" class="pe-4">
+          <button class="btn btn-danger">Logout</button>
+        </a>
+        </div>
       </div>
 
       <div class="d-flex flex-row">
