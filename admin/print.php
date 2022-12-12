@@ -104,6 +104,16 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+    include "includes/db.inc.php";
+    include "includes/loginverify.inc.php";
+
+    //check session
+    if (!isset($_SESSION['employee_id'])) {
+        header("Location: login.php");
+    }
+    ?>
+    
     <div class="print-wrapper">
         <div class="logo-section">
             <img class="logo-img" src="../admin/assets/img/isu_seal.png">
