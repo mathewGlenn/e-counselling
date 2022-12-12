@@ -87,7 +87,6 @@
         }
 
         .table-th-column {
-            width: 300px;
             text-align: start;
             padding: 10px;
             border-bottom: 1px solid black;
