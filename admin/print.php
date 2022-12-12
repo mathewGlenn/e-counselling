@@ -37,83 +37,10 @@
             font-family: century gothic;
         }
 
-        /* main wrapper */
-        .main-wrapper {
-            width: 1000px;
-            margin: 0 auto;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* table wrapper */
-        .table-wrapper {
-            min-width: 500px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #e8e4e4;
-        }
-
-        /* table header */
-        .table-header {
-            display: flex;
-            flex-direction: row;
-            gap: 0.7rem;
-            width: 100%;
-        }
-
-        .header-button {
-            display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            padding: 0.7rem;
-            padding-right: 1rem;
-            border: none;
-            background-color: royalblue;
-            border: 1px solid royalblue;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* table main */
-        .table-content {
-            width: 100%;
-            height: 100px;
-            border-collapse: separate;
-            border-spacing: 0 5px;
-        }
-
-        .th-column {
-            width: 30%;
-            text-align: start;
-            padding: 10px;
-        }
-
-        .tr-rows {
-            background-color: white;
-        }
-
-        .tr-rows:last-child {
-            border-spacing: 0;
-        }
-
-        .td-rows {
-            padding: 10px;
-        }
-
-        /* graph wrapper */
-        .graph-main {
-            margin: 4rem 10rem;
-            padding: 4rem;
-            height: 600px;
-            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-        }
-
         /* print data */
         .print-wrapper {
-            padding-left: 7rem;
-            padding-right: 7rem;
+            padding-left: 6rem;
+            padding-right: 6rem;
         }
 
         .logo-section {
@@ -137,6 +64,7 @@
         }
 
         .title-name {
+            text-align: center;
             font-size: 20px;
             font-weight: 700;
         }
@@ -159,14 +87,9 @@
         }
 
         .table-th-column {
-            width: 300px;
             text-align: start;
             padding: 10px;
             border-bottom: 1px solid black;
-        }
-
-        .table-th-column:first-child {
-            padding-left: 50px;
         }
 
         .table-tr-rows {
@@ -175,42 +98,73 @@
 
         .table-td-rows {
             padding: 0 10px;
-            text-transform: capitalize;
-        }
-
-        .table-td-rows:first-child {
-            padding-left: 50px;
         }
     </style>
     
     <title>Document</title>
 </head>
 <body>
+    <?php
+    include "includes/db.inc.php";
+    include "includes/loginverify.inc.php";
+
+    //check session
+    if (!isset($_SESSION['employee_id'])) {
+        header("Location: login.php");
+    }
+    ?>
+    
     <div class="print-wrapper">
         <div class="logo-section">
-            <img class="logo-img" src="images/merge.png">
-            <img class="logo-img" src="images/minecraft.png">
+            <img class="logo-img" src="../admin/assets/img/isu_seal.png">
         </div>
 
         <div class="title-section">
-            <p class="title-name" style="text-alignment:center">Isabela State University - Cauayan City<br>Student Counselling</p>
+            <p class="title-name">ISU Cauayan Student Counselling<br>List of completed meetings</p>
+            <p class="title-year"></p>
         </div>
 
         <div class="table-section">
             <table class="table-main">
                 <tr class="table-tr-column">
-                    <th class="table-th-column">Room Type</th>
-                    <th class="table-th-column">Price</th>
-                    <th class="table-th-column">Date</th>
+                    <th class="table-th-column">Name</th>
+                    <th class="table-th-column">Email</th>
+                    <th class="table-th-column">Schedule</th>
+                    <th class="table-th-column">Arrangement</th>
                 </tr>
 
                 <tr class='table-tr-rows'></tr>
 
-                <tr class='table-tr-rows'>
-                    <td class='table-td-rows'>$roomtype</td>
-                    <td class='table-td-rows'>$price</td>
-                    <td class='table-td-rows'>$date</td>
-                </tr>
+                <?php
+                    include "includes/db.inc.php";
+                    
+                    $sql = "SELECT * FROM tblappointment WHERE appointment_status='completed' ORDER BY id DESC;";
+                    $result = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($result);
+          
+                    $count = 0;
+                
+                    if ($resultCheck > 0) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        $count++;
+          
+                        $id = $row['id'];
+                        $fullname = $row['users_firstname'] . " " . $row['users_lastname'];
+                        $email = $row['users_email'];
+                        $schedule = $row['appointment_schedule'];
+                        $arrangement = $row['appointment_arrangement'];
+
+                        echo "
+                        <tr class='table-tr-rows'>
+                            <td class='table-td-rows'>$fullname</td>
+                            <td class='table-td-rows'>$email</td>
+                            <td class='table-td-rows'>$schedule</td>
+                            <td class='table-td-rows'>$arrangement</td>
+                        </tr>
+                        ";
+                      }
+                    }
+                ?>
             </table>
         </div>
     </div>
