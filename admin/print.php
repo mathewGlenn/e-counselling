@@ -37,83 +37,10 @@
             font-family: century gothic;
         }
 
-        /* main wrapper */
-        .main-wrapper {
-            width: 1000px;
-            margin: 0 auto;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* table wrapper */
-        .table-wrapper {
-            min-width: 500px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #e8e4e4;
-        }
-
-        /* table header */
-        .table-header {
-            display: flex;
-            flex-direction: row;
-            gap: 0.7rem;
-            width: 100%;
-        }
-
-        .header-button {
-            display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            padding: 0.7rem;
-            padding-right: 1rem;
-            border: none;
-            background-color: royalblue;
-            border: 1px solid royalblue;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* table main */
-        .table-content {
-            width: 100%;
-            height: 100px;
-            border-collapse: separate;
-            border-spacing: 0 5px;
-        }
-
-        .th-column {
-            width: 30%;
-            text-align: start;
-            padding: 10px;
-        }
-
-        .tr-rows {
-            background-color: white;
-        }
-
-        .tr-rows:last-child {
-            border-spacing: 0;
-        }
-
-        .td-rows {
-            padding: 10px;
-        }
-
-        /* graph wrapper */
-        .graph-main {
-            margin: 4rem 10rem;
-            padding: 4rem;
-            height: 600px;
-            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-        }
-
         /* print data */
         .print-wrapper {
-            padding-left: 7rem;
-            padding-right: 7rem;
+            padding-left: 6rem;
+            padding-right: 6rem;
         }
 
         .logo-section {
@@ -166,21 +93,12 @@
             border-bottom: 1px solid black;
         }
 
-        .table-th-column:first-child {
-            padding-left: 50px;
-        }
-
         .table-tr-rows {
             background-color: white;
         }
 
         .table-td-rows {
             padding: 0 10px;
-            text-transform: capitalize;
-        }
-
-        .table-td-rows:first-child {
-            padding-left: 50px;
         }
     </style>
     
