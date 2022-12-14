@@ -59,41 +59,78 @@
             <div>
                 <span class="title mb-4 t1">Services</span>
 
-                <div class="mt-5">
+                <div class="d-flex mt-5">
+                    <span class="h4 text-black">Types of counselling</span>
+                </div>
+
+                <div class="mt-4">
                     <ul class="services-list">
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Individual inventory</span>
+                            <span class="service">Individual</span>
                         </li>
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Counselling Services</span>
+                            <span class="service">Group</span>
                         </li>
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Information Services</span>
+                            <span class="service">Follow-up</span>
                         </li class="li-item">
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Placement Services</span>
+                            <span class="service">Consultation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex mt-5">
+                    <span class="h4 text-black">Types of Cases</span>
+                </div>
+
+                <div class="mt-4">
+                    <ul class="services-list">
+                        <li class="li-item">
+                            <img src="assets/img/check.png" alt="" class="check">
+                            <span class="service">Family</span>
                         </li>
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Followup Services</span>
+                            <span class="service">Girl-Boy Relationship</span>
                         </li>
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Psychological Testing and Evaluation</span>
+                            <span class="service">Personal</span>
+                        </li class="li-item">
+
+                        <li class="li-item">
+                            <img src="assets/img/check.png" alt="" class="check">
+                            <span class="service">Academic</span>
                         </li>
 
                         <li class="li-item">
                             <img src="assets/img/check.png" alt="" class="check">
-                            <span class="service">Referral</span>
+                            <span class="service">Interpersonal</span>
+                        </li>
+
+                        <li class="li-item">
+                            <img src="assets/img/check.png" alt="" class="check">
+                            <span class="service">Gender Sensitivity Issue</span>
+                        </li>
+
+                        <li class="li-item">
+                            <img src="assets/img/check.png" alt="" class="check">
+                            <span class="service">Cultural Differences</span>
+                        </li>
+
+                        <li class="li-item">
+                            <img src="assets/img/check.png" alt="" class="check">
+                            <span class="service">Career Concern</span>
                         </li>
                     </ul>
                 </div>
