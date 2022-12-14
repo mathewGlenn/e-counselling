@@ -259,9 +259,11 @@
         if (result.value) {
           var formData = new FormData();
           var id = "<?php echo "$users_id"; ?>";
+          var email = "<?php echo "$users_email"; ?>";
           var notes = $('#notes').val();
 
           formData.append("id", id);
+          formData.append("email", email);
           formData.append("notes", notes);
           formData.append("submit", '1');
 

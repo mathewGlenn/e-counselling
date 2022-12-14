@@ -24,6 +24,7 @@
             $users_semester = $row['users_semester'];
             
             $users_password = $row['users_password'];
+            $users_appointment_status = $row['users_appointment_status'];
         }
     }
     else {

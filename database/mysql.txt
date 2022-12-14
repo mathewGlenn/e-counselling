@@ -16,7 +16,8 @@ CREATE TABLE tblusers (
     users_course VARCHAR(250) NOT NULL,
     users_year VARCHAR(250) NOT NULL,
     users_semester VARCHAR(250) NOT NULL,
-    users_password LONGTEXT NOT NULL
+    users_password LONGTEXT NOT NULL,
+    users_appointment_status VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE tblschedule (

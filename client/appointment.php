@@ -256,10 +256,20 @@
               $('#btnSave').text('Set appointment');
               $('#btnSave').prop('disabled', false);
             }
-            else if(data == "taken") {
+            else if(data == "taken1") {
               Swal.fire({
                   icon: 'error',
-                  text: 'Sorry, but the day you selected is already taken.',
+                  text: 'Sorry, you cannot schedule another appointment since you have an unfinished appointment',
+                  confirmButtonColor: '#16a085',
+              });
+
+              $('#btnSave').text('Set appointment');
+              $('#btnSave').prop('disabled', false);
+            }
+            else if(data == "taken2") {
+              Swal.fire({
+                  icon: 'error',
+                  text: 'Sorry, but the day you selected is already taken',
                   confirmButtonColor: '#16a085',
               }).then(function() {
                 window.location.href = 'appointment.php';

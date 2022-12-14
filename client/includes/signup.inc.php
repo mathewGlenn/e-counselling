@@ -125,9 +125,10 @@
             }
             else {
                 $password = password_hash($password, PASSWORD_BCRYPT);
+                $appointmentstatus = "false";
 
                 //created a template 
-                $sql = "INSERT INTO tblusers (users_firstname, users_lastname, users_email, users_phone, users_age, users_student_id, users_college, users_course, users_year, users_semester, users_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                $sql = "INSERT INTO tblusers (users_firstname, users_lastname, users_email, users_phone, users_age, users_student_id, users_college, users_course, users_year, users_semester, users_password, users_appointment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
                 //create a prepared statement
                 $stmt = mysqli_stmt_init($conn);
                 //prepare the prepared statement
@@ -136,7 +137,7 @@
                 }
                 else {
                     //bind parameters to the placeholder
-                    mysqli_stmt_bind_param($stmt, "sssssssssss", $firstName, $lastName, $email, $phone, $age, $studentID, $college, $course, $year, $semester, $password);
+                    mysqli_stmt_bind_param($stmt, "ssssssssssss", $firstName, $lastName, $email, $phone, $age, $studentID, $college, $course, $year, $semester, $password, $appointmentstatus);
                     //run parameters inside database
                     mysqli_stmt_execute($stmt);
 
